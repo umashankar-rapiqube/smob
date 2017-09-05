@@ -1,5 +1,77 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{partial 'header'}}
+
 
 {{outlet}}
+
+
+{{#if isShowingModal}}
+
+{{#modal-dialog close="toggleModal"
+               targetAttachment="center"
+                  translucentOverlay=true}}
+{{#if isShowlogin}}                  
+<div class="box">
+  <div id="header">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Login</b></h1></div>
+    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div> 
+   <form action="" method="post">
+    <div class="group">  
+            
+       {{validated-input  type="text" model=this  valuePath='email' placeholder="Email ID" required=""}}
+      
+    </div>
+	    <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='password' placeholder="Password" required=""}}
+      
+    </div>
+    <button id="buttonlogintoregister" type="submit" {{action 'login'}}>Login</button>
+  </form>
+  <div id="footer-box"><p class="footer-text">Not a member?<span class="sign-up"{{action 'signup'}}> Sign up now</span></p></div>
+
+</div>
+{{/if}}
+{{#if showregistration}}
+<div class="registerbox">
+  <div id="header">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Registration</b></h1></div>
+    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div> 
+   <form action="" method="post">
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='email' placeholder="First Name" required=""}}
+      <!--<span class="highlight"></span>
+      <span class="bar"></span>
+      <label>First Name</label>-->
+    </div>
+      <div class="group">      
+      {{validated-input  model=this valuePath="lname" placeholder="Last Name" type="text" required=""}}
+     <!-- <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Last Name</label>-->
+    </div>
+    <div class="group">      
+      {{validated-input model=this valuePath="username" placeholder="Email" type="text" required=""}}
+      <!--<span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Email</label>-->
+    </div>
+     <div class="group">      
+    {{select-component dropdowntype="test" listitem=testlist selecteditemlist=selectedtest}}
+   
+        </div>
+	    <div class="group">      
+      {{validated-input  name="password" model=this valuePath="password" placeholder="password" type="password" required=""}}
+      <!--<span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Password</label>-->
+    </div>
+    <button id="buttonlogintoregister" type="submit" {{action 'register'}}>Register</button>
+  </form>
+  <!--<div id="footer-box"><p class="footer-text">Not a member?<span class="sign-up"{{action 'signup'}}> Sign up now</span></p></div>-->
+
+</div>
+{{/if}}
+
+{{/modal-dialog}}
+{{/if}}

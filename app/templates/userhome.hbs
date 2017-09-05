@@ -1,0 +1,76 @@
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    
+    function beeLeft() {
+        $("#b").animate({left: "-=500"}, 1500, "swing", beeRight);
+    }
+    function beeRight() {
+        $("#b").animate({left: "+=300"}, 1500, "swing");
+    }
+    
+    beeRight();
+});
+</script>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="step-container">
+    <br/>
+   
+<div class="row"></div>
+<div class="stepwizard">
+   
+    <div class="stepwizard-row">
+      
+      
+        <div class="stepwizard-step">
+         <button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           
+       
+        </div>
+         <div id="b" style="position:absolute;"> 
+     <button type="button" class="btn btn-circle btn-lg">
+         <i class="glyphicon glyphicon-plane">
+         </i>
+    </button>
+</div>
+         <div class="stepwizard-step">
+          <button type="button" class="btn btn-circle btn-lg"><i class="glyphicon glyphicon-plane"></i></button>
+                    
+        </div>
+        <div class="stepwizard-step">
+        <button type="button" class="btn btn-circle btn-lg"><i class="glyphicon glyphicon-plane"></i></button>
+     
+        </div>
+    </div>
+</div>
+    <!--   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;23/05/2017
+      <div class="wrapper"> 
+    
+       <button type="button" class="btn btn-circle btn-lg"><i class="glyphicon glyphicon-plane"></i></button>
+<div id="b" style="position:absolute;"> 
+     <button type="button" class="btn btn-circle btn-lg">
+         <i class="glyphicon glyphicon-plane">
+         </i>
+    </button>
+</div>
+</div>-->
+ 
+ <br/>
+ 
+ 
+</div>
+<br/>
+<br/>
+<!-- user-detail-Table-->
+<div class="middle-container">
+    <div class="row ">
+      <button class="mybutton" type="submit" {{action 'newrequest'}}>New Request</button>
+    </div>  
+{{models-table data=model columns=columns go='godetails' update="updatedetails" showComponentFooter=false}}
+</div>
