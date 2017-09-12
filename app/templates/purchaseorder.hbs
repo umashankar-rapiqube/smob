@@ -1,0 +1,99 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="materialrequest-box">
+  <div id="header">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Material Request</b></h1></div>
+    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div> 
+   <form action="" method="post">
+     <div class="myformleft">
+    <div class="group">  
+            
+       {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Your Company Name" required=""}}
+      
+    </div>
+	    <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='companyaddress' placeholder="Your Address" required=""}}
+      
+    </div>
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='requestto' placeholder="Request To" required=""}}
+      
+    </div>
+     </div>
+     <div class="myformright">
+     
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='reruestno' placeholder="Request No" required=""}}
+      
+    </div>
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='requestdate' placeholder="date" required=""}}
+      
+    </div>
+    </div>
+    <body>
+ 
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Item</th>
+        <th>Quantity</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>1</td>
+          <td>item</td>
+           <td>80</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>item2</td>
+           <td>40</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>item3</td>
+           <td>60</td>
+      </tr>
+      <!--
+    {{#if mysaverow}}
+    <ul>
+    <tr>
+       {{#each myrecord as |item|}}
+     <li>   <td>{{item.id}}</td></li>
+      <li>    <td>{{item.items}}</td></li>
+       <li>   <td>{{item.quantity}}</td></li>
+      {{/each}}
+     </tr>
+    </ul>
+     {{/if}}
+   
+    {{#if myaddrow}}
+    <tr>
+          <td> {{validated-input  type="text" model=this  valuePath='id' placeholder="id" required=""}}</td>
+          <td> {{validated-input  type="text" model=this  valuePath='items' placeholder="Item" required=""}}</td>
+          <td> {{validated-input  type="text" model=this  valuePath='quantity' placeholder="Quantity" required=""}}</td>
+      </tr>
+    {{/if}}-->
+ </tbody>
+  </table>
+  <!--
+  <button id="add" class="btn btn-primary" {{action 'addrow'}}>Add new row</button>
+   <button id="save" class="btn btn-primary" {{action 'saveRow'}} disabled>Save</button>-->
+    
+</body>
+  <div class="row ">
+      <button class="mybutton" type="submit" {{action 'submitrequest'}}>submit</button>
+    </div>  
+  </form>
+ 
+
+</div>

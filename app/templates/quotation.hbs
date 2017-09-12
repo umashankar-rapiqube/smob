@@ -4,44 +4,42 @@
 <br/>
 <br/>
 <br/>
-<div class="materialrequest-box">
+<div class="quotation-box">
   <div id="header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Material Request</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
   </div> 
    <form action="" method="post">
-     <div class="myformleft">
+     <div class="center">
     <div class="group">  
             
-       {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Your Company Name" required=""}}
+       {{validated-input  type="text" model=this  valuePath='suppliername' placeholder="Your Company Name" required=""}}
       
     </div>
 	    <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='companyaddress' placeholder="Your Address" required=""}}
+      {{validated-input  type="text" model=this  valuePath='quotationno' placeholder="Your Address" required=""}}
       
     </div>
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='requestto' placeholder="Request To" required=""}}
-      
-    </div>
-     </div>
-     <div class="myformright">
-     
-     <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='reruestno' placeholder="Request No" required=""}}
-      
+      {{validated-input  type="text" model=this  valuePath='materialtype' placeholder="Request To" required=""}}
     </div>
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='requestdate' placeholder="date" required=""}}
-      
+      {{validated-input  type="text" model=this  valuePath='totalprice' placeholder="Request No" required=""}}
+      </div>
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='shippingaddress' placeholder="date" required=""}}
     </div>
-    </div>
+   
     <div class="row ">
       <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
-    </div> 
-  </form>
- </div> 
- {{#if ShowingModalrequest}}
+     
+    </div>
+   </div>
+    </form>
+  </div>
+ 
+
+ {{#if Showingquotation}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
                  <h3>Material request Submitted Sucessflly... !</h3>
                             <div class="modal-header">

@@ -595,7 +595,7 @@ a:link, a:visited{
 }
 .middle-container
 {
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 10px 10px 5px #BA68C8;
   margin-left: 40px;
   margin-right: 40px;
 }
@@ -651,14 +651,14 @@ th .ember-text-field, columns-dropdown, table tr:FIRST-CHILD + tr
 }
 
 .mybutton{
-	background: #00695c;
+	background: #0091EA;
    margin-left:50px;
 	border:0;
-	color:#cfd8dc;
+	color:#eceff1;
 	padding:10px;
 	font-size: 16px;
   font-weight: 300;
-	width:330px;
+  width:330px;
 	margin:40px auto;
 	display:block;
 	cursor:pointer;
@@ -667,20 +667,35 @@ th .ember-text-field, columns-dropdown, table tr:FIRST-CHILD + tr
 	border-radius: 2px;
 }
 .materialrequest-box{
-  
-	position: relative;
-	margin: auto;
-	height: 800px;
+//    position: relative;
+    margin: auto;
+    height: 800px;
   width: 900px;
   top: 40px;
-	z-index: 200;
-	color:#666;
-	border-radius: 3px;
-	background: #FFF;
+//    z-index: 200;
+    color:#666;
+    border-radius: 3px;
+    background: #FFF;
   margin-bottom: 100px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  overflow: hidden;
+  //overflow: hidden;
 }
+.quotation-box{//    position: relative;
+    margin: auto;
+    height: 800px;
+  width: 900px;
+  top: 40px;
+//    z-index: 200;
+    color:#666;
+    border-radius: 3px;
+    background: #FFF;
+  margin-bottom: 100px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  //overflow: hidden;
+
+
+}
+
 .myformleft{
   direction: lrt;
 }

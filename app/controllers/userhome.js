@@ -71,12 +71,14 @@ export default Ember.Controller.extend(Validations,{
         },
         updatedetails:function(){
              console.log("in updatedetails");
+             this.transitionToRoute('quotation');
                     
         },
         newrequest:function(){
               this.transitionToRoute('materialrequest');
+                  
         }
-        
+              
       }      
 
     

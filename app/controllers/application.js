@@ -42,14 +42,64 @@ export default Ember.Controller.extend(Validations,{
             this.toggleProperty('isShowingModal');
         },
         //login function
+
+
+        
         login:function(){
-            var username = this.get('username');
-            console.log(username);
+            var email = this.get('email');
+            console.log(email);
               var password = this.get('password');
             console.log(password);
+            if (email === null || email === undefined || email === "" || password === null || password === undefined || password === "") {
+                    alert("please fill details for login");
+                } else {
+                    let {
+                email,
+                password
+            } = this.getProperties('email', 'password');
+               console.log(email);
+               console.log(password);
+               var dataString = {
+                "email": email,
+                "password": password,
+            };
+            console.log(JSON.stringify(dataString));
+                 var mycontroller = this;
+                console.log(email);
+                return $.ajax({
+                url:'http://localhost:3000/mock/Login',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(dataString),
+                success: function(response) {
+                    var message = response.message;
+                    var error   = response.error;
+                    console.log(message);
+                    console.log(error);
+                    //if ( message === "login successful") {
+                      //  console.log(JSON.stringify(message));
+                   // }
+                        
+                     mycontroller.transitionToRoute('home');
+
+                },      
+                    error: function(response) {
+                   console.log('DEBUG: GET Enquiries Failed');
+                   console.log("Error Message: ", response.message);
+                   
+            }
+                
+                });
+
+
+
+
+
             this.set('isShowingModal', false);
             this.set('showUser',true);
-            this.transitionToRoute('userhome');
+             }   
+
+
 
         },
         //goto to on registration

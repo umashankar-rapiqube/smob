@@ -11,6 +11,10 @@ Router.map(function() {
   this.route('home');
   this.route('history');
   this.route('materialrequest');
+  this.route('quotation');
+  this.route('purchaseorder');
+  this.route('deliveryorder');
+  this.route('delivery');
 });
 
 export default Router;

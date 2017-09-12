@@ -35,8 +35,6 @@ var Validations = buildValidations({
 });
   var myrecord =[];
 export default Ember.Controller.extend(Validations,{
-     
-
 
 
 
@@ -48,12 +46,14 @@ ShowingModalrequest: false,
 actions:{
     submitdetails:function(){
         console.log("in func");
-           this.toggleProperty('ShowingModalrequest');
+           this.toggleProperty('showingquotation')
        //    this.set("ShowingModalrequest",true);
     },
 okbutton: function(){
     this.transitionToRoute("userhome");
 },
+
+
 
 addrow:function(){
     this.set('myaddrow',true);
