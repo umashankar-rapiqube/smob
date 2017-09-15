@@ -15,14 +15,15 @@
 <ul style="list-style-type:none">
 
    {{#each Transactionlist as |item|}} 
-    <div class="inner-historydisplay">
+    <!--<div class="inner-historydisplay">-->
     <b>Date:</b> <li>{{item.date}}</li> 
      <b>Update By:</b>  <li>{{item.updatedBy}}</li>
      <b>Quantity :</b>   <li>{{item.Quantity}}</li>
       <b>intended-to:</b> <li>{{item.intended-to}}</li>
       <b>cost:</b> <li>{{item.cost}}</li>
       <b>Attachment:</b> <li>{{item.Attachment}}</li>
-     </div>
+      <hr class="style3">
+     <!--</div>-->
      <br/>
   {{/each}}
   </ul>
