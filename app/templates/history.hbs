@@ -1,1 +1,19 @@
-<h1>history</h1>
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div id="header" style="text-align:center ;color:coral">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Transaction History</b></h1></div>
+    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div> 
+ <p>Transaction Id</p>{{Transactionid}} 
+ <p>Transaction List</p>{{Transactionlist}} 
+<ul>
+   {{#each Transactionlist as |item|}} 
+     <li>{{item.date}}</li> 
+  {{/each}}
+</ul>

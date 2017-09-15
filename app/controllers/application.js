@@ -41,10 +41,8 @@ export default Ember.Controller.extend(Validations,{
 
             this.toggleProperty('isShowingModal');
         },
-        //login function
-
-
         
+
         login:function(){
             var email = this.get('email');
             console.log(email);
@@ -73,14 +71,16 @@ export default Ember.Controller.extend(Validations,{
                 data: JSON.stringify(dataString),
                 success: function(response) {
                     var message = response.message;
-                    var error   = response.error;
-                    console.log(message);
-                    console.log(error);
-                    //if ( message === "login successful") {
-                      //  console.log(JSON.stringify(message));
-                   // }
+                console.log("message" + message);
+                          
+                        var usertype=response.userType;
+                            console.log("usertype :" + usertype);
+                            sessionStorage.setItem('usertype', usertype);
+                            mycontroller.set('isShowingModal', false);
+                            mycontroller.set('showUser',true);
+                            mycontroller.transitionToRoute('userhome')    
                         
-                     mycontroller.transitionToRoute('home');
+                    // mycontroller.transitionToRoute('home');
 
                 },      
                     error: function(response) {
@@ -97,7 +97,39 @@ export default Ember.Controller.extend(Validations,{
 
             this.set('isShowingModal', false);
             this.set('showUser',true);
-             }   
+             }
+
+
+
+
+        },
+        logout:function(){
+            var mycontroller = this;
+                return $.ajax({
+                url:'http://localhost:3000/mock/Logout',
+                type: 'GET',
+                contentType: 'application/json',
+                success: function(response) {
+                    var message = response.message;
+                console.log("message" + message);
+                mycontroller.set('showUser',true);
+                window.location.reload(true);
+
+
+                          
+              
+                        
+                     mycontroller.transitionToRoute('home');
+
+                },      
+                    error: function(response) {
+                   console.log('DEBUG: GET Enquiries Failed');
+                   console.log("Error Message: ", response.message);
+                   
+            }
+                
+                });
+
 
 
 

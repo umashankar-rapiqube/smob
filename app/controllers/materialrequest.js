@@ -46,9 +46,46 @@ ShowingModalrequest: false,
 
 
 actions:{
+    
     submitdetails:function(){
         console.log("in func");
-           this.toggleProperty('ShowingModalrequest');
+        let{Requesttocompany,
+            shippingaddress,
+            RequestedDate,
+            Item,
+            Quantity}=this.getProperties('Requesttocompany','shippingaddress','RequestedDate','Item','Quantity')
+
+         var dataString = {
+                "Requesttocompany": Requesttocompany,
+                "shippingaddress": shippingaddress,
+                "RequestedDate": RequestedDate,
+                "Item": Item,
+                "Quantity": Quantity,
+            };
+            console.log(JSON.stringify(dataString));
+                 var mycontroller = this;
+
+                return $.ajax({
+                url:'http://localhost:3000/mock/Request',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(dataString),
+                success: function(response) {
+                    var message = response.message;
+                console.log("message" + message);
+                          mycontroller.toggleProperty('ShowingModalrequest');
+                            // mycontroller.transitionToRoute('userhome')
+                            // mycontroller.transitionToRoute('home');
+
+                },      
+                    error: function(response) {
+                   console.log('DEBUG: GET Enquiries Failed');
+                   console.log("Error Message: ", response.message);
+                   
+            }
+                
+                });
+            this.toggleProperty('ShowingModalrequest');
        //    this.set("ShowingModalrequest",true);
     },
 okbutton: function(){
