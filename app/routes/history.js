@@ -20,6 +20,7 @@ export default Ember.Route.extend({
              console.log("Transactionlist",Transactionlist);
              mycontroller.controllerFor('history').set('Transactionlist',Transactionlist);
              
+             
                 },      
                     error: function(response) {
                    console.log('DEBUG: GET Enquiries Failed');

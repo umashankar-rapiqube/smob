@@ -651,7 +651,7 @@ th .ember-text-field, columns-dropdown, table tr:FIRST-CHILD + tr
 }
 
 .mybutton{
-	background: #0091EA;
+	background: #00695c;
    margin-left:50px;
 	border:0;
 	color:#eceff1;
@@ -670,7 +670,7 @@ th .ember-text-field, columns-dropdown, table tr:FIRST-CHILD + tr
 //    position: relative;
     margin: auto;
     height: 800px;
-  width: 900px;
+  width: 700px;
   top: 40px;
 //    z-index: 200;
     color:#666;
@@ -697,8 +697,37 @@ th .ember-text-field, columns-dropdown, table tr:FIRST-CHILD + tr
 }
 
 .myformleft{
-  direction: lrt;
+ // direction: lrt;
+ //text-align: center;
+// padding-left: 50px;
+ //padding-right: 30px;
 }
 .myformright{
     direction: rtl;
+}
+#historyheader{
+  background: coral;
+  position: relative;
+  height: 60px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.historydispaly{
+  border: 3px solid #00695c;
+ // outline: #00695c dotted thick;
+ margin-right: 30px;
+ margin-left: 30px;
+}
+.historydispaly-left{
+  margin-right: 10px;
+  margin-left: 10px; 
+}
+.inner-historydisplay{
+  border: 3px solid #00695c;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+#inner-form-header{
+  background: coral;
 }

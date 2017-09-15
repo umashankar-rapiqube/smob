@@ -55,12 +55,16 @@ actions:{
             Item,
             Quantity}=this.getProperties('Requesttocompany','shippingaddress','RequestedDate','Item','Quantity')
 
-         var dataString = {
-                "Requesttocompany": Requesttocompany,
-                "shippingaddress": shippingaddress,
-                "RequestedDate": RequestedDate,
-                "Item": Item,
-                "Quantity": Quantity,
+         var dataString = {  
+                "status":"materialRequest Sent",
+                "InvolvedParties":"manufacturer",
+                "transactionString":{
+                    "Requesttocompany": Requesttocompany,
+                    "shippingaddress": shippingaddress,
+                    "RequestedDate": RequestedDate,
+                    "Item": Item,
+                    "Quantity": Quantity
+                }
             };
             console.log(JSON.stringify(dataString));
                  var mycontroller = this;

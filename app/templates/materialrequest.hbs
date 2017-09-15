@@ -5,15 +5,16 @@
 <br/>
 <br/>
 <div class="materialrequest-box">
-  <div id="header">
+  <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Material Request</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
   </div> 
+  <br/>
    <form action="" method="post">
-     <div class="myformleft">
+     <div class="myformleft" align="center">
     <div class="group">  
             
-       {{validated-input  type="text" model=this  valuePath='Requesttocompany' placeholder="Request to" required=""}}
+       {{validated-input  type="text" model=this  valuePath='Requesttocompany' placeholder="Request Tto" required=""}}
       
     </div>
 	    <div class="group">      
@@ -24,7 +25,7 @@
       {{validated-input  type="text" model=this  valuePath='RequestedDate' placeholder="Requested Date" required=""}}
       
     </div>
-     </div>
+    
      {{!-- <div class="myformright"> --}}
      
      <div class="group">      
@@ -35,10 +36,12 @@
       {{validated-input  type="text" model=this  valuePath='Quantity' placeholder="Quantity" required=""}}
       
     </div>
-    {{!-- </div> --}}
-    <div class="row ">
+     <div class="row ">
       <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
     </div> 
+     </div>
+    {{!-- </div> --}}
+   
   </form>
  </div> 
  {{#if ShowingModalrequest}}

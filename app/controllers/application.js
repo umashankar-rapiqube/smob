@@ -32,6 +32,7 @@ export default Ember.Controller.extend(Validations,{
 
     showregistration:false,
     showUser:false,
+    shownewrequestbutton:false,
     isShowlogin:true,
       testlist: ['Manufacturer','Supplier','Distributor','Retailer','Banker','Insuerer','Transpoter'],
 
@@ -76,6 +77,8 @@ export default Ember.Controller.extend(Validations,{
                         var usertype=response.userType;
                             console.log("usertype :" + usertype);
                             sessionStorage.setItem('usertype', usertype);
+                            mycontroller.set("usertype",usertype);
+                           
                             mycontroller.set('isShowingModal', false);
                             mycontroller.set('showUser',true);
                             mycontroller.transitionToRoute('userhome')    
@@ -114,11 +117,7 @@ export default Ember.Controller.extend(Validations,{
                 console.log("message" + message);
                 mycontroller.set('showUser',true);
                 window.location.reload(true);
-
-
-                          
-              
-                        
+   
                      mycontroller.transitionToRoute('home');
 
                 },      

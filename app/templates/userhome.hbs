@@ -1,5 +1,5 @@
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 
 $(document).ready(function() {
     
@@ -12,7 +12,7 @@ $(document).ready(function() {
     
     beeRight();
 });
-</script>
+</script>-->
 
 <br/>
 <br/>
@@ -31,22 +31,21 @@ $(document).ready(function() {
       
         <div class="stepwizard-step">
          <button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           
-       
-        </div>
-         <div id="b" style="position:absolute;"> 
-     <button type="button" class="btn btn-circle btn-lg">
-         <i class="glyphicon glyphicon-plane">
-         </i>
-    </button>
-</div>
-         <div class="stepwizard-step">
+       <p>material request</p>
+     </div>
+         <!--<div id="b" style="position:absolute;"> -->
+             <div class="stepwizard-step" > 
+         <button type="button" class="btn btn-circle btn-lg"> <i class="glyphicon glyphicon-plane"></i> </button>
+         <p>Quotation Raised</p>
+    </div>
+    <div class="stepwizard-step">
           <button type="button" class="btn btn-circle btn-lg"><i class="glyphicon glyphicon-plane"></i></button>
-                    
-        </div>
-        <div class="stepwizard-step">
+            <p> PO Raised</p>      
+    </div>
+    <div class="stepwizard-step">
         <button type="button" class="btn btn-circle btn-lg"><i class="glyphicon glyphicon-plane"></i></button>
-     
-        </div>
+        <p>Payment Initiated</p>
+     </div>
     </div>
 </div>
     <!--   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;23/05/2017
@@ -69,8 +68,10 @@ $(document).ready(function() {
 <br/>
 <!-- user-detail-Table-->
 <div class="middle-container">
+    {{#if shownewrequestbutton}}
     <div class="row ">
       <button class="mybutton" type="submit" {{action 'newrequest'}}>New Request</button>
     </div>  
+    {{/if}}
 {{models-table data=model columns=columns go='godetails' update="updatedetails" showComponentFooter=false}}
 </div>

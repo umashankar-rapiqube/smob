@@ -70,8 +70,23 @@ export default Ember.Controller.extend(Validations,{
              this.transitionToRoute('history');
         },
         updatedetails:function(){
+            var usertype =this.get('usertype');
+            console.log("usertype :",usertype);
+            if (usertype === 'Manufacturer'){
+                this.transitionToRoute('purchaseorder');
+            }else if(usertype === 'Supplier')
+            {
+                this.transitionToRoute('quotation');
+            }else if(usertype === 'Distributor')
+            {
+
+            }
+            else if(usertype === 'Distributor')
+                {
+    
+                }
              console.log("in updatedetails");
-             this.transitionToRoute('quotation');
+             
                     
         },
         newrequest:function(){

@@ -3,17 +3,35 @@
 <br/><br/>
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-<div id="header" style="text-align:center ;color:coral">
+
+<div id="historyheader">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Transaction History</b></h1></div>
-    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
-  </div> 
- <p>Transaction Id</p>{{Transactionid}} 
- <p>Transaction List</p>{{Transactionlist}} 
-<ul>
+</div> 
+<div class="historydispaly">
+  <div class="historydispaly-left">
+    <p style="font-size: 20px;color: coral;text-align:center">Transaction Id :{{Transactionid}} </p>
+    
+
+<ul style="list-style-type:none">
+
    {{#each Transactionlist as |item|}} 
-     <li>{{item.date}}</li> 
+    <div class="inner-historydisplay">
+    <b>Date:</b> <li>{{item.date}}</li> 
+     <b>Update By:</b>  <li>{{item.updatedBy}}</li>
+     <b>Quantity :</b>   <li>{{item.Quantity}}</li>
+      <b>intended-to:</b> <li>{{item.intended-to}}</li>
+      <b>cost:</b> <li>{{item.cost}}</li>
+      <b>Attachment:</b> <li>{{item.Attachment}}</li>
+     </div>
+     <br/>
   {{/each}}
-</ul>
+  </ul>
+  
+
+
+ </div>
+     
+
+</div>
+
+

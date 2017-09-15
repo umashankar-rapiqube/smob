@@ -3,6 +3,8 @@
 
 {{outlet}}
 
+<br/>
+<br/>
 
 {{#if isShowingModal}}
 
@@ -11,6 +13,8 @@
                   translucentOverlay=true}}
 {{#if isShowlogin}}                  
 <div class="box">
+  <br/>
+  
   <div id="header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Login</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
@@ -27,7 +31,7 @@
     </div>
     <button id="buttonlogintoregister" type="submit" {{action 'login'}}>Login</button>
   </form>
-  <div id="footer-box"><p class="footer-text">Not a member?<span class="sign-up"{{action 'signup'}}> Sign up now</span></p></div>
+  <div id="footer-box"><!--<p class="footer-text">Not a member?<span class="sign-up"{{action 'signup'}}> Sign up now</span></p>--></div>
 
 </div>
 {{/if}}
@@ -68,7 +72,7 @@
     </div>
     <button id="buttonlogintoregister" type="submit" {{action 'register'}}>Register</button>
   </form>
-  <!--<div id="footer-box"><p class="footer-text">Not a member?<span class="sign-up"{{action 'signup'}}> Sign up now</span></p></div>-->
+  <div id="footer-box"><!--<p class="footer-text">Not a member?<span class="sign-up"{{action 'signup'}}> Sign up now</span></p>--></div>
 
 </div>
 {{/if}}
