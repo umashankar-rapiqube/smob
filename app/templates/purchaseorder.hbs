@@ -42,6 +42,12 @@
       <button class="mybutton" type="submit" {{action 'submitrequest'}}>Submit</button>
     </div>  
   </form>
- 
-
 </div>
+{{#if ShowingModalrequest}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Material request Submitted Sucessflly... !</h3>
+                            <div class="modal-header">
+                                    <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                            </div>
+ {{/modal-dialog}}
+ {{/if}}

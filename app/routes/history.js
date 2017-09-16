@@ -7,7 +7,7 @@ export default Ember.Route.extend({
         var Transactionlist=[];
 
                 return $.ajax({
-                url:'http://localhost:3000/mock/Readrequest',
+                url:'http://192.168.0.29:3000/mock/Readrequest',
                 type: 'GET',
                 contentType: 'application/json',
                 success: function(response) {

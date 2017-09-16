@@ -30,7 +30,7 @@ actions:{
                  var mycontroller = this;
 
                 return $.ajax({
-                url:'http://localhost:3000/mock/Updaterequest',
+                url:'http://192.168.0.29:3000/mock/Updaterequest',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),
