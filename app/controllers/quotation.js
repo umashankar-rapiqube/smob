@@ -6,19 +6,19 @@ export default Ember.Controller.extend({
 actions:{
     submitdetails:function(){
         console.log("in func");
-        let{suppliername,
+        let{manufacturername,
             shippingaddress,
             item,
             quantity,
             totalprice,
             quotationdate
-        }=this.getProperties('suppliername','shippingaddress','item','quantity','totalprice','quotationdate')
+        }=this.getProperties('manufacturername','shippingaddress','item','quantity','totalprice','quotationdate')
 
          var dataString = {  
-                "status":"materialRequest Sent",
+                "status":"QuotationRaised",
                 "InvolvedParties":"manufacturer,Supplier",
                 "transactionString":{
-                    "suppliername": suppliername,
+                    "manufacturername": manufacturername,
                     "shippingaddress": shippingaddress,
                     "item": item,
                     "quantity": quantity,

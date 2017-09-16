@@ -23,13 +23,7 @@ var Validations = buildValidations({
             })
         ],
     },
-    policyno: [
-        validator('presence', true),
-        validator('format', {
-            regex: /^[0-9]{5}$/,
-            message: 'This field must be a valid policy Number'
-        })
-    ],
+    
 
 
 });

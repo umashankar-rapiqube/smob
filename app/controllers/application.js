@@ -43,7 +43,6 @@ export default Ember.Controller.extend(Validations,{
             this.toggleProperty('isShowingModal');
         },
         
-
         login:function(){
             var email = this.get('email');
             console.log(email);
@@ -94,40 +93,37 @@ export default Ember.Controller.extend(Validations,{
                 
                 });
 
-
-
-
-
-            this.set('isShowingModal', false);
-            this.set('showUser',true);
+            //this.set('isShowingModal', false);
+            //this.set('showUser',true);
              }
-
-
-
 
         },
         logout:function(){
-            var mycontroller = this;
+            console.log("in logout");
+            window.location.reload(true);
+            //this.transitionToRoute('home');
+         
+         /*   var mycontroller = this;
                 return $.ajax({
                 url:'http://localhost:3000/mock/Logout',
                 type: 'GET',
                 contentType: 'application/json',
                 success: function(response) {
-                    var message = response.message;
+                var message = response.message;
                 console.log("message" + message);
                 mycontroller.set('showUser',true);
                 window.location.reload(true);
    
-                     mycontroller.transitionToRoute('home');
+                mycontroller.transitionToRoute('home');
 
                 },      
-                    error: function(response) {
+                error: function(response) {
                    console.log('DEBUG: GET Enquiries Failed');
                    console.log("Error Message: ", response.message);
                    
             }
                 
-                });
+                });*/
 
 
 

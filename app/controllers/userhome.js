@@ -1,40 +1,7 @@
 import Ember from 'ember';
-import {
-    validator,
-    buildValidations
-}
-from 'ember-cp-validations';
-
-var Validations = buildValidations({
-    email: [
-        validator('presence', true),
-        validator('format', {
-            regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-            message: 'This field must be a valid email address'
-        })
-    ],
-    password: {
-        description: 'Password',
-        validators: [
-            validator('presence', true),
-            validator('format', {
-                regex: /^[a-zA-Z0-9]{6,8}$/,
-                message: 'This field must be a Valid Password (minimum 6 digits required)'
-            })
-        ],
-    },
-    policyno: [
-        validator('presence', true),
-        validator('format', {
-            regex: /^[0-9]{5}$/,
-            message: 'This field must be a valid policy Number'
-        })
-    ],
 
 
-});
-
-export default Ember.Controller.extend(Validations,{
+export default Ember.Controller.extend({
     columns: [
             {
                 "propertyName": "transactionid",
