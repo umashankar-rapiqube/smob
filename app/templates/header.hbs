@@ -29,7 +29,7 @@
           <li><a href="#">Pricing</a></li> 
           <li><a href="#">TheTeam</a></li> 
         </ul>-->
-          {{#if showUser}}
+        {{#if showUser}}
         <ul class="nav navbar-nav flex-item hidden-xs pull-right">
            <li><a ><b>Hello ,</b> {{usertype}}</a></li> 
           <li><a {{action 'logout'}}>Logout</a></li> 
@@ -45,11 +45,12 @@
               <span class="glyphicon glyphicon-align-justify"></span> 
             </button>
             <ul class="dropdown-menu">
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Pricing</a></li> 
-              <li><a href="#">TheTeam</a></li> 
-              <li role="separator" class="divider"></li>
-              <li><a href="#">contact us</a></li>
+              {{#if showUser}}
+                  <li><a ><b>Hello ,</b> {{usertype}}</a></li> 
+                   <li><a {{action 'logout'}}>Logout</a></li> 
+              {{else}}
+                  <li><a {{action 'toggleModal'}}><i class="material-icons">face</i> Login</a></li> 
+              {{/if}}
             </ul>
           </div>
         </div>  

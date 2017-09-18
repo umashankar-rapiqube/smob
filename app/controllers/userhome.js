@@ -40,8 +40,12 @@ export default Ember.Controller.extend({
              this.transitionToRoute('history');
         },
         updatedetails:function(requestid,status){
-            console.log('requestid',requestid);
+            var requestid = requestid;
+            console.log('requestid : from go',requestid);
+            this.set('requestid',requestid);
+     
             var usertype =this.get('usertype');
+
             console.log("usertype :",usertype);
             var status ;
             if (usertype === 'Manufacturer'){
