@@ -6,6 +6,7 @@ export default Ember.Route.extend({
          var usertype = sessionStorage.getItem('usertype') ;
         console.log('usertpe :' +usertype);
         this.controllerFor('userhome').set('usertype', usertype);
+        
         if(usertype === 'Manufacturer'|| usertype === 'Distributor' || usertype === 'retailer'){
             this.controllerFor('userhome').set('shownewrequestbutton',true);
         }

@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
     ShowingModalrequest:false,
     actions:{
-        submitdeatails:function(){
+        submitrequest:function(){
         console.log("in func");
         let{suppliername,
             shippingaddress,
@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
                  var mycontroller = this;
 
                 return $.ajax({
-                url:'http://192.168.0.29:3000/mock/Updaterequest',
+                url:'http://192.168.0.29:3000/updateRequest',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),

@@ -33,8 +33,8 @@ export default Ember.Controller.extend({
       actions:{
 
         godetails:function(requestid){
-            var requestid = this.get('requestid');
-            console.log('requestid',requestid);
+            var requestid = requestid;
+            console.log('requestid : fron go',requestid);
             this.set('requestid',requestid);
             console.log("in godetails");
              this.transitionToRoute('history');

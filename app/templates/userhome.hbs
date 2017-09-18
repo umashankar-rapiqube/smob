@@ -71,15 +71,17 @@ $(document).ready(function() {
     {{#if shownewrequestbutton}}
     <div class="row ">
       <button class="mybutton" type="submit" {{action 'newrequest'}}>New Request</button>
+    </div>
+        {{/if}}
       {{#each data as |item|}}
       <div id="rcorners1">
-       <p>   Transaction Id : {{item.requestid}}</p>
-        <p> Date :{{item.date}}</p>
-       <p> Status :{{item.status}}</p>
+       <p>  Transaction Id : {{item.requestid}}</p>
+        <p> Date : {{item.date}}</p>
+       <p> Status : {{item.status}}</p>
        <br/>
        <div class="row">
            <div class="col-sm-6">
-       <button class="gobutton" {{action 'godetails' item.requestid item.status }}>Go</button>
+       <button class="gobutton" {{action 'godetails' item.requestid  }}>Go</button>
            </div>
              <div class="col-sm-6">
        <button class="updatebutton" {{action  'updatedetails'item.requestid  item.status}}>update</button>
@@ -90,10 +92,9 @@ $(document).ready(function() {
       {{/each}}
         
     </div>  
-    {{/if}}
+ 
 
    <!-- <button class="mybutton" type="submit" {{action 'callajax'}}>test Request</button>
 
 {{models-table data=data columns=columns go='godetails' update="updatedetails" showComponentFooter=false}}
 -->
-</div>
