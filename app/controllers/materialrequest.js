@@ -50,7 +50,7 @@ actions:{
             Quantity}=this.getProperties('Requesttocompany','shippingaddress','RequestedDate','Item','Quantity')
 
          var dataString = {  
-                "status":"materialRequest Sent",
+                "status":"MaterialRequested",
                 "InvolvedParties":"manufacturer",
                 "transactionString":{
                     "Requesttocompany": Requesttocompany,
@@ -64,16 +64,17 @@ actions:{
                  var mycontroller = this;
 
                 return $.ajax({
-                url:'http://192.168.0.29:3000/mock/Request',
+                url:'http://192.168.0.29:3000/newRequest',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),
                 success: function(response) {
-                    var message = response.message;
+                var message = response.message;
                 console.log("message" + message);
-                          mycontroller.toggleProperty('ShowingModalrequest');
-                            // mycontroller.transitionToRoute('userhome')
-                            // mycontroller.transitionToRoute('home');
+                
+                 mycontroller.toggleProperty('ShowingModalrequest');
+                // mycontroller.transitionToRoute('userhome')
+                 // mycontroller.transitionToRoute('home');
 
                 },      
                     error: function(response) {

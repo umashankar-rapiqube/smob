@@ -734,3 +734,49 @@ th .ember-text-field, columns-dropdown, table tr:FIRST-CHILD + tr
 hr.style3 {
 	border-top: 1px dashed #8c8b8b;
 }
+#rcorners1 {
+  border-radius: 25px;
+  border: 4px solid coral;
+  //background:coral;
+  padding: 20px; 
+  width: 500px;
+  height: 280px;  
+  margin-left:50px; 
+//  color: white;
+  box-shadow: 10px 10px 5px #888888; 
+}
+
+.gobutton{
+	background: #00695c;
+ //  margin-left:10px;
+ direction: rtl;
+	border:0;
+	color:#eceff1;
+	padding:10px;
+	font-size: 16px;
+  font-weight: 300;
+  width:150px;
+	//margin:40px auto;
+	display:block;
+	cursor:pointer;
+    -webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	border-radius: 2px;
+}
+.updatebutton{
+	background: #00695c;
+ //  margin-left:10px;
+ direction: ltr;
+	border:0;
+	color:#eceff1;
+	padding:10px;
+	font-size: 16px;
+  font-weight: 300;
+  width:150px;
+	//margin:40px auto;
+	display:block;
+	cursor:pointer;
+    -webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	border-radius: 2px;
+}

@@ -1,1 +1,55 @@
-{{outlet}}
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="materialrequest-box">
+  <div id="inner-form-header">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Deliver Order</b></h1></div>
+    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div> 
+  <br/>
+   <form action="" method="post">
+     <div class="myformleft" align="center">
+    <div class="group">  
+            
+       {{validated-input  type="text" model=this  valuePath='delivertocompany' placeholder="Deliver to" required=""}}
+      
+    </div>
+	    <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='deliveryaddress' placeholder="Delivery  Address" required=""}}
+      
+    </div>
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='deliveryDate' placeholder="Delivery Date" required=""}}
+      
+    </div>
+    
+     {{!-- <div class="myformright"> --}}
+     
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='Item' placeholder="Item Name" required=""}}
+      
+    </div>
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='Quantity' placeholder="Quantity" required=""}}
+      
+    </div>
+     <div class="row ">
+      <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
+    </div> 
+     </div>
+    {{!-- </div> --}}
+   
+  </form>
+ </div> 
+ {{#if ShowingModalrequest}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Material request Submitted Sucessflly... !</h3>
+                            <div class="modal-header">
+                                    <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                            </div>
+ {{/modal-dialog}}
+ {{/if}}
