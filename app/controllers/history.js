@@ -5,23 +5,37 @@ actions:{
     gotoupdate:function(){
         var usertype =this.get('usertype');
         console.log("usertype",usertype);
-        if(usertype === "Supplier"){
-            this.transitionToRoute("quotation");
-        }else if(usertype === "Manufacturer"){
-            this.transitionToRoute("purchaseorder");
+        var status ;
+        if (usertype === 'Manufacturer'){
+            if(status === "QuotationRaised"){
+                this.transitionToRoute('purchaseorder');
+            }
+            else if(status === "POraised"){
+               // this.transitionToRoute('deliveryorder');
+            }
+          
+        }else if(usertype === 'Supplier')
+        {
+            if(status === "MaterialRequested"){
+                this.transitionToRoute('quotation');
+            }
+           
+            else if(status === "POraised"){
+                 this.transitionToRoute('deliveryorder');
+             }
         }
-        else if(usertpe === "Distributors"){
+        else if(usertype === "Distributors"){
             this.transitionToRoute("materialrequest");
         }
-        else if(usertpe === "retailer"){
+        else if(usertype === "retailer"){
             this.transitionToRoute("quotation");
          }
-         else if(usertpe === "Banker"){
+         else if(usertype === "Banker"){
             this.transitionToRoute("quotation");            
-         }else if(usertpe === "Logistic"){
+         }else if(usertype === "Logistic"){
             this.transitionToRoute("quotation");                        
          }
-         else if(usertpe === "Insurer"){
+         else if(usertype === "Insurer"){
             this.transitionToRoute("quotation");
         }
 

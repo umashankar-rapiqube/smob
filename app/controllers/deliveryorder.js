@@ -6,28 +6,27 @@ export default Ember.Controller.extend({
         submitdetails:function(){
             var requestid =this.get('requestid');
             console.log("requestid from dOcntr ",requestid);
-            let{suppliername,
-                shippingaddress,
+            let{delivertocompany,
+                deliveryaddress,
                 item,
-                quantity,
-                pono,
-                podate
-            }=this.getProperties('suppliername','shippingaddress','item','quantity','pono','podate')
+                Quantity,
+                deliveryDate
+            }=this.getProperties('delivertocompany','deliveryaddress','item','Quantity','pono','deliveryDate')
     
              var dataString = {  
+                 "requestid":requestid,
                     "status":"DOraised",
                     "InvolvedParties":"manufacturer,Supplier",
                     "transactionString":{
-                        "suppliername": suppliername,
-                        "shippingaddress": shippingaddress,
+                        "delivertocompany": delivertocompany,
+                        "deliveryaddress": deliveryaddress,
                         "item": item,
-                        "quantity": quantity,
-                        "pono": pono,
-                        "podate":podate
+                        "Quantity": Quantity,    
+                        "deliveryDate":deliveryDate
                     }
                 };
                 console.log(JSON.stringify(dataString));
-                     var mycontroller = this;
+                var mycontroller = this;
     
                     return $.ajax({
                     url:'http://192.168.0.29:3000/updateRequest',
@@ -36,7 +35,7 @@ export default Ember.Controller.extend({
                     data: JSON.stringify(dataString),
                     success: function(response) {
                         var message = response.message;
-                    console.log("message" + message);
+                        console.log("message" + message);
                               mycontroller.toggleProperty('ShowingModalrequest');
                                 // mycontroller.transitionToRoute('userhome')
                                 // mycontroller.transitionToRoute('home');

@@ -9,13 +9,13 @@
 </div> 
 <div class="historydispaly">
   <div class="historydispaly-left">
-    <p style="font-size: 20px;color: coral;text-align:center">Transaction Id :{{Transactionid}} </p>
+    <!--<p style="font-size: 20px;color: coral;text-align:center">Transaction Id :</p>-->
     
 
-<ul style="list-style-type:none">
+<!--<ul style="list-style-type:none">
 
    {{#each Transactionlist as |item|}} 
-    <!--<div class="inner-historydisplay">-->
+    <div class="inner-historydisplay">
     <b>Date:</b> <li>{{item.date}}</li> 
      <b>Update By:</b>  <li>{{item.updatedBy}}</li>
      <b>Quantity :</b>   <li>{{item.Quantity}}</li>
@@ -23,10 +23,30 @@
       <b>cost:</b> <li>{{item.cost}}</li>
       <b>Attachment:</b> <li>{{item.Attachment}}</li>
       <hr class="style3">
-     <!--</div>-->
+     <!--</div>
      <br/>
   {{/each}}
+
+  </ul>-->
+  <ul style="list-style-type:none">
+
+   {{#each-in transactionlist as |item list|}} 
+  
+      <li>{{item}}
+     <ol>
+        {{#each list as |listitem|}}
+          <li>{{listitem}}</li>
+        {{/each}}
+      </ol>
+    </li>
+     
+      <hr class="style3">
+      <br/>
+  {{/each-in}}
+
   </ul>
+  {{transactionlist}}
+  {{transactiondetails}}
  </div>
  <!-- this button is for updateing next transaction-->
     <div class="row ">

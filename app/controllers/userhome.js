@@ -47,20 +47,42 @@ export default Ember.Controller.extend({
             var usertype =this.get('usertype');
 
             console.log("usertype :",usertype);
-            var status ;
+            var status =status;
             if (usertype === 'Manufacturer'){
-                if(status === "MaterialRequested"){
+                if(status === "QuotationRaised"){
                     this.transitionToRoute('purchaseorder');
                 }
                 else if(status === "POraised"){
-                    this.transitionToRoute('deliveryorder');
+                   // this.transitionToRoute('deliveryorder');
                 }
-               // this.transitionToRoute('purchaseorder');
+              
             }else if(usertype === 'Supplier')
             {
-                this.transitionToRoute('quotation');
-            }else if(usertype === 'Distributor')
+                if(status === "MaterialRequested"){
+                    this.transitionToRoute('quotation');
+                }
+               
+                else if(status === "POraised"){
+                     this.transitionToRoute('deliveryorder');
+                 }
+                 else if(status === 'DOraised')
+                    {
+                        this.transitionToRoute('invoice'); 
+                    }
+            }
+            else if(usertype === 'Logistics')
             {
+                if(status === 'Invoiceraised')
+                    {
+
+                    }
+
+            }else if(usertype === 'Banker')
+            {
+                if(status === 'DOdelivered')
+                    {
+                        //this.transitionToRoute(''); 
+                    }
 
             }
             else if(usertype === 'Distributor')

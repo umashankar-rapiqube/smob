@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('purchaseorder');
   this.route('deliveryorder');
   this.route('delivery');
+  this.route('invoice');
 });
 
 export default Router;

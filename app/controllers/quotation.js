@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
 
 actions:{
     submitdetails:function(){
+        var requestid =this.get('requestid');
+        console.log("requestid from qocntr ",requestid);
         console.log("in func");
         let{manufacturername,
             shippingaddress,
@@ -14,7 +16,8 @@ actions:{
             quotationdate
         }=this.getProperties('manufacturername','shippingaddress','item','quantity','totalprice','quotationdate')
 
-         var dataString = {  
+         var dataString = { 
+            "requestid":requestid, 
                 "status":"QuotationRaised",
                 "InvolvedParties":"manufacturer,Supplier",
                 "transactionString":{
@@ -30,7 +33,7 @@ actions:{
                  var mycontroller = this;
 
                 return $.ajax({
-                url:'http://192.168.0.29:3000/mock/Updaterequest',
+                url:'http://192.168.0.29:3000/updateRequest',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),
