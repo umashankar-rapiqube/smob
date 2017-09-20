@@ -61,7 +61,7 @@ actions:{
                 }
             };
             console.log(JSON.stringify(dataString));
-                 var mycontroller = this;
+                var mycontroller = this;
 
                 return $.ajax({
                 url:'http://192.168.0.29:3000/newRequest',
@@ -74,7 +74,7 @@ actions:{
                 
                  mycontroller.toggleProperty('ShowingModalrequest');
                 // mycontroller.transitionToRoute('userhome')
-                 // mycontroller.transitionToRoute('home');
+                 //mycontroller.transitionToRoute('home');
 
                 },      
                     error: function(response) {

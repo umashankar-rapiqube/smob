@@ -58,6 +58,7 @@ export default Ember.Controller.extend({
               
             }else if(usertype === 'Supplier')
             {
+               // this.transitionToRoute('invoice'); 
                 if(status === "MaterialRequested"){
                     this.transitionToRoute('quotation');
                 }
@@ -74,14 +75,15 @@ export default Ember.Controller.extend({
             {
                 if(status === 'Invoiceraised')
                     {
-
+                      //  this.transitionToRoute('invoice'); 
                     }
 
             }else if(usertype === 'Banker')
             {
+                 
                 if(status === 'DOdelivered')
                     {
-                        //this.transitionToRoute(''); 
+                       // this.transitionToRoute('invoice'); 
                     }
 
             }

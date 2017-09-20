@@ -18,9 +18,9 @@ actions:{
 
          var dataString = { 
             "requestid":requestid, 
-                "status":"QuotationRaised",
-                "InvolvedParties":"manufacturer,Supplier",
-                "transactionString":{
+            "status":"QuotationRaised",
+            "InvolvedParties":"manufacturer,Supplier",
+            "transactionString":{
                     "manufacturername": manufacturername,
                     "shippingaddress": shippingaddress,
                     "item": item,
@@ -30,7 +30,7 @@ actions:{
                 }
             };
             console.log(JSON.stringify(dataString));
-                 var mycontroller = this;
+            var mycontroller = this;
 
                 return $.ajax({
                 url:'http://192.168.0.29:3000/updateRequest',
