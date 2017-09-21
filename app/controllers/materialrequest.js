@@ -1,62 +1,34 @@
 import Ember from 'ember';
-import {
-    validator,
-    buildValidations
-}
-from 'ember-cp-validations';
-
-var Validations = buildValidations({
-    email: [
-        validator('presence', true),
-        validator('format', {
-            regex: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-            message: 'This field must be a valid email address'
-        })
-    ],
-    password: {
-        description: 'Password',
-        validators: [
-            validator('presence', true),
-            validator('format', {
-                regex: /^[a-zA-Z0-9]{6,8}$/,
-                message: 'This field must be a Valid Password (minimum 6 digits required)'
-            })
-        ],
-    },
-    
 
 
-});
+
   var myrecord =[];
-export default Ember.Controller.extend(Validations,{
-     
-
-
-
-
-
+export default Ember.Controller.extend({
 myaddrow:false,
 ShowingModalrequest: false,
-
 
 actions:{
     
     submitdetails:function(){
+
+        var usertype =this.get('usertype');
+        console.log('usertype',usertype);
         console.log("in func");
-        let{Requesttocompany,
-            shippingaddress,
-            RequestedDate,
-            Item,
-            Quantity}=this.getProperties('Requesttocompany','shippingaddress','RequestedDate','Item','Quantity')
+        let{companyname,
+            address,
+            formdate,
+            item,
+            Quantity}=this.getProperties('companyname','address','formdate','item','Quantity')
 
          var dataString = {  
                 "status":"MaterialRequested",
                 "InvolvedParties":"manufacturer",
                 "transactionString":{
-                    "Requesttocompany": Requesttocompany,
-                    "shippingaddress": shippingaddress,
-                    "RequestedDate": RequestedDate,
-                    "Item": Item,
+                    "updatedBy":usertype,
+                    "companyname": companyname,
+                    "address": address,
+                    "formdate": formdate,
+                    "item": item,
                     "Quantity": Quantity
                 }
             };

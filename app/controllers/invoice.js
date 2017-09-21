@@ -6,21 +6,21 @@ export default Ember.Controller.extend({
         submitdetails:function(){
             var requestid =this.get('requestid');
             console.log("requestid from dOcntr ",requestid);
-            let{invoiceToCompany,
+            let{companyname,
                 shippingaddress,
                 invoiceNo,
                 invoiceDate,
                 item,
                 Quantity,
                 totalamount
-            }=this.getProperties('invoiceToCompany','shippingaddress','invoiceNo','invoiceDate','item','Quantity','totalamount')
+            }=this.getProperties('companyname','shippingaddress','invoiceNo','invoiceDate','item','Quantity','totalamount')
     
              var dataString = {  
                  "requestid":requestid,
                     "status":"InvoiceRaised",
                     "InvolvedParties":"manufacturer,Supplier,Banker",
                     "transactionString":{
-                        "invoiceToCompany": invoiceToCompany,
+                        "companyname": companyname,
                         "shippingaddress": shippingaddress,
                         "invoiceNo":invoiceNo,
                         "invoiceDate":invoiceDate,

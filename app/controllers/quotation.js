@@ -8,25 +8,25 @@ actions:{
         var requestid =this.get('requestid');
         console.log("requestid from qocntr ",requestid);
         console.log("in func");
-        let{manufacturername,
-            shippingaddress,
+        let{companyname,
+            address,
             item,
-            quantity,
+            Quantity,
             totalprice,
-            quotationdate
-        }=this.getProperties('manufacturername','shippingaddress','item','quantity','totalprice','quotationdate')
+            formdate
+        }=this.getProperties('companyname','address','item','Quantity','totalprice','formdate')
 
          var dataString = { 
             "requestid":requestid, 
             "status":"QuotationRaised",
             "InvolvedParties":"manufacturer,Supplier",
             "transactionString":{
-                    "manufacturername": manufacturername,
-                    "shippingaddress": shippingaddress,
+                    "companyname": companyname,
+                    "address": address,
                     "item": item,
-                    "quantity": quantity,
+                    "Quantity": Quantity,
                     "totalprice": totalprice,
-                    "quotationdate":quotationdate
+                    "formdate":formdate
                 }
             };
             console.log(JSON.stringify(dataString));

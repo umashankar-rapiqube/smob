@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
               
             ],
       actions:{
-
+        isShowdeliveryorder:false,
         godetails:function(requestid){
             var requestid = requestid;
             console.log('requestid : fron go',requestid);
@@ -48,6 +48,7 @@ export default Ember.Controller.extend({
 
             console.log("usertype :",usertype);
             var status =status;
+            console.log('status from userhom cntr :',status);
             if (usertype === 'Manufacturer'){
                 if(status === "QuotationRaised"){
                     this.transitionToRoute('purchaseorder');
@@ -67,15 +68,18 @@ export default Ember.Controller.extend({
                      this.transitionToRoute('deliveryorder');
                  }
                  else if(status === 'DOraised')
-                    {
-                        this.transitionToRoute('invoice'); 
-                    }
+                 {
+                    this.transitionToRoute('invoice'); 
+                }
             }
-            else if(usertype === 'Logistics')
+            else if(usertype === 'logistics')
             {
-                if(status === 'Invoiceraised')
+                console.log("logistics");
+                if(status === 'InvoiceRaised')
                     {
-                      //  this.transitionToRoute('invoice'); 
+                        console.log("in status");
+                        this.set('isShowdeliveryorder',false);
+                      this.transitionToRoute('deliveryorder');
                     }
 
             }else if(usertype === 'Banker')
@@ -91,7 +95,7 @@ export default Ember.Controller.extend({
                 {
     
                 }
-             console.log("in updatedetails");
+           
              
                     
         },

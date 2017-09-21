@@ -13,5 +13,10 @@ export default Ember.Route.extend({
         var requestid =  this.controllerFor('userhome').get('requestid' );        
         console.log('requestid from do:' +requestid);
         this.controllerFor('deliveryorder').set('requestid', requestid);
+
+      var  isShowdeliveryorder=this.controllerFor('userhome').get('isShowdeliveryorder' );
+      console.log('isShowdeliveryorder' +isShowdeliveryorder);
+      this.controllerFor('deliveryorder').set('isShowdeliveryorder', isShowdeliveryorder);
+
     }
 });

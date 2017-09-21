@@ -12,31 +12,20 @@
   <br/>
    <form action="" method="post">
      <div class="myformleft" align="center">
-    <div class="group">  
-            
-       {{validated-input  type="text" model=this  valuePath='paymentTocompany' placeholder="Payment To" required=""}}
-      
+    <div class="group">       
+       {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Payment To" required=""}}
     </div>
 	    
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='paymentDate' placeholder="Payment date" required=""}}
-      
+      {{validated-input  type="text" model=this  valuePath='formdate' placeholder="Payment date" required=""}}  
     </div>
+
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='paymentorderNo' placeholder="Payment Order NO" required=""}}
-      
+      {{validated-input  type="text" model=this  valuePath='paymentorderNo' placeholder="Payment Order NO" required=""}} 
     </div>
     
      {{!-- <div class="myformright"> --}}
      
-     <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='Item' placeholder="Item Name" required=""}}
-      
-    </div>
-     <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='Quantity' placeholder="Quantity" required=""}}
-      
-    </div>
      <div class="row ">
       <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
     </div> 

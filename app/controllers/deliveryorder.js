@@ -1,28 +1,30 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    
+    isShowdeliveryorder:true,
+    ShowingModal:false,
+
     actions:{
         submitdetails:function(){
             var requestid =this.get('requestid');
             console.log("requestid from dOcntr ",requestid);
-            let{delivertocompany,
-                deliveryaddress,
+            let{companyname,
+                address,
                 item,
                 Quantity,
-                deliveryDate
-            }=this.getProperties('delivertocompany','deliveryaddress','item','Quantity','pono','deliveryDate')
+                formdate
+            }=this.getProperties('companyname','address','item','Quantity','pono','formdate')
     
              var dataString = {  
                  "requestid":requestid,
                     "status":"DOraised",
                     "InvolvedParties":"manufacturer,Supplier",
                     "transactionString":{
-                        "delivertocompany": delivertocompany,
-                        "deliveryaddress": deliveryaddress,
+                        "companyname": companyname,
+                        "address": address,
                         "item": item,
                         "Quantity": Quantity,    
-                        "deliveryDate":deliveryDate
+                        "formdate":formdate
                     }
                 };
                 console.log(JSON.stringify(dataString));
@@ -50,8 +52,47 @@ export default Ember.Controller.extend({
                     });
                 this.toggleProperty('ShowingModalrequest');
                 },
+
                 okbutton: function(){
                     this.transitionToRoute("userhome");
+                },
+
+                doDelivered:function(){
+                    var requestid =this.get('requestid');
+                    console.log("requestid from dOcntr ",requestid);
+                    
+                     var dataString = {  
+                         "requestid":requestid,
+                            "status":"DODelivered",
+                            "InvolvedParties":"supplier,logistics",
+                            "transactionString":{
+                               
+                            }
+                        };
+                        console.log(JSON.stringify(dataString));
+                        var mycontroller = this;
+            
+                            return $.ajax({
+                            url:'http://192.168.0.29:3000/updateRequest',
+                            type: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify(dataString),
+                            success: function(response) {
+                                var message = response.message;
+                                console.log("message" + message);
+                                      mycontroller.toggleProperty('ShowingModal');
+                                        // mycontroller.transitionToRoute('userhome')
+                                        // mycontroller.transitionToRoute('home');
+            
+                            },      
+                                error: function(response) {
+                               console.log('DEBUG: GET Enquiries Failed');
+                               console.log("Error Message: ", response.message);
+                               
+                        }
+                            
+                            });
+
                 }
     
         }

@@ -48,25 +48,25 @@ export default Ember.Controller.extend({
             var requestid =this.get('requestid');
             console.log("requestid from POcntr ",requestid);
             console.log("in func");
-            let{suppliername,
-                shippingaddress,
+            let{companyname,
+                address,
                 item,
-                quantity,
+                Quantity,
                 pono,
-                podate
-             }=this.getProperties('suppliername','shippingaddress','item','quantity','pono','podate')
+                formdate
+             }=this.getProperties('companyname','address','item','Quantity','pono','formdate')
 
              var dataString = {  
                 "requestid":requestid,
                     "status":"POraised",
                     "InvolvedParties":"manufacturer,Supplier",
                     "transactionString":{
-                        "suppliername": suppliername,
-                        "shippingaddress": shippingaddress,
+                        "companyname": companyname,
+                        "address": address,
                         "item ": item,
-                        "quantity": quantity,
+                        "Quantity": Quantity,
                         "pono": pono,
-                        "podate":podate
+                        "formdate":formdate
                     }
                 };
                 console.log(JSON.stringify(dataString));

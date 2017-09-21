@@ -6,7 +6,7 @@
 <br/>
 <br/>
 <div class="materialrequest-box">
-  
+  {{#if isShowdeliveryorder}}
   <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Deliver Order</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
@@ -16,15 +16,15 @@
      <div class="myformleft" align="center">
     <div class="group">  
             
-       {{validated-input  type="text" model=this  valuePath='delivertocompany' placeholder="Deliver to" required=""}}
+       {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Deliver to" required=""}}
       
     </div>
 	    <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='deliveryaddress' placeholder="Delivery  Address" required=""}}
+      {{validated-input  type="text" model=this  valuePath='address' placeholder="Delivery  Address" required=""}}
       
     </div>
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='deliveryDate' placeholder="Delivery Date" required=""}}
+      {{validated-input  type="text" model=this  valuePath='formdate' placeholder="Delivery Date" required=""}}
     </div>
       
      <div class="group">      
@@ -33,8 +33,8 @@
     </div>
      <div class="group">      
       {{validated-input  type="text" model=this  valuePath='Quantity' placeholder="Quantity" required=""}}
-        {{pikaday-input class="form-control" value=startdeliverydate valuePath="startdeliverydate"  onSelection=(action (mut startdeliverydate)) 
-placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}
+       {{!-- {{pikaday-input class="form-control" value=startdeliverydate valuePath="startdeliverydate"  onSelection=(action (mut startdeliverydate)) 
+placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
     </div>
      <div class="row ">
       <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
@@ -44,11 +44,25 @@ placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}
     {{!-- </div> --}}
    
   </form>
-   
+  {{else}}
+   <div class="row ">
+      <button class="mybutton" type="submit" {{action 'doDelivered'}}>Delivery Delivered</button>
+    </div> 
+ {{/if}}  
+
  </div> 
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
-                 <h3>Delivery Order Submitted Sucessflly... !</h3>
+                 <h3>Delivery Order Submitted Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+ {{/if}}
+
+ {{#if ShowingModal}}
+{{#modal-dialog close="doDelivered" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Your Good are Delivered Sucessfully... !</h3>
                         <div class="modal-header">
                               <button type="button" class="close" {{action "okbutton" }}>ok</button>
                         </div>

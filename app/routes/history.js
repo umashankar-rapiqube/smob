@@ -16,7 +16,7 @@ export default Ember.Route.extend({
                 type: 'GET',
                 contentType: 'application/json', 
                 headers:{
-                    'authorization':'request'
+                    'authorization':requestid
                 },
                 success: function(response) {
                     // var message = response.message;
