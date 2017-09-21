@@ -32,10 +32,13 @@ export default Ember.Controller.extend({
             ],
       actions:{
         isShowdeliveryorder:false,
-        godetails:function(requestid){
+        godetails:function(requestid,status){
             var requestid = requestid;
             console.log('requestid : fron go',requestid);
             this.set('requestid',requestid);
+            var status = status;
+            console.log('status : fron go',status);
+            this.set('status',status);
             console.log("in godetails");
              this.transitionToRoute('history');
         },
@@ -49,6 +52,7 @@ export default Ember.Controller.extend({
             console.log("usertype :",usertype);
             var status =status;
             console.log('status from userhom cntr :',status);
+            sessionStorage.setItem('status', status);
             if (usertype === 'Manufacturer'){
                 if(status === "QuotationRaised"){
                     this.transitionToRoute('purchaseorder');

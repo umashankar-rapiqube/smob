@@ -81,7 +81,7 @@ $(document).ready(function() {
        <br/>
        <div class="row">
            <div class="col-sm-6">
-       <button class="gobutton" {{action 'godetails' item.requestid  }}>Go</button>
+       <button class="gobutton" {{action 'godetails' item.requestid  item.status }}>Go</button>
            </div>
              <div class="col-sm-6">
        <button class="updatebutton" {{action  'updatedetails'item.requestid  item.status}}>update</button>

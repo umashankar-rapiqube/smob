@@ -33,7 +33,7 @@ actions:{
                 }
             };
             console.log(JSON.stringify(dataString));
-                var mycontroller = this;
+            var mycontroller = this;
 
                 return $.ajax({
                 url:'http://192.168.0.29:3000/newRequest',

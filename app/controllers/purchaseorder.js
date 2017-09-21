@@ -47,6 +47,8 @@ export default Ember.Controller.extend({
         submitrequest:function(){
             var requestid =this.get('requestid');
             console.log("requestid from POcntr ",requestid);
+            var usertype =this.get('usertype');
+            console.log('usertype',usertype);
             console.log("in func");
             let{companyname,
                 address,
@@ -61,6 +63,7 @@ export default Ember.Controller.extend({
                     "status":"POraised",
                     "InvolvedParties":"manufacturer,Supplier",
                     "transactionString":{
+                        "updatedBy":usertype,
                         "companyname": companyname,
                         "address": address,
                         "item ": item,

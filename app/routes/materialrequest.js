@@ -9,9 +9,9 @@ export default Ember.Route.extend({
 
         this.controllerFor('materialrequest').set('ShowingModalrequest', false);
         this.controllerFor('materialrequest').set('Requesttocompany', null);
-        this.controllerFor('materialrequest').set('shippingaddress', null);
+        this.controllerFor('materialrequest').set('address', null);
         this.controllerFor('materialrequest').set('RequestedDate', null);
-        this.controllerFor('materialrequest').set('Item', null);
+        this.controllerFor('materialrequest').set('item', null);
         this.controllerFor('materialrequest').set('Quantity', null);
     }
 });

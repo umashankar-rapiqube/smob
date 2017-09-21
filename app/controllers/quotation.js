@@ -7,25 +7,28 @@ actions:{
     submitdetails:function(){
         var requestid =this.get('requestid');
         console.log("requestid from qocntr ",requestid);
+        var usertype =this.get('usertype');
+        console.log('usertype',usertype);
         console.log("in func");
         let{companyname,
             address,
             item,
             Quantity,
-            totalprice,
+            totalamount,
             formdate
-        }=this.getProperties('companyname','address','item','Quantity','totalprice','formdate')
+        }=this.getProperties('companyname','address','item','Quantity','totalamount','formdate')
 
          var dataString = { 
             "requestid":requestid, 
             "status":"QuotationRaised",
             "InvolvedParties":"manufacturer,Supplier",
             "transactionString":{
+                "updatedBy":usertype,
                     "companyname": companyname,
                     "address": address,
                     "item": item,
                     "Quantity": Quantity,
-                    "totalprice": totalprice,
+                    "totalamount": totalamount,
                     "formdate":formdate
                 }
             };

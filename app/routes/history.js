@@ -6,9 +6,13 @@ export default Ember.Route.extend({
         console.log('usertpe :' +usertype);
         this.controllerFor('history').set('usertype', usertype);
 
-        var requestid =  this.controllerFor('userhome').get('requestid' );        
+        var requestid =  this.controllerFor('userhome').get('requestid');        
         console.log('requestid :' +requestid);
         this.controllerFor('history').set('requestid', requestid);
+
+        var status =  this.controllerFor('userhome').get('status'); 
+        console.log('status from histry :' +status);
+        this.controllerFor('history').set('status', status);
 
         var mycontroller = this;
                 return $.ajax({

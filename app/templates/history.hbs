@@ -31,22 +31,21 @@
   <ul style="list-style-type:none">
 
    {{#each transactionlist as |item|}} 
-      <li style="padding-left: 50%"><b> Updated By:</b>{{item.transactiondetails.updatedBy}}</li>
-     <li><b> Date:</b>{{item.transactiondetails.formdate}}</li>
      
+      <li style="padding-left: 50%"><b> Updated By:</b>{{item.transactiondetails.updatedBy}}</li>
+     <li style="color:red"><b> Date:</b>{{item.transactiondetails.formdate}}</li> 
      <li><b> Request To:</b>{{item.transactiondetails.companyname}}</li>
      <li><b> Item :</b> {{item.transactiondetails.item}}</li>
       <li><b> Quantity :</b>{{item.transactiondetails.Quantity}}</li>
-      <li>{{item.transactiondetails.Total_Cost}}</li>
- <li> <b> Address: </b>{{item.transactiondetails.address}}</li>
+      <li><b> Total Cost :</b>{{item.transactiondetails.Total_Cost}}</li>
+      <li> <b> Address: </b>{{item.transactiondetails.address}}</li>
    
       <hr class="style3">
       <br/>
   {{/each}}
 
   </ul>
-  {{transactionlist}}
-  {{transactiondetails}}
+ 
  </div>
  <!-- this button is for updateing next transaction-->
     <div class="row ">

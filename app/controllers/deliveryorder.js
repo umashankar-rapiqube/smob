@@ -8,6 +8,8 @@ export default Ember.Controller.extend({
         submitdetails:function(){
             var requestid =this.get('requestid');
             console.log("requestid from dOcntr ",requestid);
+            var usertype =this.get('usertype');
+            console.log('usertype',usertype);
             let{companyname,
                 address,
                 item,
@@ -20,6 +22,7 @@ export default Ember.Controller.extend({
                     "status":"DOraised",
                     "InvolvedParties":"manufacturer,Supplier",
                     "transactionString":{
+                        "updatedBy":usertype,
                         "companyname": companyname,
                         "address": address,
                         "item": item,
