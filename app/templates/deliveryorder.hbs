@@ -6,6 +6,7 @@
 <br/>
 <br/>
 <div class="materialrequest-box">
+ <br/>
   {{#if isShowdeliveryorder}}
   <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Deliver Order</b></h1></div>
@@ -44,7 +45,8 @@ placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
     {{!-- </div> --}}
    
   </form>
-  {{else}}
+  {{/if}}
+  {{#if isshowbutton}}
    <div class="row ">
       <button class="mybutton" type="submit" {{action 'doDelivered'}}>Delivery Delivered</button>
     </div> 

@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    isShowdeliveryorder:true,
+  //  isShowdeliveryorder:true,
     ShowingModal:false,
-
+    isshowbutton:false,
     actions:{
         submitdetails:function(){
             var requestid =this.get('requestid');
@@ -63,13 +63,15 @@ export default Ember.Controller.extend({
                 doDelivered:function(){
                     var requestid =this.get('requestid');
                     console.log("requestid from dOcntr ",requestid);
+                    var usertype =this.get('usertype');
+                    console.log('usertype',usertype);
                     
                      var dataString = {  
                          "requestid":requestid,
-                            "status":"DODelivered",
+                            "status":"DoDelivered",
                             "InvolvedParties":"supplier,logistics",
                             "transactionString":{
-                               
+                                "updatedBy":usertype,
                             }
                         };
                         console.log(JSON.stringify(dataString));

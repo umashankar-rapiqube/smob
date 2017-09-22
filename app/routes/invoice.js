@@ -15,5 +15,10 @@ export default Ember.Route.extend({
           var requestid =  this.controllerFor('userhome').get('requestid' );        
           console.log('requestid from io:' +requestid);
           this.controllerFor('invoice').set('requestid', requestid);
+
+          var usertype = sessionStorage.getItem('usertype') ;
+          console.log('usertpe from route invoice :' +usertype);
+          this.controllerFor('invoice').set('usertype', usertype);
+  
     }
 });

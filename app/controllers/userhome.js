@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 
 export default Ember.Controller.extend({
+    isshowbutton:false,
     columns: [
             {
                 "propertyName": "requestid",
@@ -31,7 +32,7 @@ export default Ember.Controller.extend({
               
             ],
       actions:{
-        isShowdeliveryorder:false,
+        isShowdeliveryorder:true,
         godetails:function(requestid,status){
             var requestid = requestid;
             console.log('requestid : fron go',requestid);
@@ -63,26 +64,31 @@ export default Ember.Controller.extend({
               
             }else if(usertype === 'Supplier')
             {
-               // this.transitionToRoute('invoice'); 
+              
+            
                 if(status === "MaterialRequested"){
                     this.transitionToRoute('quotation');
                 }
                
                 else if(status === "POraised"){
-                     this.transitionToRoute('deliveryorder');
-                 }
-                 else if(status === 'DOraised')
-                 {
                     this.transitionToRoute('invoice'); 
+                 }
+                 else if(status === 'InvoiceRaised')
+                 {
+                    this.set('isshowbutton',false);
+                    this.set('isShowdeliveryorder',true);
+                     this.transitionToRoute('deliveryorder');
+                   
                 }
             }
             else if(usertype === 'logistics')
             {
                 console.log("logistics");
-                if(status === 'InvoiceRaised')
+                if(status === 'DOraised')
                     {
                         console.log("in status");
-                        this.set('isShowdeliveryorder',false);
+                        this.set('isShowdeliveryorder',true);
+                        this.set('isshowbutton',true);
                       this.transitionToRoute('deliveryorder');
                     }
 

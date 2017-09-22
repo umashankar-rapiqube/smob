@@ -70,6 +70,7 @@ export default Ember.Controller.extend(Validations,{
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),
                 success: function(response) {
+                    console.log(JSON.stringify(response));
                     var message = response.message;
                 console.log("message" + message);
                           
