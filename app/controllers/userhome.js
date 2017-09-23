@@ -61,16 +61,23 @@ export default Ember.Controller.extend({
                 else if(status === "POraised"){
                    // this.transitionToRoute('deliveryorder');
                 }
-              
+              else if(status === "DoDelivered")
+                {
+                    this.set('isShowinvoice',false);
+                    this.set('isShowbuttoninvoice',true);
+                    this.transitionToRoute('invoice'); 
+                }else if(status === "MaterialRequested"){
+                    this.transitionToRoute('quotation'); 
+                }
             }else if(usertype === 'Supplier')
             {
-              
-            
                 if(status === "MaterialRequested"){
                     this.transitionToRoute('quotation');
                 }
                
                 else if(status === "POraised"){
+                    this.set('isShowinvoice',true);
+                    this.set('isShowbuttoninvoice',false);
                     this.transitionToRoute('invoice'); 
                  }
                  else if(status === 'InvoiceRaised')
@@ -79,6 +86,11 @@ export default Ember.Controller.extend({
                     this.set('isShowdeliveryorder',true);
                      this.transitionToRoute('deliveryorder');
                    
+                }
+                else if(status === 'PaymentInitiated'){
+                    this.set('isshowpaymentbutton',true);
+                    this.set('isShowpaymentorder',false);
+                    this.transitionToRoute('paymentorder'); 
                 }
             }
             else if(usertype === 'logistics')
@@ -93,11 +105,12 @@ export default Ember.Controller.extend({
                       this.transitionToRoute('deliveryorder');
                     }
 
-            }else if(usertype === 'Banker')
-            {
-                 
-                if(status === 'DOdelivered')
+            }else if(usertype === 'banker')
+            {   
+                if(status === 'InvoiceApproved')
                     {
+                        this.set('isshowpaymentbutton',false);
+                        this.set('isShowpaymentorder',true);
                         this.transitionToRoute('paymentorder'); 
                     }
 

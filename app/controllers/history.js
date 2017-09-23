@@ -14,7 +14,12 @@ actions:{
             else if(status === "POraised"){
                // this.transitionToRoute('deliveryorder');
             }
-          
+          else if(status === "DoDelivered")
+            {
+                this.set('isShowinvoice',false);
+                this.set('isShowbuttoninvoice',true);
+                this.transitionToRoute('invoice'); 
+            }
         }else if(usertype === 'Supplier')
         {
           
@@ -24,6 +29,8 @@ actions:{
             }
            
             else if(status === "POraised"){
+                this.set('isShowinvoice',true);
+                this.set('isShowbuttoninvoice',false);
                 this.transitionToRoute('invoice'); 
              }
              else if(status === 'InvoiceRaised')
@@ -40,17 +47,17 @@ actions:{
             if(status === 'DOraised')
                 {
                     console.log("in status");
-                    this.set('isShowdeliveryorder',true);
                     this.set('isshowbutton',true);
+                    this.set('isShowdeliveryorder',false);
+                  
                   this.transitionToRoute('deliveryorder');
                 }
 
-        }else if(usertype === 'Banker')
-        {
-             
-            if(status === 'DOdelivered')
+        }else if(usertype === 'banker')
+        {   
+            if(status === 'InvoiceApproved')
                 {
-                   // this.transitionToRoute('invoice'); 
+                    this.transitionToRoute('paymentorder'); 
                 }
 
         }
@@ -58,10 +65,6 @@ actions:{
             {
 
             }
-       
-         
-       
-         
                 
     }
 }

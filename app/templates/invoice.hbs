@@ -6,7 +6,7 @@
 <br/>
 <br/>
 <div class="materialrequest-box">
-  
+  {{#if isShowinvoice}}
   <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b> Invoice</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
@@ -50,7 +50,12 @@
     {{!-- </div> --}}
    
   </form>
-   
+   {{/if}}
+   {{#if isShowbuttoninvoice}}
+    <div class="row ">
+      <button class="mybutton" type="submit" {{action 'approvetoinvoice'}}>Approve Invoice</button>
+    </div> 
+{{/if}}
  </div> 
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
@@ -59,4 +64,13 @@
                               <button type="button" class="close" {{action "okbutton" }}>ok</button>
                         </div>
  {{/modal-dialog}}
+ {{/if}}
+ {{#if ShowingModal}}
+ {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Invoice Approved Sucessflly... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+
  {{/if}}

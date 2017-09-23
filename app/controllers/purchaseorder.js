@@ -8,12 +8,14 @@ export default Ember.Controller.extend({
         quotationreject:function(){
             var requestid =this.get('requestid');
             console.log("requestid from POcntr ",requestid);
+            var usertype =this.get('usertype');
+            console.log('usertype',usertype);
             var dataString = {  
                 "requestid":requestid,
                     "status":"QuotationRejected",
                     "InvolvedParties":"manufacturer,Supplier",
                     "transactionString":{
-                        
+                       "usertype":usertype 
                     }
                 };
                 console.log(JSON.stringify(dataString));

@@ -5,6 +5,7 @@
 <br/>
 <br/>
 <div class="materialrequest-box">
+  {{#if isShowpaymentorder}}
   <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Payment Order</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
@@ -21,7 +22,11 @@
     </div>
 
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='paymentorderNo' placeholder="Payment Order NO" required=""}} 
+      {{validated-input  type="text" model=this  valuePath='formno' placeholder="Payment Order NO" required=""}} 
+    </div>
+
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='totalamount' placeholder="Total Amount" required=""}} 
     </div>
     
      {{!-- <div class="myformright"> --}}
@@ -31,8 +36,14 @@
     </div> 
      </div>
     {{!-- </div> --}}
-   
+         
   </form>
+  {{/if}}
+  {{#if isshowpaymentbutton}}
+  <div class="row ">
+      <button class="mybutton" type="submit" {{action 'paymentrecieved'}}>Payment Recieved</button>
+    </div> 
+  {{/if}}
  </div> 
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
