@@ -29,7 +29,8 @@ actions:{
                     "address": address,
                     "formdate": formdate,
                     "item": item,
-                    "Quantity": Quantity
+                    "Quantity": Quantity,
+                    "totalamount":"NA"
                 }
             };
             console.log(JSON.stringify(dataString));

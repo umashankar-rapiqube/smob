@@ -12,5 +12,13 @@ export default Ember.Route.extend({
         var usertype = sessionStorage.getItem('usertype') ;
         console.log('usertpe :' +usertype);
         this.controllerFor('quotation').set('usertype', usertype);
+
+        
+        this.controllerFor('quotation').set('companyname', null);
+        this.controllerFor('quotation').set('address', null);
+        this.controllerFor('quotation').set('formdate', null);
+        this.controllerFor('quotation').set('item', null);
+        this.controllerFor('quotation').set('totalamount', null);
+        
     }
 });

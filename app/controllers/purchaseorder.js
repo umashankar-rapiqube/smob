@@ -49,7 +49,7 @@ export default Ember.Controller.extend({
             console.log("requestid from POcntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype',usertype);
-            console.log("in func");
+            console.log("item :",this.get('item'));
             let{companyname,
                 address,
                 item,
@@ -69,7 +69,8 @@ export default Ember.Controller.extend({
                         "item ": item,
                         "Quantity": Quantity,
                         "pono": pono,
-                        "formdate":formdate
+                        "formdate":formdate,
+                        "totalamount":"NA"
                     }
                 };
                 console.log(JSON.stringify(dataString));

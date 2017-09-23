@@ -87,8 +87,9 @@ export default Ember.Controller.extend({
                 if(status === 'DOraised')
                     {
                         console.log("in status");
-                        this.set('isShowdeliveryorder',true);
                         this.set('isshowbutton',true);
+                        this.set('isShowdeliveryorder',false);
+                      
                       this.transitionToRoute('deliveryorder');
                     }
 
@@ -97,7 +98,7 @@ export default Ember.Controller.extend({
                  
                 if(status === 'DOdelivered')
                     {
-                       // this.transitionToRoute('invoice'); 
+                        this.transitionToRoute('paymentorder'); 
                     }
 
             }

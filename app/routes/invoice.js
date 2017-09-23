@@ -5,7 +5,7 @@ export default Ember.Route.extend({
         this.controllerFor('invoice').set('ShowingModalrequest', false);
         
           this.controllerFor('invoice').set('invoiceToCompany', null);
-          this.controllerFor('invoice').set('shippingaddress', null);
+          this.controllerFor('invoice').set('address', null);
           this.controllerFor('invoice').set('item', null);
           this.controllerFor('invoice').set('Quantity', null);
           this.controllerFor('invoice').set('invoiceNo', null);

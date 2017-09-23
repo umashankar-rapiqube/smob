@@ -27,7 +27,8 @@ export default Ember.Controller.extend({
                         "address": address,
                         "item": item,
                         "Quantity": Quantity,    
-                        "formdate":formdate
+                        "formdate":formdate,
+                        "totalamount":"NA"
                     }
                 };
                 console.log(JSON.stringify(dataString));

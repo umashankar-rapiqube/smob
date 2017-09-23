@@ -10,5 +10,11 @@ export default Ember.Route.extend({
         console.log('usertpe :' +usertype);
         this.controllerFor('purchaseorder').set('usertype', usertype);
 
+        this.controllerFor('purchaseorder').set('ShowingModalrequest', false);
+        this.controllerFor('purchaseorder').set('companyname', null);
+        this.controllerFor('purchaseorder').set('address', null);
+        this.controllerFor('purchaseorder').set('formdate', null);
+        this.controllerFor('purchaseorder').set('item', null);
+
     }
 });
