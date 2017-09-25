@@ -14,6 +14,9 @@ export default Ember.Route.extend({
         console.log('status from histry :' +status);
         this.controllerFor('history').set('status', status);
 
+        var updatedby =sessionStorage.getItem('updatedby') ;
+        console.log("updatedby from history : ",updatedby);
+
         var mycontroller = this;
                 return $.ajax({
                 url:'http://192.168.0.29:3000/readRequest',
@@ -30,6 +33,13 @@ export default Ember.Route.extend({
                     mycontroller.controllerFor('history').set('transactiondetails', transactiondetails);
                 var  transactionlist =  response.message.transactionlist; 
                     mycontroller.controllerFor('history').set('transactionlist', transactionlist);
+                    /*var mylength =transactionlist.length;
+                    console.log("mylength :",mylength);*/
+                    var lastindex =transactionlist.slice(-1);
+                    console.log("lastindex :",JSON.stringify(lastindex));
+                    var lastusertype = lastindex[0].transactiondetails.updatedBy;
+                    console.log("lastusertype :",lastusertype);
+                    mycontroller.controllerFor('history').set('lastusertype', lastusertype);
                 },      
                 error: function(response) {
                    console.log('DEBUG: GET Enquiries Failed');

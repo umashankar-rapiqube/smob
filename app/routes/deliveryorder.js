@@ -18,11 +18,11 @@ export default Ember.Route.extend({
         console.log('usertpe :' +usertype);
         this.controllerFor('deliveryorder').set('usertype', usertype);
 
-      var  isShowdeliveryorder=this.controllerFor('userhome').get('isShowdeliveryorder' );
+      var  isShowdeliveryorder=this.controllerFor('history').get('isShowdeliveryorder' );
       console.log('isShowdeliveryorder' +isShowdeliveryorder);
       this.controllerFor('deliveryorder').set('isShowdeliveryorder', isShowdeliveryorder);
 
-      var  isshowbutton=this.controllerFor('userhome').get('isshowbutton' );
+      var  isshowbutton=this.controllerFor('history').get('isshowbutton' );
       console.log('isshowbutton' +isshowbutton);
       this.controllerFor('deliveryorder').set('isshowbutton', isshowbutton);
 

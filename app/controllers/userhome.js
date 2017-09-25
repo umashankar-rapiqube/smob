@@ -41,6 +41,8 @@ export default Ember.Controller.extend({
             console.log('status : fron go',status);
             this.set('status',status);
             console.log("in godetails");
+            var usertype =this.get('usertype');
+          //  sessionStorage.setItem("updatedby",usertype);
              this.transitionToRoute('history');
         },
         updatedetails:function(requestid,status){
@@ -67,6 +69,7 @@ export default Ember.Controller.extend({
                     this.set('isShowbuttoninvoice',true);
                     this.transitionToRoute('invoice'); 
                 }else if(status === "MaterialRequested"){
+                    
                     this.transitionToRoute('quotation'); 
                 }
             }else if(usertype === 'Supplier')

@@ -7,7 +7,10 @@ actions:{
         console.log("usertype",usertype);
         var status =this.get('status');
         console.log("status frim histry cntyr:",status);
-        if (usertype === 'Manufacturer'){
+         var lastusertype = this.get('lastusertype');
+         console.log("lastusertype from histery cntr :",lastusertype);
+        if (usertype === 'Manufacturer')
+        {
             if(status === "QuotationRaised"){
                 this.transitionToRoute('purchaseorder');
             }
@@ -19,11 +22,17 @@ actions:{
                 this.set('isShowinvoice',false);
                 this.set('isShowbuttoninvoice',true);
                 this.transitionToRoute('invoice'); 
+            }else if(status === "MaterialRequested")
+            {
+                if(lastusertype === "Distributor")
+                {
+                this.transitionToRoute('quotation'); 
+                }else{
+                    alert("This request not intended for You");
+                }
             }
         }else if(usertype === 'Supplier')
         {
-          
-        
             if(status === "MaterialRequested"){
                 this.transitionToRoute('quotation');
             }
@@ -39,6 +48,11 @@ actions:{
                 this.set('isShowdeliveryorder',true);
                  this.transitionToRoute('deliveryorder');
                
+            }
+            else if(status === 'PaymentInitiated'){
+                this.set('isshowpaymentbutton',true);
+                this.set('isShowpaymentorder',false);
+                this.transitionToRoute('paymentorder'); 
             }
         }
         else if(usertype === 'logistics')
@@ -57,6 +71,8 @@ actions:{
         {   
             if(status === 'InvoiceApproved')
                 {
+                    this.set('isshowpaymentbutton',false);
+                    this.set('isShowpaymentorder',true);
                     this.transitionToRoute('paymentorder'); 
                 }
 
@@ -65,10 +81,8 @@ actions:{
             {
 
             }
-                
+        }
     }
-}
-
 
 });
 

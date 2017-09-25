@@ -13,6 +13,7 @@ actions:{
 
         var usertype =this.get('usertype');
         console.log('usertype',usertype);
+        sessionStorage.setItem('updatedby',usertype);
         console.log("in func");
         let{companyname,
             address,

@@ -10,11 +10,11 @@ export default Ember.Route.extend({
         console.log('usertpe :' +usertype);
         this.controllerFor('paymentorder').set('usertype', usertype);
 
-        var isShowpaymentorder = this.controllerFor('userhome').get('isShowpaymentorder' );        
+        var isShowpaymentorder = this.controllerFor('history').get('isShowpaymentorder' );        
         console.log('isShowpaymentorder from po:' +isShowpaymentorder);
         this.controllerFor('paymentorder').set('isShowpaymentorder', isShowpaymentorder);
 
-        var  isshowpaymentbutton=this.controllerFor('userhome').get('isshowpaymentbutton' );
+        var  isshowpaymentbutton=this.controllerFor('history').get('isshowpaymentbutton' );
         console.log('isshowpaymentbutton' +isshowpaymentbutton);
         this.controllerFor('paymentorder').set('isshowpaymentbutton', isshowpaymentbutton);
   

@@ -20,13 +20,13 @@ export default Ember.Route.extend({
           console.log('usertpe from route invoice :' +usertype);
           this.controllerFor('invoice').set('usertype', usertype);
 
-          var isShowbuttoninvoice =  this.controllerFor('userhome').get('isShowbuttoninvoice' );        
+       /*   var isShowbuttoninvoice =  this.controllerFor('userhome').get('isShowbuttoninvoice' );        
           console.log('isShowbuttoninvoice from io:' +isShowbuttoninvoice);
           this.controllerFor('invoice').set('isShowbuttoninvoice', isShowbuttoninvoice);
 
           var isShowinvoice =  this.controllerFor('userhome').get('isShowinvoice' );        
           console.log('isShowinvoice from io:' +isShowinvoice);
-          this.controllerFor('invoice').set('isShowinvoice', isShowinvoice);
+          this.controllerFor('invoice').set('isShowinvoice', isShowinvoice);*/
 
           var isShowbuttoninvoice =  this.controllerFor('history').get('isShowbuttoninvoice' );        
           console.log('isShowbuttoninvoice from io:' +isShowbuttoninvoice);
