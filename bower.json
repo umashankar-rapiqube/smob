@@ -1,5 +1,6 @@
 {
   "name": "smob",
   "dependencies": {
+    "dinosheets": "0.1.1"
   }
 }

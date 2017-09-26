@@ -15,6 +15,8 @@ actions:{
         console.log('usertype',usertype);
         sessionStorage.setItem('updatedby',usertype);
         console.log("in func");
+        var url =this.get('url');
+        console.log("url frm cntrl :",url);
         let{companyname,
             address,
             formdate,
@@ -31,7 +33,8 @@ actions:{
                     "formdate": formdate,
                     "item": item,
                     "Quantity": Quantity,
-                    "totalamount":"NA"
+                    "totalamount":"NA",
+                    "url":url
                 }
             };
             console.log(JSON.stringify(dataString));

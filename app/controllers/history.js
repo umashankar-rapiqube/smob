@@ -9,78 +9,181 @@ actions:{
         console.log("status frim histry cntyr:",status);
          var lastusertype = this.get('lastusertype');
          console.log("lastusertype from histery cntr :",lastusertype);
-        if (usertype === 'Manufacturer')
-        {
-            if(status === "QuotationRaised"){
-                this.transitionToRoute('purchaseorder');
-            }
-            else if(status === "POraised"){
-               // this.transitionToRoute('deliveryorder');
-            }
-          else if(status === "DoDelivered")
+     
+            if (usertype === 'Manufacturer')
             {
-                this.set('isShowinvoice',false);
-                this.set('isShowbuttoninvoice',true);
-                this.transitionToRoute('invoice'); 
-            }else if(status === "MaterialRequested")
-            {
-                if(lastusertype === "Distributor")
+                if(status === 'MaterialRequested'  )
                 {
-                this.transitionToRoute('quotation'); 
-                }else{
-                    alert("This request not intended for You");
+                    if(lastusertype === "Distributor"){ 
+                    this.transitionToRoute('quotation'); 
+                    }
+                    else
+                        {
+                              alert("This request not intended for You...1");
+                        }    
                 }
-            }
-        }else if(usertype === 'Supplier')
-        {
-            if(status === "MaterialRequested"){
-                this.transitionToRoute('quotation');
-            }
-           
-            else if(status === "POraised"){
-                this.set('isShowinvoice',true);
-                this.set('isShowbuttoninvoice',false);
-                this.transitionToRoute('invoice'); 
-             }
-             else if(status === 'InvoiceRaised')
-             {
-                this.set('isshowbutton',false);
-                this.set('isShowdeliveryorder',true);
-                 this.transitionToRoute('deliveryorder');
                
-            }
-            else if(status === 'PaymentInitiated'){
-                this.set('isshowpaymentbutton',true);
-                this.set('isShowpaymentorder',false);
-                this.transitionToRoute('paymentorder'); 
-            }
-        }
-        else if(usertype === 'logistics')
-        {
-            console.log("logistics");
-            if(status === 'DOraised')
-                {
-                    console.log("in status");
-                    this.set('isshowbutton',true);
-                    this.set('isShowdeliveryorder',false);
-                  
-                  this.transitionToRoute('deliveryorder');
-                }
+              
+        if(status === 'QuotationRaised' )
+                 {
+                     if( lastusertype === "Supplier"){
+                    this.transitionToRoute('purchaseorder');
+                     }
+                     else
+                        {
+                              alert("This request not intended for You...1");
+                        }    
+                 } 
+               
+       if(status === 'POraised')
 
-        }else if(usertype === 'banker')
-        {   
-            if(status === 'InvoiceApproved')
                 {
-                    this.set('isshowpaymentbutton',false);
-                    this.set('isShowpaymentorder',true);
-                    this.transitionToRoute('paymentorder'); 
+                    if( lastusertype === "Distributor"){
+                    this.set('isShowinvoice',true);
+                    this.set('isShowbuttoninvoice',false);
+                    this.transitionToRoute('invoice');
+                 } 
+                 else
+                    {
+                          alert("This request not intended for You ..3");
+                    }   
                 }
-
-        }
-        else if(usertype === 'Distributor')
+       if(status === 'InvoiceRaised'  )
+                    {
+                        if(lastusertype === "Manufacturer"){
+                        this.transitionToRoute('deliveryorder');
+                        }
+                     
+                     else
+                        {
+                              alert("This request not intended for You...4");
+                        } 
+                    }  
+      if(status === 'DoDelivered')
+                    {
+                        if(lastusertype === "logistics")   {
+                        this.set('isShowinvoice',false);
+                            this.set('isShowbuttoninvoice',true);
+                            this.transitionToRoute('invoice');
+                        }
+                    
+                    else
+                    {
+                          alert("This request not intended for You");
+                    }    
+                }
+            }
+            
+            if (usertype === 'Supplier')
             {
+                if(status === 'MaterialRequested')
+                    {
+                        console.log("....1.....")
+                        if(lastusertype === 'Manufacturer'){
+                         this.transitionToRoute('quotation'); 
+                        }
+                        else
+                            {
+                                alert("This request not intended for You ....5");
+                            }
+                    }
+                    
+                if(status === 'POraised' )
+                    {
+                        console.log("in poraised supplirr");
+                        if(lastusertype === 'Manufacturer'){ 
+                            this.set('isShowinvoice',true);
+                            this.set('isShowbuttoninvoice',false)
+                        this.transitionToRoute('invoice'); 
+                        }
+                        else
+                            {
+                                alert("This request not intended for You ....5");
+                            }
+                    }
+                      
+                    if(status === 'InvoiceRaised' )
+                        {
+                            if(lastusertype === "Supplier"){
+                            
+                            this.set('isshowbutton',false);
+                            this.set('isShowdeliveryorder',true);
+                            this.transitionToRoute('deliveryorder'); 
+                            } else
+                            {
+                                alert("This request not intended for You ....5");
+                            }
+                        }
+                        if(status === 'PaymentInitiated' )
+                            {
+                            if(lastusertype === "banker"){
+                            
+                            this.set('isShowpaymentorder',false);
+                            this.set('isshowpaymentbutton',true);
+                            this.transitionToRoute('paymentorder'); 
+                            } else
+                            {
+                                alert("This request not intended for You ....5");
+                            }
+                            }
+                         
+            }
+            if (usertype === 'Distributor')
+            {
+               console.log("in if distributor..............")
+                if(status === 'QuotationRaised')
+                {
+                    if(lastusertype === "Manufacturer")
+                        {
+                            this.transitionToRoute('purchaseorder'); 
+                        }
+                        else
+                        {
+                                alert("This request not intended for You ...6");
+                            }    
+                    }
+                else
+                    {
+                         alert("This request not intended for You ...6");
+                     }
+                     /*if(status === 'Doraised')
+                        {
+                            if(lastusertype === "Manufacturer")
+                                {
+                                    this.transitionToRoute('purchaseorder'); 
+                                }
+                        }*/
 
             }
+            if (usertype === 'logistics')
+            {
+                if(status === 'DOraised')
+                    {
+                        if(lastusertype === "Supplier")
+                            {
+                                this.set('isShowdeliveryorder',false);
+                                this.set('isshowbutton',true);
+                                this.transitionToRoute('deliveryorder'); 
+                            }
+                    }
+            }
+            if (usertype === 'banker')
+                {
+                    if(status === 'InvoiceRaised')
+                        {
+                            if(lastusertype === "Manufacturer")
+                                {
+                                    this.set('isShowpaymentorder',true);
+                                    this.set('isshowpaymentbutton',false);
+                                    this.transitionToRoute('paymentorder'); 
+                                }
+                        }
+        
+                }
+          
+      
+            
+        
         }
     }
 
