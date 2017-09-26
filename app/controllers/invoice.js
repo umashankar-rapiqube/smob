@@ -29,7 +29,8 @@ export default Ember.Controller.extend({
                         "formdate":formdate,
                         "item": item,
                         "Quantity": Quantity,    
-                        "totalamount": totalamount
+                        "totalamount": totalamount,
+                        "status":"InvoiceRaised",
                     }
                 };
                 console.log(JSON.stringify(dataString));
@@ -71,6 +72,7 @@ export default Ember.Controller.extend({
                         "InvolvedParties":"manufacturer,Supplier,Banker",
                         "transactionString":{
                             "updatedBy":usertype,
+                            "status":"InvoiceApproved",
                             
                         }
                     };

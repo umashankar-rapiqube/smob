@@ -67,11 +67,10 @@ placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
  {{/if}}  
   {{#if isshowNotdelivered}}
   <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='remark' placeholder="Remark" required=""}}
-      
+      {{validated-input  type="text" model=this  valuePath='remark' placeholder="Remark" required=""}}   
     </div>
    <div class="row ">
-      <button class="mybutton" type="submit" {{action 'doDelivered'}}>Delivery Not Delivered</button>
+      <button class="mybutton" type="submit" {{action 'notDelivered'}}>Delivery Not Delivered</button>
     </div> 
  {{/if}}  
  
@@ -89,6 +88,15 @@ placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
  {{#if ShowingModal}}
 {{#modal-dialog close="doDelivered" targetAttachment="center" translucentOverlay=true}}
                  <h3>Your Goods are Delivered Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+ {{/if}}
+ 
+ {{#if myShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Your Remark submitted Sucessfully... !</h3>
                         <div class="modal-header">
                               <button type="button" class="close" {{action "okbutton" }}>ok</button>
                         </div>

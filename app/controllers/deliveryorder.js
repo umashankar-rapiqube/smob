@@ -47,7 +47,8 @@ export default Ember.Controller.extend({
                         "item": item,
                         "Quantity": Quantity,    
                         "formdate":formdate,
-                        "totalamount":"NA"
+                        "totalamount":"NA",
+                        "status":"DOraised",
                     }
                 };
                 console.log(JSON.stringify(dataString));
@@ -92,13 +93,14 @@ export default Ember.Controller.extend({
                             "InvolvedParties":"supplier,logistics",
                             "transactionString":{
                                 "updatedBy":usertype,
+                                "status":"DoDelivered",
                             }
                         };
                         console.log(JSON.stringify(dataString));
                         var mycontroller = this;
             
                             return $.ajax({
-                            url:'http://192.168.0.29:3000/updateRequest',
+                            url:'http://192.168.1.22:3000/updateRequest',
                             type: 'POST',
                             contentType: 'application/json',
                             data: JSON.stringify(dataString),
@@ -106,6 +108,56 @@ export default Ember.Controller.extend({
                                 var message = response.message;
                                 console.log("message" + message);
                                       mycontroller.toggleProperty('ShowingModal');
+                                        // mycontroller.transitionToRoute('userhome')
+                                        // mycontroller.transitionToRoute('home');
+            
+                            },      
+                                error: function(response) {
+                               console.log('DEBUG: GET Enquiries Failed');
+                               console.log("Error Message: ", response.message);
+                               
+                        }
+                            
+                            });
+
+                },
+                notDelivered:function(){
+                    var requestid =this.get('requestid');
+                    console.log("requestid from dOcntr ",requestid);
+                    var usertype =this.get('usertype');
+                    console.log('usertype',usertype);
+                    var remark =this.get('remark');
+                    console.log('remark',remark);
+                    
+
+                     var dataString = {  
+                         "requestid":requestid,
+                            "status":"NotDelivered",
+                            "InvolvedParties":"supplier,logistics",
+                            "transactionString":{
+                                "updatedBy":usertype,
+                                "remark":remark,
+                                "status":"NotDelivered",
+                                "companyname": "NA",
+                                "address":"NA",
+                                "item": "NA",
+                                "Quantity": "NA",    
+                                "formdate":"NA",
+                                "totalamount":"NA"
+                            }
+                        };
+                        console.log(JSON.stringify(dataString));
+                        var mycontroller = this;
+            
+                            return $.ajax({
+                            url:'http://192.168.1.22:3000/updateRequest',
+                            type: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify(dataString),
+                            success: function(response) {
+                                var message = response.message;
+                                console.log("message" + message);
+                                      mycontroller.toggleProperty('myShowingModal');
                                         // mycontroller.transitionToRoute('userhome')
                                         // mycontroller.transitionToRoute('home');
             

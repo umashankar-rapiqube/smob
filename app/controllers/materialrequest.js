@@ -34,7 +34,8 @@ actions:{
                     "item": item,
                     "Quantity": Quantity,
                     "totalamount":"NA",
-                    "url":url
+                    "url":url,
+                    "status":"MaterialRequested",
                 }
             };
             console.log(JSON.stringify(dataString));

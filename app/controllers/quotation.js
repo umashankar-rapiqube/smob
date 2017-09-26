@@ -29,7 +29,8 @@ actions:{
                     "item": item,
                     "Quantity": Quantity,
                     "totalamount": totalamount,
-                    "formdate":formdate
+                    "formdate":formdate,
+                    "status":"QuotationRaised",
                 }
             };
             console.log(JSON.stringify(dataString));

@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('delivery');
   this.route('invoice');
   this.route('paymentorder');
+  this.route('claimpage');
 });
 
 export default Router;

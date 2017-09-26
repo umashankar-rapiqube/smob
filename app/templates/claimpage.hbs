@@ -1,0 +1,77 @@
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="materialrequest-box">
+ <br/>
+
+  
+ {{#if isShowclaimdetails}}
+  <div id="inner-form-header">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Claim Details</b></h1></div>
+    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div> 
+  <br/>
+   <form action="" method="post">
+     <div class="myformleft" align="center">
+    <div class="group">  
+            
+       {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Claim to" required=""}}
+      
+    </div>
+	    
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='formdate' placeholder="Claim Date" required=""}}
+    </div>
+      
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='claimamount' placeholder="Claim Amount" required=""}}
+      
+    </div>
+     <div class="row ">
+      <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
+    </div> 
+
+     </div>
+    {{!-- </div> --}}
+   
+  </form>
+{{/if}}
+  {{#if isshowbutton}}
+  <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='damageamont' placeholder="Damage Amount" required=""}}
+    </div>
+
+   <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='claimamount' placeholder="Claim Amount" required=""}}
+     </div>
+   <div class="row ">
+      <button class="mybutton" type="submit" {{action 'doclaimRequest'}}>Claim request</button>
+    </div> 
+ {{/if}}  
+  
+ 
+
+ </div> 
+ {{#if ShowingModalrequest}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Claim requested Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+ {{/if}}
+
+ }
+ 
+ {{#if myShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Your Claim Raised Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+ {{/if}}
