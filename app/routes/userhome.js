@@ -45,7 +45,7 @@ var mydata = 155;
          console.log(data.length)
         var mycontroller =this;
            return $.ajax({
-            url:'http://192.168.0.29:3000/readIndex',
+            url:'http://192.168.1.22:3000/readIndex',
             type: 'GET',
             contentType: 'application/json',
             success: function(data) {

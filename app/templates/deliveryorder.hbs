@@ -7,6 +7,20 @@
 <br/>
 <div class="materialrequest-box">
  <br/>
+
+  {{#if isShow}}
+   
+    <br/>
+    <div class="row ">
+      <button class="mybutton" type="submit" {{action 'toDeliverDelivery'}}>To Deliver delivery </button>
+    </div>
+    <br/>
+    <br/>  <b><span style="margin-left:50%">OR</span></b>
+    <br/>
+    <div class="row ">
+      <button class="mybutton" type="submit" {{action 'notdeliverdelivery'}}>To not Deliver delivery </button>
+    </div>
+  {{/if}}
   {{#if isShowdeliveryorder}}
   <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Deliver Order</b></h1></div>
@@ -51,6 +65,16 @@ placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
       <button class="mybutton" type="submit" {{action 'doDelivered'}}>Delivery Delivered</button>
     </div> 
  {{/if}}  
+  {{#if isshowNotdelivered}}
+  <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='remark' placeholder="Remark" required=""}}
+      
+    </div>
+   <div class="row ">
+      <button class="mybutton" type="submit" {{action 'doDelivered'}}>Delivery Not Delivered</button>
+    </div> 
+ {{/if}}  
+ 
 
  </div> 
  {{#if ShowingModalrequest}}

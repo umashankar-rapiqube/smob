@@ -41,7 +41,7 @@ actions:{
             var mycontroller = this;
 
                 return $.ajax({
-                url:'http://192.168.0.29:3000/newRequest',
+                url:'http://192.168.1.22:3000/newRequest',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),

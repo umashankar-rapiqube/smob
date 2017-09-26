@@ -51,6 +51,8 @@ actions:{
        if(status === 'InvoiceRaised'  )
                     {
                         if(lastusertype === "Manufacturer"){
+                            this.set('isShow',false);
+                            this.set('isShowdeliveryorder',true);
                         this.transitionToRoute('deliveryorder');
                         }
                      
@@ -106,7 +108,7 @@ actions:{
                         {
                             if(lastusertype === "Supplier"){
                             
-                            this.set('isshowbutton',false);
+                                this.set('isShow',false);;
                             this.set('isShowdeliveryorder',true);
                             this.transitionToRoute('deliveryorder'); 
                             } else
@@ -157,13 +159,14 @@ actions:{
             }
             if (usertype === 'logistics')
             {
+                
                 if(status === 'DOraised')
                     {
                         if(lastusertype === "Supplier")
                             {
-                                this.set('isShowdeliveryorder',false);
-                                this.set('isshowbutton',true);
-                                this.transitionToRoute('deliveryorder'); 
+                                this.set('isShow',true);
+                                this.transitionToRoute('deliveryorder');
+                              
                             }
                     }
             }

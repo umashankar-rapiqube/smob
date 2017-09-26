@@ -65,7 +65,7 @@ export default Ember.Controller.extend(Validations,{
                  var mycontroller = this;
                 console.log(email);
                 return $.ajax({
-                url:'http://192.168.0.29:3000/mock/Login',
+                url:'http://192.168.1.22:3000/mock/Login',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),

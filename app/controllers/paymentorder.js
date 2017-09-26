@@ -32,7 +32,7 @@ export default Ember.Controller.extend({
                     var mycontroller = this;
 
                     return $.ajax({
-                    url:'http://192.168.0.29:3000/updateRequest',
+                    url:'http://192.168.1.22:3000/updateRequest',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(dataString),
@@ -89,7 +89,7 @@ export default Ember.Controller.extend({
                     var mycontroller = this;
 
                     return $.ajax({
-                    url:'http://192.168.0.29:3000/updateRequest',
+                    url:'http://192.168.1.22:3000/updateRequest',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(dataString),

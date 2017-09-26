@@ -4,7 +4,26 @@ export default Ember.Controller.extend({
   //  isShowdeliveryorder:true,
     ShowingModal:false,
     isshowbutton:false,
+    isShow:true,
     actions:{
+        toraisedelivery:function(){
+            this.set('isShow',false);
+            this.set('isShowdeliveryorder',true);
+            this.set('isshowbutton',false);
+            this.set('isshowNotdelivered',false);
+        },
+        toDeliverDelivery:function(){
+            this.set('isShow',false);
+            this.set('isShowdeliveryorder',false);
+            this.set('isshowbutton',true);
+            this.set('isshowNotdelivered',false);
+        },
+        notdeliverdelivery:function(){
+            this.set('isShow',false);
+            this.set('isShowdeliveryorder',false);
+            this.set('isshowbutton',false);
+            this.set('isshowNotdelivered',true);
+        },
         submitdetails:function(){
             var requestid =this.get('requestid');
             console.log("requestid from dOcntr ",requestid);
@@ -15,7 +34,7 @@ export default Ember.Controller.extend({
                 item,
                 Quantity,
                 formdate
-            }=this.getProperties('companyname','address','item','Quantity','pono','formdate')
+            }=this.getProperties('companyname','address','item','Quantity','pono','formdate');
     
              var dataString = {  
                  "requestid":requestid,
@@ -35,7 +54,7 @@ export default Ember.Controller.extend({
                 var mycontroller = this;
     
                     return $.ajax({
-                    url:'http://192.168.0.29:3000/updateRequest',
+                    url:'http://192.168.1.22:3000/updateRequest',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(dataString),

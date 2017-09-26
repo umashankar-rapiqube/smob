@@ -26,6 +26,10 @@ export default Ember.Route.extend({
       console.log('isshowbutton' +isshowbutton);
       this.controllerFor('deliveryorder').set('isshowbutton', isshowbutton);
 
+      var  isShow=this.controllerFor('history').get('isShow' );
+      console.log('isShow' +isShow);
+      this.controllerFor('deliveryorder').set('isShow', isShow);
 
+      
     }
 });

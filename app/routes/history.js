@@ -19,7 +19,7 @@ export default Ember.Route.extend({
 
         var mycontroller = this;
                 return $.ajax({
-                url:'http://192.168.0.29:3000/readRequest',
+                url:'http://192.168.1.22:3000/readRequest',
                 type: 'GET',
                 contentType: 'application/json', 
                 headers:{
