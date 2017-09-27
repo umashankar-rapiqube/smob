@@ -6,12 +6,14 @@ export default Ember.Controller.extend({
             console.log("requestid from POcntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype',usertype);
+            var url = this.get('url');
+            console.log('url------>',url);
       
             let{companyname,
                 formno,
                 formdate,
                 totalamount
-             }=this.getProperties('companyname','formno','formdate','totalamount')
+             }=this.getProperties('companyname','formno','formdate','totalamount');
 
              var dataString = {  
                 "requestid":requestid,
@@ -25,7 +27,9 @@ export default Ember.Controller.extend({
                         "totalamount":totalamount,
                         "address": "NA",
                         "item":"NA",
+                        "url":url,
                         "Quantity": "NA",
+                        "status":"PaymentInitiated",
                     }
                 };
                 console.log(JSON.stringify(dataString));
@@ -63,6 +67,7 @@ export default Ember.Controller.extend({
             console.log("requestid from Paymentordercntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype',usertype);
+            
       
             let{companyname,
                 formno,
@@ -83,6 +88,7 @@ export default Ember.Controller.extend({
                         "address": "NA",
                         "item":"NA",
                         "Quantity": "NA",
+                        "status":"PaymentReceived",
                     }
                 };
                 console.log(JSON.stringify(dataString));

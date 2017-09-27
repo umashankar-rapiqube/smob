@@ -15,7 +15,15 @@ export default Ember.Controller.extend({
                     "status":"QuotationRejected",
                     "InvolvedParties":"manufacturer,Supplier",
                     "transactionString":{
-                       "usertype":usertype 
+                       "usertype":usertype ,
+                      "companyname": "NA",
+                       "address":"NA",
+                       "item ": "NA",
+                       "Quantity":"NA",
+                       "pono":"NA",
+                       "formdate":"NA",
+                       "totalamount":"NA",
+                       "status":"QuotationRejected",
                     }
                 };
                 console.log(JSON.stringify(dataString));
@@ -51,7 +59,8 @@ export default Ember.Controller.extend({
             console.log("requestid from POcntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype',usertype);
-            console.log("item :",this.get('item'));
+            var url = this.get('url');
+            console.log('url ------>',url);
             let{companyname,
                 address,
                 item,
@@ -72,7 +81,9 @@ export default Ember.Controller.extend({
                         "Quantity": Quantity,
                         "pono": pono,
                         "formdate":formdate,
-                        "totalamount":"NA"
+                        "url":url,
+                        "totalamount":"NA",
+                        "status":"POraised",
                     }
                 };
                 console.log(JSON.stringify(dataString));

@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
             console.log("status frim histry cntyr:", status);
             var lastusertype = this.get('lastusertype');
             console.log("lastusertype from histery cntr :", lastusertype);
+            var secondlastusertype =this.get('secondlastusertype');
+            console.log("secondlastusertype from histery cntr :", secondlastusertype);
 
             if (usertype === 'Manufacturer') {
 
@@ -30,7 +32,6 @@ export default Ember.Controller.extend({
                 }
 
                 if (status === 'POraised')
-
                 {
                     if (lastusertype === "Distributor") {
                         this.set('isShowinvoice', true);
@@ -51,12 +52,15 @@ export default Ember.Controller.extend({
                 }
                 if (status === 'DoDelivered') {
                     if (lastusertype === "logistics") {
+                        if(secondlastusertype === 'Supplier'){
                         this.set('isShowinvoice', false);
                         this.set('isShowbuttoninvoice', true);
                         this.transitionToRoute('invoice');
-                    } else {
-                        alert("This request not intended for You");
-                    }
+                        }
+                        else {
+                            alert("This request not intended for You");
+                        }
+                    } 
                 }
                 if (status === 'NotDelivered') {
                     if (lastusertype === "logistics") {
@@ -158,21 +162,52 @@ export default Ember.Controller.extend({
                 }
                 if (status === 'DoDelivered') {
                     if (lastusertype === "logistics") {
+                        if (secondlastusertype === 'Manufacturer'){
                         this.set('isShowinvoice', false);
                         this.set('isShowbuttoninvoice', true);
                         this.transitionToRoute('invoice');
+                        }else {
+                            alert("This request not intended for You");
+                        }
+                    } 
+                }
+                if(status === 'POraised'){
+                    if (lastusertype === "retailer") {
+                        this.set('isShowinvoice', true);
+                        this.set('isShowbuttoninvoice', false);
+                        this.transitionToRoute('invoice');
+
                     } else {
+                        alert("This request not intended for You");
+                    }
+                }
+                if(status === 'InvoiceRaised'){
+                    if (lastusertype === "Distributor") {
+                        this.set('isShow', false);
+                        this.set('isShowdeliveryorder', true);
+                        this.transitionToRoute('deliveryorder');
+
+                    } else {
+                        alert("This request not intended for You");
+                    }
+                }
+                if(status === 'PaymentInitiated'){
+                    if(secondlastusertype === 'retailer'){
+                        this.set('isShowpaymentorder', false);
+                        this.set('isshowpaymentbutton', true);
+                        this.transitionToRoute('paymentorder');
+                    }else{
                         alert("This request not intended for You");
                     }
                 }
 
             }
+
             if (usertype === 'logistics') {
 
                 if (status === 'DOraised') {
 
-
-                    this.set('isShow', true);
+                      this.set('isShow', true);
                     this.transitionToRoute('deliveryorder');
 
 
@@ -180,11 +215,11 @@ export default Ember.Controller.extend({
             }
             if (usertype === 'banker') {
                 if (status === 'InvoiceApproved') {
-                    if (lastusertype === "Manufacturer") {
+                    
                         this.set('isShowpaymentorder', true);
                         this.set('isshowpaymentbutton', false);
                         this.transitionToRoute('paymentorder');
-                    }
+                    
                 }
                 if (status === 'claimRaised') {
                     this.set('isShowpaymentorder', true);
@@ -209,6 +244,17 @@ export default Ember.Controller.extend({
                         alert("This request not intended for You ...6");
                     }
                 } 
+                if (status === 'DoDelivered') {
+                    if (lastusertype === "logistics") {
+                        if(secondlastusertype === 'Distributor'){
+                        this.set('isShowinvoice', false);
+                        this.set('isShowbuttoninvoice', true);
+                        this.transitionToRoute('invoice');
+                        }
+                    } else {
+                        alert("This request not intended for You");
+                    }
+                }
                 
 
 

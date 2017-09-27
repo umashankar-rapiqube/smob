@@ -28,6 +28,11 @@
      <div class="group">      
       {{validated-input  type="text" model=this  valuePath='totalamount' placeholder="Total Amount" required=""}} 
     </div>
+     <div class="row">
+    {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
+          <a id="upload_file" style="font-size:14px">Upload File</a>
+         {{/pl-uploader}}
+    </div>
     
      {{!-- <div class="myformright"> --}}
      

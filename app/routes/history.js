@@ -37,6 +37,14 @@ export default Ember.Route.extend({
                     console.log("mylength :",mylength);*/
                     var lastindex =transactionlist.slice(-1);
                     console.log("lastindex :",JSON.stringify(lastindex));
+
+                    var secondlastindex =transactionlist.slice(-2);
+                    console.log("secondlastindex------------> :",JSON.stringify(secondlastindex));
+
+                    var secondlastusertype =  secondlastindex[0].transactiondetails.updatedBy;
+                    console.log("secondlastusertype----->>>>>>>--> :",secondlastusertype);
+                    mycontroller.controllerFor('history').set('secondlastusertype', secondlastusertype);
+
                     var lastusertype = lastindex[0].transactiondetails.updatedBy;
                     console.log("lastusertype :",lastusertype);
                     mycontroller.controllerFor('history').set('lastusertype', lastusertype);

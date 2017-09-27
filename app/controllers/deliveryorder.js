@@ -29,6 +29,8 @@ export default Ember.Controller.extend({
             console.log("requestid from dOcntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype',usertype);
+            var url =this.get('url');
+            console.log('url------>',url);
             let{companyname,
                 address,
                 item,
@@ -47,6 +49,7 @@ export default Ember.Controller.extend({
                         "item": item,
                         "Quantity": Quantity,    
                         "formdate":formdate,
+                        "url":url,
                         "totalamount":"NA",
                         "status":"DOraised",
                     }
@@ -128,6 +131,7 @@ export default Ember.Controller.extend({
                     console.log('usertype',usertype);
                     var remark =this.get('remark');
                     console.log('remark',remark);
+                    
                     
 
                      var dataString = {  

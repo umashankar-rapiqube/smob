@@ -10,6 +10,8 @@ actions:{
         var usertype =this.get('usertype');
         console.log('usertype',usertype);
         console.log("in func");
+        var url =this.get('url');
+        console.log("url------------>",url);
         let{companyname,
             address,
             item,
@@ -30,6 +32,7 @@ actions:{
                     "Quantity": Quantity,
                     "totalamount": totalamount,
                     "formdate":formdate,
+                    "url":url,
                     "status":"QuotationRaised",
                 }
             };

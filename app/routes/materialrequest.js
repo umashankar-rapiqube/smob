@@ -14,7 +14,7 @@ var mycontroller = this;
         console.log("url ::",JSON.stringify(url));
         mycontroller.controllerFor('materialrequest').set('url',url);
         alert("Document uploaded sucessfully!!!!");
-         // this.toggleProperty('isShowingModalphoto');
+        mycontroller.toggleProperty('ShowingModal');
          // this.set("isShowingModalphoto",true);
         console.log("saviing file...");
         console.log("file upload sucessfully. 1..");

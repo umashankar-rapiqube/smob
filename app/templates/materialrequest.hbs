@@ -22,8 +22,9 @@
       
     </div>
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='formdate' placeholder="Requested Date" required=""}}
-      
+     {{!-- {{validated-input  type="text" model=this  valuePath='formdate' placeholder="Requested Date" required=""}}--}}
+      {{pikaday-input class="form-control" value=enddeliverydate valuePath="formdate"  onSelection=(action (mut formdate)) 
+                                    placeholder=" Requested Date" readonly=true format="DD/MMM/YYYY" size="40"}}
     </div>
     
      {{!-- <div class="myformright"> --}}
@@ -36,9 +37,9 @@
       {{validated-input  type="text" model=this  valuePath='Quantity' placeholder="Quantity" required=""}}
       
     </div>
-  <div class="row ">
+  <div class="row">
     {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
-          <a id="upload_file">Upload File</a>
+          <a id="upload_file" style="font-size:18px">Upload File</a>
          {{/pl-uploader}}
     </div>
      <div class="row ">
@@ -53,6 +54,15 @@
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
           <h3>Material request Submitted Sucessfully... !</h3>
+                <div class="modal-header">
+                        <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                </div>
+ {{/modal-dialog}}
+ {{/if}}
+
+ {{#if ShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+          <h3>file Uploaded Sucessfully... !</h3>
                 <div class="modal-header">
                         <button type="button" class="close" {{action "okbutton" }}>ok</button>
                 </div>

@@ -1,5 +1,6 @@
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
+
 //@import "ember-paper";
 //@import "ember-paper-stepper";
 //@import "ember-material-design";
@@ -583,6 +584,7 @@ a:link, a:visited{
    margin-left: 40px;
   margin-right: 40px;
   box-shadow: 10px 10px 5px #888888;
+  overflow-x: scroll;
   }
 .btn-circle.btn-lg {
   width: 50px;
@@ -779,4 +781,27 @@ hr.style3 {
     -webkit-transition: all 0.4s;
 	transition: all 0.4s;
 	border-radius: 2px;
+}
+
+.legendsquare{
+  
+     background: #73AD21;
+     padding: 20px; 
+     width: 30px;
+     height: 30px;    
+ }
+ .blue {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:        border-box;
+  height:50px;
+  width: 20%;
+  background:#73AD21;
+  display:inline-block;
+  float: left;
+  margin: 0 5% 5% 0;
+}
+.scrolldash{
+  overflow-x: scroll;
+
 }

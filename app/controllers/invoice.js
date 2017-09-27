@@ -8,6 +8,8 @@ export default Ember.Controller.extend({
             console.log("requestid from dOcntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype',usertype);
+            var url =this.get('url');
+            console.log('url------->',url);
             let{companyname,
                 address,
                 invoiceNo,
@@ -30,6 +32,7 @@ export default Ember.Controller.extend({
                         "item": item,
                         "Quantity": Quantity,    
                         "totalamount": totalamount,
+                        "url":url,
                         "status":"InvoiceRaised",
                     }
                 };

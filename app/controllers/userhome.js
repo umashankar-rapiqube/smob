@@ -130,6 +130,37 @@ export default Ember.Controller.extend({
               this.transitionToRoute('materialrequest');
                   
         },
+        readlegend:function(requestid){
+            var requestid=requestid;
+            console.log("lolwa:-----------"+requestid);
+            var mycontroller = this;
+            $.ajax({
+           url:'http://192.168.1.22:3000/readRequest',
+           type: 'GET',
+           contentType: 'application/json',
+           headers:{
+               'authorization':requestid
+           },
+           success: function(response) {
+               // var message = response.message;
+           console.log(JSON.stringify(response));
+           var transactiondetails =response.message.transactionlist[0].transactiondetails;
+               console.log(JSON.stringify(transactiondetails));
+               mycontroller.set('transactiondetails', transactiondetails);
+           var  transactionlist =  response.message.transactionlist;
+               mycontroller.set('transactionlist', transactionlist);
+
+              },      
+          error: function(response) {
+              console.log('DEBUG: GET Enquiries Failed');
+              console.log("Error Message: ", response.message);
+              
+          }
+          
+           });
+
+
+        }
 
         /*callajax:function(){
             var mycontroller = this;
