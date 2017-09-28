@@ -39,7 +39,8 @@
       
     </div>
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='formdate' placeholder="Delivery Date" required=""}}
+     {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
+                                    placeholder=" Requested Date" readonly=true format="DD/MMM/YYYY" size="40"}}
     </div>
       
      <div class="group">      
@@ -51,11 +52,13 @@
        {{!-- {{pikaday-input class="form-control" value=startdeliverydate valuePath="startdeliverydate"  onSelection=(action (mut startdeliverydate)) 
 placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
     </div>
-    <div class="row">
-    {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
-          <a id="upload_file" style="font-size:14px">Upload File</a>
+    <div class="group">   
+        {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
+          <a id="upload_file" style="font-size:18px"><img src="assets/images/images2.png" alt="Smiley face" width="42" height="42">Click Here To Upload Quotation Order</a>
          {{/pl-uploader}}
+ 
     </div>
+   
      <div class="row ">
       <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
     </div> 

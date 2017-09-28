@@ -24,7 +24,8 @@
     </div>
 	    
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='formdate' placeholder="Claim Date" required=""}}
+    {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
+                                    placeholder=" Requested Date" readonly=true format="DD/MMM/YYYY" size="40"}}
     </div>
       
      <div class="group">      

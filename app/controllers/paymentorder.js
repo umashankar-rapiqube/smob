@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import CONFIG from 'smob-ui-1/config/environment';
 export default Ember.Controller.extend({
     actions:{
         submitdetails:function(){
@@ -8,12 +9,15 @@ export default Ember.Controller.extend({
             console.log('usertype',usertype);
             var url = this.get('url');
             console.log('url------>',url);
-      
+            var mydate = JSON.stringify(this.get('formdate'));
+            console.log("mydate :--->",mydate);
+            var formdate1 =  mydate.substr(1, 10);
+            console.log("formdate ======>>",formdate1);
             let{companyname,
                 formno,
-                formdate,
+        
                 totalamount
-             }=this.getProperties('companyname','formno','formdate','totalamount');
+             }=this.getProperties('companyname','formno','totalamount');
 
              var dataString = {  
                 "requestid":requestid,
@@ -23,7 +27,7 @@ export default Ember.Controller.extend({
                         "updatedBy":usertype,
                         "companyname": companyname,
                         "formno": formno,
-                        "formdate":formdate,
+                        "formdate":formdate1,
                         "totalamount":totalamount,
                         "address": "NA",
                         "item":"NA",
@@ -36,7 +40,7 @@ export default Ember.Controller.extend({
                     var mycontroller = this;
 
                     return $.ajax({
-                    url:'http://192.168.1.22:3000/updateRequest',
+                    url:CONFIG.GOURL+'/updateRequest',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(dataString),
@@ -67,7 +71,10 @@ export default Ember.Controller.extend({
             console.log("requestid from Paymentordercntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype',usertype);
-            
+            var mydate = JSON.stringify(this.get('formdate'));
+            console.log("mydate :--->",mydate);
+            var formdate1 =  mydate.substr(1, 10);
+            console.log("formdate ======>>",formdate1);
       
             let{companyname,
                 formno,
@@ -83,7 +90,7 @@ export default Ember.Controller.extend({
                         "updatedBy":usertype,
                         "companyname": "NA",
                         "formno": "NA",
-                        "formdate":"NA",
+                        "formdate":formdate1,
                         "totalamount":"NA",
                         "address": "NA",
                         "item":"NA",
@@ -95,7 +102,7 @@ export default Ember.Controller.extend({
                     var mycontroller = this;
 
                     return $.ajax({
-                    url:'http://192.168.1.22:3000/updateRequest',
+                    url:CONFIG.GOURL+'/updateRequest',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(dataString),

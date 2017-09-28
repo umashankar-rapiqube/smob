@@ -1,5 +1,5 @@
 import Ember from 'ember';
-
+import CONFIG from 'smob-ui-1/config/environment';
 
 export default Ember.Controller.extend({
     isshowbutton:false,
@@ -135,7 +135,7 @@ export default Ember.Controller.extend({
             console.log("lolwa:-----------"+requestid);
             var mycontroller = this;
             $.ajax({
-           url:'http://192.168.1.22:3000/readRequest',
+           url:CONFIG.GOURL+'/readRequest',
            type: 'GET',
            contentType: 'application/json',
            headers:{
@@ -160,6 +160,9 @@ export default Ember.Controller.extend({
            });
 
 
+        },
+        gotohistorypage:function(){
+            this.transitionToRoute('history');
         }
 
         /*callajax:function(){

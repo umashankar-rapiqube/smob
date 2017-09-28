@@ -1,5 +1,5 @@
 import Ember from 'ember';
-
+import CONFIG from 'smob-ui-1/config/environment';
 
 
   var myrecord =[];
@@ -17,11 +17,18 @@ actions:{
         console.log("in func");
         var url =this.get('url');
         console.log("url frm cntrl :",url);
+        var mydate = JSON.stringify(this.get('formdate'));
+        console.log("mydate :--->",mydate);
+        var formdate1 =  mydate.substr(1, 10);
+        console.log("formdate ======>>",formdate1);
+       // var companyname1 =this.get('companyname');
+      //  console.log(" companyname-------->",companyname1);
+      //  this.set("companyname",companyname1)
         let{companyname,
             address,
-            formdate,
+         
             item,
-            Quantity}=this.getProperties('companyname','address','formdate','item','Quantity')
+            Quantity}=this.getProperties('companyname','address','item','Quantity')
 
          var dataString = {  
                 "status":"MaterialRequested",
@@ -30,11 +37,12 @@ actions:{
                     "updatedBy":usertype,
                     "companyname": companyname,
                     "address": address,
-                    "formdate": formdate,
+                    "formdate": formdate1,
                     "item": item,
                     "Quantity": Quantity,
                     "totalamount":"NA",
                     "url":url,
+                    "remark":"NA",
                     "status":"MaterialRequested",
                 }
             };
@@ -42,7 +50,7 @@ actions:{
             var mycontroller = this;
 
                 return $.ajax({
-                url:'http://192.168.1.22:3000/newRequest',
+                url:CONFIG.GOURL+'/newRequest',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),

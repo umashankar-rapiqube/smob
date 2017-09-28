@@ -1,5 +1,5 @@
 import Ember from 'ember';
-
+import CONFIG from 'smob-ui-1/config/environment';
 export default Ember.Route.extend({
     model(){
          this.controllerFor('userhome').set('showregistration', false);
@@ -45,7 +45,7 @@ var mydata = 155;
          console.log(data.length)
         var mycontroller =this;
            return $.ajax({
-            url:'http://192.168.1.22:3000/readIndex',
+            url:CONFIG.GOURL+'/readIndex',
             type: 'GET',
             contentType: 'application/json',
             success: function(data) {
@@ -53,6 +53,9 @@ var mydata = 155;
             console.log(JSON.stringify(data));
            var message =data.message;
            sessionStorage.setItem('message', message);
+           var myarray =message.reverse();
+           console.log(JSON.stringify(myarray));
+           mycontroller.controllerFor('userhome').set("myarray",myarray);
            mycontroller.controllerFor('userhome').set("data",message);
             console.log("length "+message.length);
             //alert("hello")

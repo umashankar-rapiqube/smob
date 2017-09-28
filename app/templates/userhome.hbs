@@ -33,7 +33,8 @@ $(document).ready(function() {
        {{#each transactionlist as |item|}} 
         <div class="stepwizard-step">
          <!--<button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           -->
-       <img src="assets/images/cube.png" alt="Smiley face" width="42" height="42">
+       <button class="image" type="submit" {{action 'gotohistorypage'}} >  <img src="assets/images/cube.png" alt="Smiley face" width="42" height="42"></button>
+      &nbsp; &nbsp;<img src="assets/images/images4.jpg" alt="Smiley face" width="60" height="42"> &nbsp; &nbsp;
        <p>{{item.transactiondetails.status}} &nbsp;</p>
      </div>
   
@@ -83,7 +84,7 @@ $(document).ready(function() {
       <button class="mybutton" type="submit" {{action 'newrequest'}}>New Request</button>
     </div>
         {{/if}}
-      {{#each data as |item|}}
+      {{#each myarray as |item|}}
       <div id="rcorners1">
        <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>
         <p><b> Date :</b> {{item.date}}</p>
