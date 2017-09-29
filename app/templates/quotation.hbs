@@ -4,6 +4,26 @@
 <br/>
 <br/>
 <br/>
+<script>
+    $(document).ready(function() {
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('.go-top').fadeIn(200);
+            } else {
+                $('.go-top').fadeOut(200);
+            }
+        });
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 300);
+        })
+    });
+</script>
+
 <div class="quotation-box">
   <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Quotation Details</b></h1></div>
@@ -14,7 +34,7 @@
       <div class="myformleft" align="center">
     <div class="group">  
             
-       {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Manufacturer Company name" required=""}}
+       {{validated-input  type="text" model=this value=companyname valuePath='companyname' placeholder="Quotation For" required=""}}
       
     </div>
 	    <div class="group">      
@@ -32,7 +52,7 @@
       </div>
      <div class="group">      
      {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
-                                    placeholder=" Quotation Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+                                    placeholder="Quotation Date" readonly=true format="DD/MMM/YYYY" size="40"}}
     </div>
      <div class="group">   
         {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
@@ -48,14 +68,14 @@
    </div>
     </form>
   </div>
- 
+  <a href="#" class="go-top">Scroll to Top</a> 
 
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
  
                  <h3>Quotation Generated Sucessfully...!... !</h3>
                             <div class="modal-header">
-                                    <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                                    <button class="mybutton" type="button" class="close" {{action "okbutton" }}>ok</button>
                            
   </div>
  {{/modal-dialog}}

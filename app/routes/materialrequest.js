@@ -15,7 +15,7 @@ var mycontroller = this;
         mycontroller.controllerFor('materialrequest').set('url',url);
         alert("Document uploaded sucessfully!!!!");
         mycontroller.toggleProperty('ShowingModal');
-         // this.set("isShowingModalphoto",true);
+        mycontroller.set("ShowingModal",true);
         console.log("saviing file...");
         console.log("file upload sucessfully. 1..");
         //return image.save();
@@ -40,5 +40,9 @@ var mycontroller = this;
         this.controllerFor('materialrequest').set('formdate', null);
         this.controllerFor('materialrequest').set('item', null);
         this.controllerFor('materialrequest').set('Quantity', null);
+         
+        var secondlastusertype =this.controllerFor('userhome').get('secondlastusertype');
+        console.log("secondlastusertype=====",secondlastusertype);
+        this.controllerFor('materialrequest').set('secondlastusertype',secondlastusertype);
     }
 });

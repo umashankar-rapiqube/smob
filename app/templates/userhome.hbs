@@ -1,3 +1,22 @@
+<script>
+    $(document).ready(function() {
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('.go-top').fadeIn(200);
+            } else {
+                $('.go-top').fadeOut(200);
+            }
+        });
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 300);
+        })
+    });
+</script>
 
 <!--<script type="text/javascript">
 
@@ -28,18 +47,19 @@ $(document).ready(function() {
 <div class="stepwizard">
    <ul style="list-style-type:none">
        
-    <div class="stepwizard-row">
-      
+
+   
        {{#each transactionlist as |item|}} 
         <div class="stepwizard-step">
          <!--<button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           -->
-       <button class="image" type="submit" {{action 'gotohistorypage'}} >  <img src="assets/images/cube.png" alt="Smiley face" width="42" height="42"></button>
-      &nbsp; &nbsp;<img src="assets/images/images4.jpg" alt="Smiley face" width="60" height="42"> &nbsp; &nbsp;
-       <p>{{item.transactiondetails.status}} &nbsp;</p>
+    <p>{{item.transactiondetails.formdate}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p {{action 'gotohistorypage'}}>  <img src="assets/images/cube.png" alt="Smiley face" width="45" height="45"></p>
+      
+       <p>{{item.transactiondetails.status}} &nbsp;&nbsp;&nbsp;&nbsp;</p>
      </div>
-  
+
        {{/each}}
-         </div>
+    
       </ul>
          <!--<div id="b" style="position:absolute;"> -->
            
@@ -101,9 +121,10 @@ $(document).ready(function() {
       </div>
       <br/>
       {{/each}}
-        
+   
     </div>  
  
+ <a href="#" class="go-top">Scroll to Top</a> 
 
    <!-- <button class="mybutton" type="submit" {{action 'callajax'}}>test Request</button>
 

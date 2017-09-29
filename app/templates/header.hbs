@@ -46,7 +46,7 @@
             </button>
             <ul class="dropdown-menu">
               {{#if showUser}}
-                  <li><a ><b>Hello ,</b> {{usertype}}</a></li> 
+                  <li><a > <span class="glyphicon glyphicon-user"> <b>Hello ,</b> {{usertype}}</span> </a> </li> 
                    <li><a {{action 'logout'}}>Logout</a></li> 
               {{else}}
                   <li><a {{action 'toggleModal'}}><i class="material-icons">face</i> Login</a></li> 

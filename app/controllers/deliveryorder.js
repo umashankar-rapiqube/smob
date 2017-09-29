@@ -1,6 +1,55 @@
 import Ember from 'ember';
 import CONFIG from 'smob-ui-1/config/environment';
-export default Ember.Controller.extend({
+import {
+    validator,
+    buildValidations
+}
+from 'ember-cp-validations';
+
+var Validations = buildValidations({
+    companyname: [
+        validator('presence', true),
+        validator('format', {
+            regex: /^[a-zA-Z]{4,20}$/,
+            message: 'This field must be a valid Company name'
+        })
+    ],
+    address: {
+        description: 'Password',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z0-9]{6,18}$/,
+                message: 'This field must be a Valid address '
+            })
+        ],
+    },
+    item :{
+        description: 'address',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z]{6,18}$/,
+                message: 'This field must be a Valid item '
+            })
+        ],
+    },
+    
+    Quantity:{
+        description: 'Quantity',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[0-9]{2,6}$/,
+                message: 'Please field this details '
+            })
+        ],
+    },
+
+
+});
+
+export default Ember.Controller.extend(Validations,{
   //  isShowdeliveryorder:true,
     ShowingModal:false,
     isshowbutton:false,
@@ -132,11 +181,15 @@ export default Ember.Controller.extend({
             console.log('usertype',usertype);
             var remark =this.get('remark');
             console.log('remark',remark);
+            var mydate = JSON.stringify(this.get('formdate'));
+            console.log("mydate :--->",mydate);
+            var formdate1 =  mydate.substr(1, 10);
+            console.log("formdate ======>>",formdate1);
             
                 var dataString = {  
                     "requestid":requestid,
                     "status":"NotDelivered",
-                    "InvolvedParties":"supplier,logistics",
+                    "InvolvedParties":usertype,
                     "transactionString":{
                         "updatedBy":usertype,
                         "remark":remark,
@@ -145,7 +198,7 @@ export default Ember.Controller.extend({
                         "address":"NA",
                         "item": "NA",
                         "Quantity": "NA",    
-                        "formdate":"NA",
+                        "formdate":formdate1,
                         "totalamount":"NA",
                         "status":"NotDelivered"
                         

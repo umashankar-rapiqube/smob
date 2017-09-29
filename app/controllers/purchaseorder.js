@@ -1,6 +1,55 @@
 import Ember from 'ember';
 import CONFIG from 'smob-ui-1/config/environment';
-export default Ember.Controller.extend({
+import {
+    validator,
+    buildValidations
+}
+from 'ember-cp-validations';
+
+var Validations = buildValidations({
+    companyname: [
+        validator('presence', true),
+        validator('format', {
+            regex: /^[a-zA-Z]{4,20}$/,
+            message: 'This field must be a valid Company name'
+        })
+    ],
+    address: {
+        description: 'Password',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z0-9]{6,18}$/,
+                message: 'This field must be a Valid Password '
+            })
+        ],
+    },
+    item :{
+        description: 'address',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z]{6,18}$/,
+                message: 'This field must be a Valid item '
+            })
+        ],
+    },
+    
+    Quantity:{
+        description: 'Quantity',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[0-9]{2,6}$/,
+                message: 'This field must be a Valid item '
+            })
+        ],
+    },
+
+
+});
+
+export default Ember.Controller.extend(Validations,{
     ShowingModalrequest:false,
     showdeliveryorder:false,
     isShow:true,
@@ -61,13 +110,17 @@ export default Ember.Controller.extend({
             console.log('usertype',usertype);
             var url = this.get('url');
             console.log('url ------>',url);
+            var mydate = JSON.stringify(this.get('formdate'));
+            console.log("mydate :--->",mydate);
+            var formdate1 =  mydate.substr(1, 10);
+            console.log("formdate ======>>",formdate1);
             let{companyname,
                 address,
                 item,
                 Quantity,
                 pono,
-                formdate
-             }=this.getProperties('companyname','address','item','Quantity','pono','formdate')
+                
+             }=this.getProperties('companyname','address','item','Quantity','pono')
 
              var dataString = {  
                 "requestid":requestid,
@@ -80,7 +133,7 @@ export default Ember.Controller.extend({
                         "item ": item,
                         "Quantity": Quantity,
                         "pono": pono,
-                        "formdate":formdate,
+                        "formdate":formdate1,
                         "url":url,
                         "totalamount":"NA",
                         "status":"POraised",

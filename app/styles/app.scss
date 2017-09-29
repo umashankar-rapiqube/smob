@@ -572,7 +572,7 @@ a:link, a:visited{
     height: 0px;
     background-color: #ccc;
     //z-order: 0;
-    border: 2px solid;
+    border: 0px solid;
 }
 
 .stepwizard-step {
@@ -671,7 +671,7 @@ th .ember-text-field, columns-dropdown, table tr:FIRST-CHILD + tr
 .materialrequest-box{
 //    position: relative;
     margin: auto;
-    height: 690px;
+    height: 800px;
     width: 600px;
      top: 40px;
 //    z-index: 200;
@@ -813,3 +813,40 @@ hr.style3 {
    line-height: 1.33;
    border-radius: 35px;
  }
+
+ .mydata {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.mydata:hover {
+  background-color: #555;
+}
+
+
+
+
+.go-top {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  padding: 1em;
+  display: none;
+}
+.go-top:hover {
+  background-color: dodgerblue;
+}

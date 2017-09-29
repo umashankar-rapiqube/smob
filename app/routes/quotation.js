@@ -40,8 +40,11 @@ export default Ember.Route.extend({
         console.log('usertpe :' +usertype);
         this.controllerFor('quotation').set('usertype', usertype);
 
+        var companyname =   this.controllerFor('materialrequest').get('companyname');
+        console.log('companyname--',companyname);
+        this.controllerFor('quotation').set('companyname', companyname);
         
-        this.controllerFor('quotation').set('companyname', null);
+       // this.controllerFor('quotation').set('companyname', null);
         this.controllerFor('quotation').set('address', null);
         this.controllerFor('quotation').set('formdate', null);
         this.controllerFor('quotation').set('item', null);

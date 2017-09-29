@@ -3,6 +3,25 @@
 <br/><br/>
 <br/>
 <br/>
+<script>
+    $(document).ready(function() {
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('.go-top').fadeIn(200);
+            } else {
+                $('.go-top').fadeOut(200);
+            }
+        });
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 300);
+        })
+    });
+</script>
 
 <div id="historyheader">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Transaction History</b></h1></div>
@@ -34,16 +53,24 @@
      
       <li style="padding-left: 50%"><b> Updated By:</b>{{item.transactiondetails.updatedBy}}</li>
      <li style="color:red"><span class="glyphicon glyphicon-calendar"></span> <b> Date:</b>{{item.transactiondetails.formdate}}</li> 
+     <br/>
      <li> <span class="glyphicon glyphicon-user"></span><b> Request To:</b>{{item.transactiondetails.companyname}}</li>
+     <br/>
      <li> <span class="glyphicon glyphicon-oil"></span> <b> Item :</b> {{item.transactiondetails.item}}</li>
+       <br/>
       <li>  <span class="glyphicon glyphicon-tasks"></span> <b> Quantity :</b>{{item.transactiondetails.Quantity}}</li>
+       <br/>
       <li>  <span class="glyphicon glyphicon-bitcoin"></span> <b> Total Cost :</b>{{item.transactiondetails.totalamount}}</li>
+       <br/>
       <li> <span class="glyphicon glyphicon-plane"></span> <b> Address: </b>{{item.transactiondetails.address}}</li>
+       <br/>
       <li>  <span class="glyphicon glyphicon-saved"></span>  <b> URL: </b>
 <a href={{item.transactiondetails.url}} download><img src="assets/images/images1.jpg" alt="Smiley face" width="42" height="42"> Click Here to Download Document</a>
           </li>
+           <br/>
            <li> <span class="glyphicon glyphicon-comment"></span> <b> Remark: </b>{{item.transactiondetails.remark}}</li>
       <hr class="style3">
+      <br/>
       <br/>
   {{/each}}
 
@@ -57,4 +84,4 @@
 
 </div>
 
-
+ <a href="#" class="go-top">Scroll to Top</a> 

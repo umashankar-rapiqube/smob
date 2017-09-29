@@ -16,7 +16,7 @@ export default Ember.Route.extend({
             alert("Document uploaded sucessfully!!!!");
              // this.toggleProperty('isShowingModalphoto');
              // this.set("isShowingModalphoto",true);
-            console.log("saviing file...");
+            
             console.log("file upload sucessfully. 1..");
             //return image.save();
             

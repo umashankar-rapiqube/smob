@@ -1,11 +1,60 @@
 import Ember from 'ember';
 import CONFIG from 'smob-ui-1/config/environment';
+import {
+    validator,
+    buildValidations
+}
+from 'ember-cp-validations';
+
+var Validations = buildValidations({
+    companyname: [
+        validator('presence', true),
+        validator('format', {
+            regex: /^[a-zA-Z]{4,20}$/,
+            message: 'This field must be a valid Company name'
+        })
+    ],
+    address: {
+        description: 'Password',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z0-9]{6,18}$/,
+                message: 'This field must be a Valid Password '
+            })
+        ],
+    },
+    item :{
+        description: 'address',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z]{6,18}$/,
+                message: 'This field must be a Valid item '
+            })
+        ],
+    },
+    
+    Quantity:{
+        description: 'Quantity',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[0-9]{2,6}$/,
+                message: 'This field must be a Valid item '
+            })
+        ],
+    },
+
+
+});
 
 
   var myrecord =[];
-export default Ember.Controller.extend({
+export default Ember.Controller.extend(Validations,{
 myaddrow:false,
 ShowingModalrequest: false,
+ShowingModal:false,
 
 actions:{
     
@@ -21,14 +70,14 @@ actions:{
         console.log("mydate :--->",mydate);
         var formdate1 =  mydate.substr(1, 10);
         console.log("formdate ======>>",formdate1);
-       // var companyname1 =this.get('companyname');
-      //  console.log(" companyname-------->",companyname1);
-      //  this.set("companyname",companyname1)
+        var secondlastusertype =this.get('secondlastusertype');
+        console.log("secondlastusertype ......frm cntr---:",secondlastusertype);
+      
         let{companyname,
             address,
-         
             item,
-            Quantity}=this.getProperties('companyname','address','item','Quantity')
+            Quantity}=this.getProperties('companyname','address','item','Quantity');
+            this.set('companyname',companyname);
 
          var dataString = {  
                 "status":"MaterialRequested",

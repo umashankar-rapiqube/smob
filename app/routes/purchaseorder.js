@@ -38,6 +38,9 @@ export default Ember.Route.extend({
         console.log('usertpe :' +usertype);
         this.controllerFor('purchaseorder').set('usertype', usertype);
 
+        var companyname =   this.controllerFor('materialrequest').get('companyname');
+        this.controllerFor('purchaseorder').set('companyname', companyname);
+
         this.controllerFor('purchaseorder').set('ShowingModalrequest', false);
         this.controllerFor('purchaseorder').set('companyname', null);
         this.controllerFor('purchaseorder').set('address', null);

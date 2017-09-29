@@ -31,7 +31,7 @@
     </div>
       <div class="group">   
         {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
-          <a id="upload_file" style="font-size:18px"><img src="assets/images/images2.png" alt="Smiley face" width="42" height="42">Click Here To Upload Quotation Order</a>
+          <a id="upload_file" style="font-size:18px"><img src="assets/images/images2.png" alt="Smiley face" width="42" height="42">Click Here To Upload Payment Details</a>
          {{/pl-uploader}}
  
     </div>
@@ -48,16 +48,23 @@
   </form>
   {{/if}}
   {{#if isshowpaymentbutton}}
-  <div class="row ">
+   <div class="myformleft" align="center">
+  <div class="group">      
+     {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
+                                    placeholder=" Payment Recieved  Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+    </div>
+
+     <div class="group">
       <button class="mybutton" type="submit" {{action 'paymentrecieved'}}>Payment Recieved</button>
     </div> 
+    </div>
   {{/if}}
  </div> 
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
-          <h3>Payment updated Sucessflly... !</h3>
+          <h3>Payment updated Sucessfully... !</h3>
                 <div class="modal-header">
-                        <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                        <button class="mybutton" type="button" class="close" {{action "okbutton" }}>ok</button>
                 </div>
  {{/modal-dialog}}
  {{/if}}

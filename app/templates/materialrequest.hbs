@@ -4,6 +4,26 @@
 <br/>
 <br/>
 <br/>
+<script>
+    $(document).ready(function() {
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('.go-top').fadeIn(200);
+            } else {
+                $('.go-top').fadeOut(200);
+            }
+        });
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 300);
+        })
+    });
+</script>
+
 <div class="materialrequest-box">
   <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Material Request</b></h1></div>
@@ -12,10 +32,9 @@
   <br/>
    <form action="" method="post">
      <div class="myformleft" align="center">
+        
     <div class="group">  
-             <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+            
        {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Request To" required=""}}
       
     </div>
@@ -23,10 +42,11 @@
       {{validated-input  type="text" model=this  valuePath='address' placeholder="Shipping Address" required=""}}
       
     </div>
-     <div class="group">      
+     <div class="group">   
      {{!-- {{validated-input  type="text" model=this  valuePath='formdate' placeholder="Requested Date" required=""}}--}}
       {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
                                     placeholder=" Requested Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+    
     </div>
     
      {{!-- <div class="myformright"> --}}
@@ -51,21 +71,20 @@
 
      </div>
     {{!-- </div> --}}
+    {{ShowingModal}}
 
   </form>
  </div> 
+  <a href="#" class="go-top">Scroll to Top</a> 
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
-<header class="w3-container w3-teal"> 
-        
-        <h2></h2>
-      </header>
+
       <div class="w3-container">
           <h3>Material request Submitted Sucessfully... !</h3>
       </div>
-               <footer class="w3-container w3-teal">
-                        <button type="button" class="close" {{action "okbutton" }}>ok</button>
-               </footer>
+             
+      <button  class="mybutton" type="button"  {{action "okbutton" }}>ok</button>
+         
  {{/modal-dialog}}
  {{/if}}
 

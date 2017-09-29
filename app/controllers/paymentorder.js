@@ -1,6 +1,56 @@
 import Ember from 'ember';
 import CONFIG from 'smob-ui-1/config/environment';
-export default Ember.Controller.extend({
+
+import {
+    validator,
+    buildValidations
+}
+from 'ember-cp-validations';
+
+var Validations = buildValidations({
+    companyname: [
+        validator('presence', true),
+        validator('format', {
+            regex: /^[a-zA-Z]{4,20}$/,
+            message: 'This field must be a valid Company name'
+        })
+    ],
+    address: {
+        description: 'Password',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z0-9]{6,18}$/,
+                message: 'This field must be a Valid Password '
+            })
+        ],
+    },
+    item :{
+        description: 'address',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z]{6,18}$/,
+                message: 'This field must be a Valid item '
+            })
+        ],
+    },
+    
+    Quantity:{
+        description: 'Quantity',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[0-9]{2,6}$/,
+                message: 'Please field this details'
+            })
+        ],
+    },
+
+
+});
+
+export default Ember.Controller.extend(Validations,{
     actions:{
         submitdetails:function(){
             var requestid =this.get('requestid');
@@ -22,7 +72,7 @@ export default Ember.Controller.extend({
              var dataString = {  
                 "requestid":requestid,
                     "status":"PaymentInitiated",
-                    "InvolvedParties":"manufacturer,Supplier",
+                    "InvolvedParties":usertype,
                     "transactionString":{
                         "updatedBy":usertype,
                         "companyname": companyname,
@@ -85,7 +135,7 @@ export default Ember.Controller.extend({
              var dataString = {  
                 "requestid":requestid,
                     "status":"PaymentReceived",
-                    "InvolvedParties":"manufacturer,Supplier",
+                    "InvolvedParties":usertype,
                     "transactionString":{
                         "updatedBy":usertype,
                         "companyname": "NA",

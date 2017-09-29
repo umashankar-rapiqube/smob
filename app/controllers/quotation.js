@@ -1,7 +1,55 @@
 import Ember from 'ember';
 import CONFIG from 'smob-ui-1/config/environment';
+import {
+    validator,
+    buildValidations
+}
+from 'ember-cp-validations';
 
-export default Ember.Controller.extend({
+var Validations = buildValidations({
+    companyname: [
+        validator('presence', true),
+        validator('format', {
+            regex: /^[a-zA-Z]{4,20}$/,
+            message: 'This field must be a valid Company name'
+        })
+    ],
+    address: {
+        description: 'Password',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z0-9]{6,18}$/,
+                message: 'This field must be a Valid Password '
+            })
+        ],
+    },
+    item :{
+        description: 'address',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[a-zA-Z]{6,18}$/,
+                message: 'This field must be a Valid item '
+            })
+        ],
+    },
+    
+    Quantity:{
+        description: 'Quantity',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[0-9]{2,6}$/,
+                message: 'Please field this details'
+            })
+        ],
+    },
+
+
+});
+
+export default Ember.Controller.extend(Validations,{
 
     ShowingModalrequest:false,
 
@@ -14,13 +62,17 @@ actions:{
         console.log("in func");
         var url =this.get('url');
         console.log("url------------>",url);
+        var mydate = JSON.stringify(this.get('formdate'));
+        console.log("mydate :--->",mydate);
+        var formdate1 =  mydate.substr(1, 10);
+        console.log("formdate ======>>",formdate1);
         let{companyname,
             address,
             item,
             Quantity,
             totalamount,
-            formdate
-        }=this.getProperties('companyname','address','item','Quantity','totalamount','formdate')
+           
+        }=this.getProperties('companyname','address','item','Quantity','totalamount')
 
          var dataString = { 
             "requestid":requestid, 
@@ -33,7 +85,7 @@ actions:{
                     "item": item,
                     "Quantity": Quantity,
                     "totalamount": totalamount,
-                    "formdate":formdate,
+                    "formdate":formdate1,
                     "url":url,
                     "status":"QuotationRaised",
                 }
