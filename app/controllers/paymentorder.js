@@ -34,9 +34,18 @@ var Validations = buildValidations({
                 message: 'This field must be a Valid item '
             })
         ],
-    },
-    
+    },  
     Quantity:{
+        description: 'Quantity',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[0-9]{2,6}$/,
+                message: 'Please field this details'
+            })
+        ],
+    },
+    totalamount:{
         description: 'Quantity',
         validators: [
             validator('presence', true),

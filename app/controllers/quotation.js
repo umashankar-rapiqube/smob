@@ -19,7 +19,7 @@ var Validations = buildValidations({
         validators: [
             validator('presence', true),
             validator('format', {
-                regex: /^[a-zA-Z0-9]{6,18}$/,
+                regex: /^[a-zA-Z0-9]{3,18}$/,
                 message: 'This field must be a Valid Password '
             })
         ],
@@ -29,13 +29,23 @@ var Validations = buildValidations({
         validators: [
             validator('presence', true),
             validator('format', {
-                regex: /^[a-zA-Z]{6,18}$/,
+                regex: /^[a-zA-Z]{3,18}$/,
                 message: 'This field must be a Valid item '
             })
         ],
     },
     
     Quantity:{
+        description: 'Quantity',
+        validators: [
+            validator('presence', true),
+            validator('format', {
+                regex: /^[0-9]{2,6}$/,
+                message: 'Please field this details'
+            })
+        ],
+    },
+    totalamount:{
         description: 'Quantity',
         validators: [
             validator('presence', true),
