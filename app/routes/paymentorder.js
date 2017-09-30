@@ -15,7 +15,7 @@ export default Ember.Route.extend({
             mycontroller.controllerFor('paymentorder').set('url',url);
             alert("Document uploaded sucessfully!!!!");
              // this.toggleProperty('isShowingModalphoto');
-             // this.set("isShowingModalphoto",true);
+             mycontroller.controllerFor('paymentorder').set("ShowingModal",true);
             
             console.log("file upload sucessfully. 1..");
             //return image.save();

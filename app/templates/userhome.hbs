@@ -100,12 +100,14 @@ $(document).ready(function() {
 <!-- user-detail-Table-->
 <div class="middle-container">
     {{#if shownewrequestbutton}}
+            <br/>
+            <br/>
     <div class="row ">
       <button class="mybutton" type="submit" {{action 'newrequest'}}>New Request</button>
     </div>
         {{/if}}
       {{#each myarray as |item|}}
-      <div id="rcorners1">
+     <!-- <div id="rcorners1">
        <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>
         <p><b> Date :</b> {{item.date}}</p>
        <p> <b>Status :</b> <span style="color:blue">{{item.status}}</span></p>
@@ -116,11 +118,33 @@ $(document).ready(function() {
            </div>
              <!--<div class="col-sm-6">
             <button class="updatebutton" {{action  'updatedetails'item.requestid  item.status}}>update</button>
-             </div>-->
+             </div>
        </div>
-      </div>
-      <br/>
+      </div>-->
+    <div id="rcorners1">
+       <div id='frame'>
+            <p class="note sticky1">
+                <div class='pin'></div>
+                 <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>
+                 <p><b> Date :</b> {{item.date}}</p>
+                 <p> <b>Status :</b> <span style="color:red">{{item.status}}</span></p>
+                 <br/>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button class="gobutton" {{action 'godetails' item.requestid  item.status }}>Go</button>
+                    </div>
+                </div>
+            
+             </p>
+           
+       </div>
+       </div>
+   
       {{/each}}
+
+
+
+      
    
     </div>  
  

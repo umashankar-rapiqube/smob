@@ -13,11 +13,11 @@ var mycontroller = this;
         var url =response.body.url;
         console.log("url ::",JSON.stringify(url));
         mycontroller.controllerFor('materialrequest').set('url',url);
-        alert("Document uploaded sucessfully!!!!");
+      //  alert("Document uploaded sucessfully!!!!");
         mycontroller.toggleProperty('ShowingModal');
-        mycontroller.set("ShowingModal",true);
+       mycontroller.controllerFor('materialrequest').set("ShowingModal",true);
         console.log("saviing file...");
-        console.log("file upload sucessfully. 1..");
+       
         //return image.save();
         
       }, function () {

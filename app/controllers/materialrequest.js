@@ -125,7 +125,10 @@ actions:{
 okbutton: function(){
     this.transitionToRoute("userhome");
 },
-
+Goto:function()
+{
+    this.set('ShowingModal',false);
+},
 addrow:function(){
     this.set('myaddrow',true);
              $('button#add').attr('disabled', 'disabled');

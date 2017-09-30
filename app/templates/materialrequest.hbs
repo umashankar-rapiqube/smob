@@ -71,8 +71,7 @@
 
      </div>
     {{!-- </div> --}}
-    {{ShowingModal}}
-
+ 
   </form>
  </div> 
   <a href="#" class="go-top">Scroll to Top</a> 
@@ -83,7 +82,7 @@
           <h3>Material request Submitted Sucessfully... !</h3>
       </div>
              
-      <button  class="mybutton" type="button"  {{action "okbutton" }}>ok</button>
+      <button  class="mybutton" type="button"  {{action "okbutton" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
          
  {{/modal-dialog}}
  {{/if}}
@@ -92,7 +91,7 @@
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
           <h3>file Uploaded Sucessfully... !</h3>
                 <div class="modal-header">
-                        <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                        <button type="button" class="close" {{action "Goto" }}> <img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
                 </div>
  {{/modal-dialog}}
  {{/if}}

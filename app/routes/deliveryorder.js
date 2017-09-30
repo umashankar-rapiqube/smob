@@ -13,9 +13,9 @@ export default Ember.Route.extend({
             var url =response.body.url;
             console.log("url ::",JSON.stringify(url));
             mycontroller.controllerFor('deliveryorder').set('url',url);
-            alert("Document uploaded sucessfully!!!!");
+          //  alert("Document uploaded sucessfully!!!!");
              // this.toggleProperty('isShowingModalphoto');
-             // this.set("isShowingModalphoto",true);
+              this.controllerFor('deliveryorder').set("isShowingModal",true);
             console.log("saviing file...");
             console.log("file upload sucessfully. 1..");
             //return image.save();

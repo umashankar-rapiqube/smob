@@ -228,7 +228,11 @@ export default Ember.Controller.extend(Validations,{
                     
                     });
 
-        }
+        },
+        Goto:function()
+        {
+            this.set('ShowingModal',false);
+        },
 
 }
         

@@ -64,7 +64,15 @@
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
           <h3>Payment updated Sucessfully... !</h3>
                 <div class="modal-header">
-                        <button class="mybutton" type="button" class="close" {{action "okbutton" }}>ok</button>
+                        <button class="mybutton" type="button" class="close" {{action "okbutton" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
+                </div>
+ {{/modal-dialog}}
+ {{/if}}
+ {{#if ShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+          <h3>file Uploaded Sucessfully... !</h3>
+                <div class="modal-header">
+                        <button type="button" class="close" {{action "Goto" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
                 </div>
  {{/modal-dialog}}
  {{/if}}

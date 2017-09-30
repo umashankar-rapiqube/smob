@@ -43,13 +43,17 @@
 {{/if}}
   {{#if isshowbutton}}
   <div class="group">      
+    {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
+                                    placeholder=" Calim Request Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+    </div>
+  <div class="group">      
       {{validated-input  type="text" model=this  valuePath='damageamont' placeholder="Damage Amount" required=""}}
     </div>
 
    <div class="group">      
       {{validated-input  type="text" model=this  valuePath='claimamount' placeholder="Claim Amount" required=""}}
      </div>
-   <div class="row ">
+   <div class="group">
       <button class="mybutton" type="submit" {{action 'doclaimRequest'}}>Claim request</button>
     </div> 
  {{/if}}  

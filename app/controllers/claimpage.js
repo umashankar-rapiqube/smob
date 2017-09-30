@@ -55,6 +55,10 @@ export default Ember.Controller.extend({
            
 
         },
+        Goto:function()
+        {
+            this.set('ShowingModal',false);
+        },
         doclaimRequest:function(){
             var requestid =this.get('requestid');
             console.log("requestid from Cm cntr ",requestid);

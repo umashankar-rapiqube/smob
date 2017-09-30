@@ -159,7 +159,10 @@ export default Ember.Controller.extend(Validations,{
                 },        
             okbutton: function(){
                     this.transitionToRoute("userhome");
-                }
+                },Goto:function()
+                {
+                    this.set('ShowingModal',false);
+                },
     
         }
         
