@@ -57,8 +57,7 @@
       {{validated-input  type="text" model=this  valuePath='pono' placeholder="Purchase Order No" required=""}}
     </div>
     <div class="group">      
-       {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
-                                    placeholder=" Requested Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+     {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a date" options=(readonly extraPickadateOptions)}}
       
     </div>
     <div class="group">      
@@ -98,7 +97,7 @@
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
           <h3>file Uploaded Sucessfully... !</h3>
                 <div class="modal-header">
-                        <button type="button" class="close" {{action "Goto" }}>ok</button>
+                        <button type="button" class="close" {{action "Goto" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
                 </div>
  {{/modal-dialog}}
  {{/if}}

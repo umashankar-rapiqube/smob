@@ -163,8 +163,11 @@ export default Ember.Controller.extend({
         },
         gotohistorypage:function(){
             this.transitionToRoute('history');
+        },
+        gotodashboard:function(){
+            this.transitionToRoute('dashboard');
         }
-
+            
         /*callajax:function(){
             var mycontroller = this;
             var message = this.get('data')

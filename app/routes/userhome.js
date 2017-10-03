@@ -9,6 +9,9 @@ export default Ember.Route.extend({
         
         if(usertype === 'Manufacturer'|| usertype === 'Distributor' || usertype === 'retailer'){
             this.controllerFor('userhome').set('shownewrequestbutton',true);
+        }else{
+            this.controllerFor('userhome').set('showdashboardButtonOnly',true);
+            
         }
 var mydata = 155;
        /*  var data = [

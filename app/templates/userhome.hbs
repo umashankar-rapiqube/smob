@@ -99,13 +99,27 @@ $(document).ready(function() {
 <br/>
 <!-- user-detail-Table-->
 <div class="middle-container">
-    {{#if shownewrequestbutton}}
+    
             <br/>
             <br/>
+              {{#if shownewrequestbutton}}
     <div class="row ">
+      
+        <div class="col-sm-6">
       <button class="mybutton" type="submit" {{action 'newrequest'}}>New Request</button>
+        </div>
+        
+         <div class="col-sm-6">
+      <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashborad</button>
+        </div>
     </div>
-        {{/if}}
+     {{/if}}
+     {{#if showdashboardButtonOnly}}
+     <div class="row ">
+         <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashborad</button>
+          </div>
+       {{/if}}
+    
       {{#each myarray as |item|}}
      <!-- <div id="rcorners1">
        <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>

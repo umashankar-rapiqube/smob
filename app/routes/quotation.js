@@ -13,11 +13,12 @@ export default Ember.Route.extend({
             var url =response.body.url;
             console.log("url ::",JSON.stringify(url));
             mycontroller.controllerFor('quotation').set('url',url);
-            alert("Document uploaded sucessfully!!!!");
+            mycontroller.controllerFor('quotation').set("ShowingModal",true);
+           // alert("Document uploaded sucessfully!!!!");
              // this.toggleProperty('isShowingModalphoto');
              // this.set("isShowingModalphoto",true);
             console.log("saviing file...");
-            console.log("file upload sucessfully. 1..");
+          
             //return image.save();
             
           }, function () {

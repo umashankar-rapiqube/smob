@@ -51,8 +51,7 @@
       {{validated-input  type="text" model=this  valuePath='totalamount' placeholder="Total Amount" required=""}}
       </div>
      <div class="group">      
-     {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
-                                    placeholder="Quotation Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+    {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a date" options=(readonly extraPickadateOptions)}}
     </div>
      <div class="group">   
         {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
@@ -73,11 +72,19 @@
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
  
-                 <h3>Quotation Generated Sucessfully...!... !</h3>
-                            <div class="modal-header">
-                                    <button class="mybutton" type="button" class="close" {{action "okbutton" }}>ok</button>
-                           
-  </div>
+            <div class="w3-container">
+          <h3>Material request Submitted Sucessfully... !</h3>
+      </div>
+             
+      <button  class="mybutton" type="button"  {{action "okbutton" }}>OK</button>
  {{/modal-dialog}}
 
+ {{/if}}
+ {{#if ShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+          <h3>file Uploaded Sucessfully... !</h3>
+                <div class="modal-header">
+                        <button type="button" class="close" {{action "Goto" }}> <img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
+                </div>
+ {{/modal-dialog}}
  {{/if}}
