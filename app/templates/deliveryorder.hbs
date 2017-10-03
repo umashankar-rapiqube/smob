@@ -77,8 +77,7 @@ placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
       {{validated-input  type="text" model=this  valuePath='remark' placeholder="Remark" required=""}}   
     </div>
     <div class="group">      
-     {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
-                                    placeholder=" Requested Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+      {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a date" options=(readonly extraPickadateOptions)}}
     </div>
    <div class="group ">
       <button class="mybutton" type="submit" {{action 'notDelivered'}}>Delivery Not Delivered</button>

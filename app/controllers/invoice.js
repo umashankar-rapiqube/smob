@@ -51,6 +51,7 @@ var Validations = buildValidations({
 
 export default Ember.Controller.extend(Validations,{
     ShowingModalrequest:false,
+    ShowingModal:false,
     actions:{
         submitdetails:function(){
             var requestid =this.get('requestid');
@@ -59,14 +60,17 @@ export default Ember.Controller.extend(Validations,{
             console.log('usertype',usertype);
             var url =this.get('url');
             console.log('url------->',url);
+            var mydate = JSON.stringify(this.get('formdate'));
+            console.log("mydate :--->",mydate);
+            var formdate1 =  mydate.substr(1, 10);
+            console.log("formdate ======>>",formdate1);
             let{companyname,
                 address,
-                invoiceNo,
-                formdate,
+                formno,
                 item,
                 Quantity,
                 totalamount
-            }=this.getProperties('companyname','address','invoiceNo','formdate','item','Quantity','totalamount')
+            }=this.getProperties('companyname','address','formno','item','Quantity','totalamount');
     
              var dataString = {  
                  "requestid":requestid,
@@ -76,8 +80,8 @@ export default Ember.Controller.extend(Validations,{
                         "updatedBy":usertype,
                         "companyname": companyname,
                         "address": address,
-                        "invoiceNo":invoiceNo,
-                        "formdate":formdate,
+                        "formno":formno,
+                        "formdate":formdate1,
                         "item": item,
                         "Quantity": Quantity,    
                         "totalamount": totalamount,
@@ -159,9 +163,10 @@ export default Ember.Controller.extend(Validations,{
                 },        
             okbutton: function(){
                     this.transitionToRoute("userhome");
-                },Goto:function()
+                },
+                Goto:function()
                 {
-                    this.set('ShowingModal',false);
+                    this.set('isShowingModal',false);
                 },
     
         }
