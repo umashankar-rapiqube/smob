@@ -81,8 +81,9 @@ var mydata = 155;
                  // var message = response.message;
              console.log("data--->>>",JSON.stringify(data));
              var weatherData =data.weatherData;
-             console.log("weatherData---",JSON.stringify(weatherData));
+             console.log("weatherData--->",JSON.stringify(weatherData));
              mycontroller.controllerFor('userhome').set("weatherData",weatherData);
+             var myweather =[];
            
              return message;
              

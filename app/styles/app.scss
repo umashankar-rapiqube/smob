@@ -968,4 +968,37 @@ div#frame {
   margin-right: 40px;
   height: 300px;
   box-shadow: 10px 10px 5px #888888;
+  overflow-x: scroll;
+}
+.inner-row{
+float: left;
+display: inline-block;
+}
+
+
+
+
+#container {
+//  background-color: red;
+  overflow: hidden;
+  //width: 2000px;
+}
+
+#inner {
+  overflow: hidden;
+  //width: 2000px;
+}
+
+.child {
+  float: left;
+  border: 2px solid #a1a1a1;
+  border-radius: 25px;
+  padding-right: 50px;
+ // background-color: blue;
+  width: 300px;
+  height: 200px;
+}
+.home-container{
+  padding-right: 40px;
+  padding-left: 40px;
 }

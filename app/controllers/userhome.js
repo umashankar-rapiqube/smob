@@ -173,8 +173,11 @@ export default Ember.Controller.extend({
             console.log("in weather");
            // this.toggleProperty('isShowingWeatherData');
            this.set('isShowingWeatherData',true);
+        },
+        
+        gotoclose:function(){
+            this.set('isShowingWeatherData',false);  
         }
-            
         /*callajax:function(){
             var mycontroller = this;
             var message = this.get('data')

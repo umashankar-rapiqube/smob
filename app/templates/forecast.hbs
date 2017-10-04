@@ -1,12 +1,24 @@
 <div class="weather-container">
 <p>Temp</p>
-<ul>
+<button style="float:right" {{action 'gotoclose'}}>close</button>
+<ul style="list-style-type:none">
+<div id="container">
 
+  <div id="inner">
  {{#each weatherData as |item|}} 
-    <li>
-      {{item.Day}}
-    </li>
+ 
+ 
+    <div class="child">
+   <p align="center">     <img src="assets/images/w3.gif" alt="Smiley face" width="50" height="50"></p>
+        <li> Day :{{item.Day}} </li>
+   <li> Maximum temperature :{{item.max_temp}}</li>
+       <li> Minimum temperature :{{item.min_temp}} </li> 
+      <li>Description: {{item.narrative}}   </li>
+    </div>     
+   
 {{/each}}
+  </div>
+</div>
 </ul>
 </div>
 

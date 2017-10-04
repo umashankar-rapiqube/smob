@@ -32,7 +32,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3 class="progress-title">OPEN Cycle</h3>
+            <h3 class="progress-title">OPEN Request</h3>
             <br/>
             <div class="progress pink">
                 <div class="progress-bar" style="width:{{myopenStatus}}%; background:#ff4b7d;">
@@ -40,7 +40,7 @@
                 </div>
             </div>
  
-            <h3 class="progress-title">CLOSE Cycle</h3>
+            <h3 class="progress-title">CLOSE Request</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
@@ -53,48 +53,50 @@
   <hr class="style3">
 <h3 style="text-align:center;color:red">Status Count</h3>
 <div class="container">
+ 
    <div class="row">
        <div class="col-sm-6">
-           <button class="dashboard-button">Material Request &nbsp;<span class="badge">7</span></button>
+           <button class="dashboard-button">Material Request &nbsp;<span class="badge">{{MaterialRequestedcount}}</span></button>
        </div>
+       
         <div class="col-sm-6">
-           <button class="dashboard-button">Delivery Order &nbsp; <span class="badge">7</span></button>
+           <button class="dashboard-button">QuotationRaised  &nbsp; <span class="badge">{{QuotationRaisedcount}}</span></button>
        </div>
   
        <div class="col-sm-6">
-           <button class="dashboard-button">NotDelivered</button>
+           <button class="dashboard-button">NotDelivered  <span class="badge">{{NotDeliveredcount}}</span></button>
        </div>
         <div class="col-sm-6">
-           <button class="dashboard-button">DoDelivered</button>
+           <button class="dashboard-button">DoDelivered <span class="badge">{{DoDeliveredcount}}</span></button>
        </div>
    
        <div class="col-sm-6">
-           <button class="dashboard-button">DO Raised</button>
+           <button class="dashboard-button">Claim requested<span class="badge">{{claimRequestedcount}}</span></button>
        </div>
         <div class="col-sm-6">
-           <button class="dashboard-button">MaterialRequested</button>
+           <button class="dashboard-button">claim Raised <span class="badge">{{claimRaisedCount}}</span></button>
        </div>
        
        <div class="col-sm-6">
-           <button class="dashboard-button">PaymentInitiated</button>
+           <button class="dashboard-button">PaymentInitiated <span class="badge">{{PaymentInitiatedcount}}</span></button>
        </div>
         <div class="col-sm-6">
-           <button class="dashboard-button">QuotationRejected</button>
+           <button class="dashboard-button">Quotation Rejected  <span class="badge">{{QuotationRejectedcount}}</span></button>
        </div>
        <div class="col-sm-6">
-           <button class="dashboard-button">POraised</button>
+           <button class="dashboard-button">POraised <span class="badge">{{POraisedcount}}</span></button>
        </div>
         <div class="col-sm-6">
-           <button class="dashboard-button">PaymenntReceived</button>
+           <button class="dashboard-button">PaymenntReceived  <span class="badge">{{PaymentReceivedcount}}</span></button>
        </div>
        <div class="col-sm-6">
-           <button class="dashboard-button">InvoiceRaised</button>
+           <button class="dashboard-button">InvoiceRaised  <span class="badge">{{InvoiceRaisedcount}}</span></button>
        </div>
         <div class="col-sm-6">
-           <button class="dashboard-button">Invoice Approved</button>
+           <button class="dashboard-button">Invoice Approved  <span class="badge">{{InvoiceApprovedcount}}</span></button>
        </div>
-       <div class="col-sm-6">
-           <button class="dashboard-button">QuotationRaised</button>
+        <div class="col-sm-6">
+           <button class="dashboard-button">DO Raisedcount <span class="badge">{{DOraisedcount}}</span></button>
        </div>
    </div>
 </div>
