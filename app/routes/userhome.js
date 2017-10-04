@@ -47,7 +47,7 @@ var mydata = 155;
          
          console.log(data.length)
         var mycontroller =this;
-           return $.ajax({
+           Ember.$.ajax({
             url:CONFIG.GOURL+'/readIndex',
             type: 'GET',
             contentType: 'application/json',
@@ -62,7 +62,7 @@ var mydata = 155;
            mycontroller.controllerFor('userhome').set("data",message);
             console.log("length "+message.length);
             //alert("hello")
-            return message;
+            //return message;
             
             },      
                 error: function(response) {
@@ -72,6 +72,30 @@ var mydata = 155;
         }
             
             });
+            var mycontroller =this;
+            $.ajax({
+             url:CONFIG.GOURL+'/api/forecast/daily',
+             type: 'GET',
+             contentType: 'application/json',
+             success: function(data) {
+                 // var message = response.message;
+             console.log("data--->>>",JSON.stringify(data));
+             var weatherData =data.weatherData;
+             console.log("weatherData---",JSON.stringify(weatherData));
+             mycontroller.controllerFor('userhome').set("weatherData",weatherData);
+           
+             return message;
+             
+             },      
+                 error: function(response) {
+                console.log('DEBUG: GET Enquiries Failed');
+                console.log("Error Message: ", data.message);
+                
+         }
+             
+             });
+ 
+ 
 
 
     //return data;

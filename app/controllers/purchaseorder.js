@@ -59,6 +59,10 @@ export default Ember.Controller.extend(Validations,{
             console.log("requestid from POcntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype',usertype);
+            var mydate = JSON.stringify(new Date());
+            console.log("mydate :",mydate);
+            var formdate1 =  mydate.substr(1, 10);
+            console.log("formdate ======>>",formdate1);
             var dataString = {  
                 "requestid":requestid,
                     "status":"QuotationRejected",
@@ -70,8 +74,9 @@ export default Ember.Controller.extend(Validations,{
                        "item ": "NA",
                        "Quantity":"NA",
                        "pono":"NA",
-                       "formdate":"NA",
+                       "formdate":formdate1,
                        "totalamount":"NA",
+                       "remark":"NA",
                        "status":"QuotationRejected",
                     }
                 };

@@ -80,12 +80,16 @@ export default Ember.Controller.extend(Validations,{
             console.log('usertype',usertype);
             var url =this.get('url');
             console.log('url------>',url);
+            var mydate = JSON.stringify(this.get('formdate'));
+            console.log("mydate :--->",mydate);
+            var formdate1 =  mydate.substr(1, 10);
+            console.log("formdate ======>>",formdate1);
             let{companyname,
                 address,
                 item,
-                Quantity,
-                formdate
-            }=this.getProperties('companyname','address','item','Quantity','pono','formdate');
+                Quantity
+                
+            }=this.getProperties('companyname','address','item','Quantity','pono');
     
              var dataString = {  
                  "requestid":requestid,
@@ -97,7 +101,7 @@ export default Ember.Controller.extend(Validations,{
                         "address": address,
                         "item": item,
                         "Quantity": Quantity,    
-                        "formdate":formdate,
+                        "formdate":formdate1,
                         "url":url,
                         "totalamount":"NA",
                         "status":"DOraised",
@@ -139,14 +143,20 @@ export default Ember.Controller.extend(Validations,{
                     console.log("requestid from dOcntr ",requestid);
                     var usertype =this.get('usertype');
                     console.log('usertype',usertype);
+                    var mydate = JSON.stringify(new Date());
+                    console.log("mydate :",mydate);
+                    var formdate1 =  mydate.substr(1, 10);
+                    console.log("formdate ======>>",formdate1);
                     
                      var dataString = {  
                          "requestid":requestid,
                             "status":"DoDelivered",
-                            "InvolvedParties":"supplier,logistics",
+                            "InvolvedParties":usertype,
                             "transactionString":{
                                 "updatedBy":usertype,
                                 "status":"DoDelivered",
+                                "formdate":formdate1,
+                                "remark":"NA"
                             }
                         };
                         console.log(JSON.stringify(dataString));
@@ -231,7 +241,7 @@ export default Ember.Controller.extend(Validations,{
         },
         Goto:function()
         {
-            this.set('ShowingModal',false);
+            this.set('isShowingModal',false);
         },
 
 }

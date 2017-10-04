@@ -10,7 +10,7 @@ var Validations = buildValidations({
     companyname: [
         validator('presence', true),
         validator('format', {
-            regex: /^[a-zA-Z]{4,20}$/,
+            regex: /^[a-zA-Z]{2,20}$/,
             message: 'This field must be a valid Company name'
         })
     ],

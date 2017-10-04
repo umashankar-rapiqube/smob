@@ -838,9 +838,6 @@ hr.style3 {
   background-color: #555;
 }
 
-
-
-
 .go-top {
   position: fixed;
   bottom: 2em;
@@ -952,6 +949,7 @@ div#frame {
   padding: 15px 25px;
   font-size: 24px;
   text-align: center;
+  margin-top: 20px;
   cursor: pointer;
   outline: none;
   color: #fff;
@@ -959,4 +957,15 @@ div#frame {
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
+}
+.weather-container{
+ // background-image:url('http://192.168.0.18:4200/assets/images/w2.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 300px;
+  box-shadow: 10px 10px 5px #888888;
 }

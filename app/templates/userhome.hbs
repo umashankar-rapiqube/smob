@@ -39,15 +39,14 @@ $(document).ready(function() {
 <br/>
 <br/>
 <br/>
+{{#if isShowingWeatherData}}
+    {{partial 'forecast'}}
+{{/if}}
 <div class="step-container">
     <br/>
-   
-<div class="row"></div>
-
 <div class="stepwizard">
    <ul style="list-style-type:none">
        
-
    
        {{#each transactionlist as |item|}} 
         <div class="stepwizard-step">
@@ -99,9 +98,9 @@ $(document).ready(function() {
 <br/>
 <!-- user-detail-Table-->
 <div class="middle-container">
-    
-            <br/>
-            <br/>
+       <a href="#" {{action 'gotoweather'}}>
+   <img src="assets/images/w1.jpg" alt="Smiley face" width="100" height="100">
+</a>
               {{#if shownewrequestbutton}}
     <div class="row ">
       

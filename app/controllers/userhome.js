@@ -3,6 +3,7 @@ import CONFIG from 'smob-ui-1/config/environment';
 
 export default Ember.Controller.extend({
     isshowbutton:false,
+    isShowingWeatherData:false,
     columns: [
             {
                 "propertyName": "requestid",
@@ -166,6 +167,12 @@ export default Ember.Controller.extend({
         },
         gotodashboard:function(){
             this.transitionToRoute('dashboard');
+           
+        },
+        gotoweather:function(){
+            console.log("in weather");
+           // this.toggleProperty('isShowingWeatherData');
+           this.set('isShowingWeatherData',true);
         }
             
         /*callajax:function(){

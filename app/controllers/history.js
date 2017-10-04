@@ -231,7 +231,7 @@ export default Ember.Controller.extend({
 
             }
             if (usertype === 'insurance') {
-                if (status === 'claimRaised') {
+                if (status === 'claimRequested') {
                     this.set('isShowclaimdetails', true);
                     this.set("isshowbutton", false);
                     this.transitionToRoute('claimpage');
