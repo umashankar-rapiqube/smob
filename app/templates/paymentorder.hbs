@@ -4,8 +4,9 @@
 <br/>
 <br/>
 <br/>
-<div class="materialrequest-box">
   {{#if isShowpaymentorder}}
+<div class="materialrequest-box">
+
   <div id="inner-form-header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Payment Order</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
@@ -45,20 +46,23 @@
     {{!-- </div> --}}
          
   </form>
+  </div>
   {{/if}}
+
   {{#if isshowpaymentbutton}}
+  <div class="payment-box">
    <div class="myformleft" align="center">
   <div class="group">      
-     {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
-                                    placeholder=" Payment Recieved  Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+      {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Enter Payment Recieved Date" options=(readonly extraPickadateOptions)}}
     </div>
 
      <div class="group">
       <button class="mybutton" type="submit" {{action 'paymentrecieved'}}>Payment Recieved</button>
     </div> 
     </div>
+     </div> 
   {{/if}}
- </div> 
+
  {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
           <h3>Payment updated Sucessfully... !</h3>

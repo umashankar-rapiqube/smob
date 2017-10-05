@@ -5,6 +5,7 @@
 <br/>
 <br/>
 <br/>
+
 <script>
     $(document).ready(function() {
         // Show or hide the sticky footer button
@@ -21,26 +22,125 @@
             $('html, body').animate({
                 scrollTop: 0
             }, 300);
-        })
+        });
+        
     });
 </script>
 <div id="historyheader">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>User Dashborad</b></h1></div>
 </div> 
 <div class="dashbord-container">
-    <h3 style="text-align:center;color:red">Total Cycle Completed</h3>
+    <br/>
+    <h3 style="text-align:center;color:#808080"><b>Total Cycle Completed</b></h3>
 <div class="container">
+    <br/>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h3  class="progress-title">OPEN Request</h3>
+            <a href="#aboutModal" data-toggle="modal" data-target="#myModal" style="align:middle" class="btn btn-circle-lg btn-success">{{openStatus}}</a>
+         </div>
+            
+        <div class="col-md-4">
+            <h3 class="progress-title">CLOSED Request</h3>
+            <a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="btn btn-circle-lg btn-danger">{{closedStatus}} </a>
+         </div> 
+       <div class="col-md-4"></div>
+    </div>
+</div>
+  <hr class="style3">
+<h3 style="text-align:center;color:#808080"><b>Status Count</b></h3>
+<div class="container">
+ 
+
     <div class="row">
         <div class="col-md-6">
-            <h3 class="progress-title">OPEN Request</h3>
+            <h3 class="progress-title">Material  Request</h3>
             <br/>
             <div class="progress pink">
-                <div class="progress-bar" style="width:{{myopenStatus}}%; background:#ff4b7d;">
-                    <div class="progress-value">{{openStatus}}</div>
+                <div class="progress-bar" style="width:{{MaterialRequestedcount}}%; background:#FF4633">
+                    <div class="progress-value">{{MaterialRequestedcount}}</div>
                 </div>
             </div>
  
-            <h3 class="progress-title">CLOSE Request</h3>
+            <h3 class="progress-title">Quotation Raised</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
+                    <div class="progress-value">{{closedStatus}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">PO Raised</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{POraisedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{POraisedcount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">Invoice Raised</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{InvoiceRaisedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{InvoiceRaisedcount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">Quotation Rejected</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{QuotationRejectedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{QuotationRejectedcount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">DO Delivered</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
+                    <div class="progress-value">{{closedStatus}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title"> DO Not Delivered</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{NotDeliveredcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{NotDeliveredcount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">Payment Initiated</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{PaymentInitiatedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{PaymentInitiatedcount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">Payment Received</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{PaymentReceivedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{PaymentReceivedcount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">claim Requested</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{claimRequestedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{claimRequestedcount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">claim Raised</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{claimRaisedCount}}%; background:#5fad56;">
+                    <div class="progress-value">{{claimRaisedCount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">PO Raised</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
+                    <div class="progress-value">{{closedStatus}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">PO Raised</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
@@ -49,57 +149,69 @@
             </div>
         </div>
     </div>
-</div>
-  <hr class="style3">
-<h3 style="text-align:center;color:red">Status Count</h3>
-<div class="container">
- 
-   <div class="row">
-       <div class="col-sm-6">
-           <button class="dashboard-button">Material Request &nbsp;<span class="badge">{{MaterialRequestedcount}}</span></button>
-       </div>
-       
-        <div class="col-sm-6">
-           <button class="dashboard-button">QuotationRaised  &nbsp; <span class="badge">{{QuotationRaisedcount}}</span></button>
-       </div>
-  
-       <div class="col-sm-6">
-           <button class="dashboard-button">NotDelivered  <span class="badge">{{NotDeliveredcount}}</span></button>
-       </div>
-        <div class="col-sm-6">
-           <button class="dashboard-button">DoDelivered <span class="badge">{{DoDeliveredcount}}</span></button>
-       </div>
-   
-       <div class="col-sm-6">
-           <button class="dashboard-button">Claim requested<span class="badge">{{claimRequestedcount}}</span></button>
-       </div>
-        <div class="col-sm-6">
-           <button class="dashboard-button">claim Raised <span class="badge">{{claimRaisedCount}}</span></button>
-       </div>
-       
-       <div class="col-sm-6">
-           <button class="dashboard-button">PaymentInitiated <span class="badge">{{PaymentInitiatedcount}}</span></button>
-       </div>
-        <div class="col-sm-6">
-           <button class="dashboard-button">Quotation Rejected  <span class="badge">{{QuotationRejectedcount}}</span></button>
-       </div>
-       <div class="col-sm-6">
-           <button class="dashboard-button">POraised <span class="badge">{{POraisedcount}}</span></button>
-       </div>
-        <div class="col-sm-6">
-           <button class="dashboard-button">PaymenntReceived  <span class="badge">{{PaymentReceivedcount}}</span></button>
-       </div>
-       <div class="col-sm-6">
-           <button class="dashboard-button">InvoiceRaised  <span class="badge">{{InvoiceRaisedcount}}</span></button>
-       </div>
-        <div class="col-sm-6">
-           <button class="dashboard-button">Invoice Approved  <span class="badge">{{InvoiceApprovedcount}}</span></button>
-       </div>
-        <div class="col-sm-6">
-           <button class="dashboard-button">DO Raisedcount <span class="badge">{{DOraisedcount}}</span></button>
-       </div>
-   </div>
+
 </div>
 
 </div>
+
+
+
+{{!-- <div class="chart">
+  <h3>My Skills</h3>
+  <table id="data-table" border="1" cellpadding="10" cellspacing="0"
+  summary="Percentage of knowledge acquired during my experience
+  for each technology or language.">
+    <thead>
+      <tr>
+         <td>&nbsp;</td>
+         <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+         <th scope="row">HTML/CSS</th>
+         <td>85</td>
+      </tr>
+      <tr>
+         <th scope="row"><a href="http://www.jqueryscript.net/tags.php?/Bootstrap/">Bootstrap</a></th>
+         <td>90</td>
+      </tr>
+      <tr>
+         <th scope="row">JavaScript</th>
+         <td>70</td>
+      </tr>
+      <tr>
+         <th scope="row">AngularJS</th>
+         <td>60</td>
+      </tr>
+      <tr>
+         <th scope="row">jQuery</th>
+         <td>85</td>
+      </tr>
+      <tr>
+         <th scope="row">Ajax</th>
+         <td>60</td>
+      </tr>
+      <tr>
+         <th scope="row">PHP</th>
+         <td>50</td>
+      </tr>
+      <tr>
+         <th scope="row">MySQL</th>
+         <td>60</td>
+      </tr>
+      <tr>
+         <th scope="row">ITIL</th>
+         <td>90</td>
+      </tr>
+      <tr>
+         <th scope="row">Scrum</th>
+         <td>90</td>
+      </tr>
+    </tbody>
+  </table>
+   <script src="js/graph.js"></script>
+
+</div> --}}
+
  <a href="#" class="go-top">Scroll to Top</a> 

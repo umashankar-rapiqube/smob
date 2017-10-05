@@ -74,7 +74,6 @@ export default Ember.Controller.extend(Validations,{
             console.log("formdate ======>>",formdate1);
             let{companyname,
                 formno,
-        
                 totalamount
              }=this.getProperties('companyname','formno','totalamount');
 

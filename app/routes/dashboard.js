@@ -74,7 +74,7 @@ export default Ember.Route.extend({
                     if(statuscount[i].statusname === "POraised"){
                         var POraisedcount =JSON.stringify(statuscount[i].statuscount);
                         console.log(JSON.stringify(statuscount[i].statuscount));
-                        mycontroller.controllerFor('dashboard').set('POraisedcount', POraisedcount);
+                        mycontroller.controllerFor('dashboard').set('POraisedcount', POraisedcount*10);
                     }
                     else{
                     mycontroller.controllerFor('dashboard').set('POraisedcount', 0);

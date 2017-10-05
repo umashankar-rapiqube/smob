@@ -23,10 +23,8 @@
         })
     });
 </script>
-
-<div class="materialrequest-box">
-  <br/>
-  {{#if isShow}}
+{{#if isShow}}
+<div class="purchaseorder-box">
   <div class="row ">
       <button class="mybutton" type="submit" {{action 'quotationreject'}}>Reject Quotation</button>
     </div>
@@ -36,8 +34,13 @@
     <div class="row ">
       <button class="mybutton" type="submit" {{action 'gotopo'}}>Go For Purchase Order </button>
     </div>
+</div>
     {{/if}}
-  {{#if showdeliveryorder}}
+     {{#if showdeliveryorder}}
+<div class="materialrequest-box">
+  <br/>
+  
+ 
   <div id="header">
     <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Purchase Order</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
@@ -54,7 +57,7 @@
       
     </div> 
      <div class="group">      
-      {{validated-input  type="text" model=this  valuePath='pono' placeholder="Purchase Order No" required=""}}
+      {{validated-input  type="text" model=this  valuePath='formno' placeholder="Purchase Order No" required=""}}
     </div>
     <div class="group">      
      {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a date" options=(readonly extraPickadateOptions)}}
@@ -79,8 +82,9 @@
       <button class="mybutton" type="submit" {{action 'submitrequest'}}>Submit</button>
     </div>  
   </form>
-  {{/if}}
+
 </div>
+  {{/if}}
  <a href="#" class="go-top">Scroll to Top</a> 
 {{#if ShowingModalrequest}}
 {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
@@ -88,7 +92,7 @@
              
                  <h3>Purchase Order Submitted Sucessflly... !</h3>
                             <div class="modal-header">
-                                    <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                                    <button type="button" class="mybutton" {{action "okbutton" }}>ok</button>
                             </div>
           </div>                  
  {{/modal-dialog}}

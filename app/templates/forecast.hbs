@@ -1,6 +1,6 @@
 <div class="weather-container">
 <p>Temp</p>
-<button style="float:right" {{action 'gotoclose'}}>close</button>
+<button style="float:right" {{action 'gotoclose'}}><img src="assets/images/close.png" alt="Smiley face" width="30" height="30" ></button>
 <ul style="list-style-type:none">
 <div id="container">
 
@@ -9,11 +9,13 @@
  
  
     <div class="child">
-   <p align="center">     <img src="assets/images/w3.gif" alt="Smiley face" width="50" height="50"></p>
-        <li> Day :{{item.Day}} </li>
-   <li> Maximum temperature :{{item.max_temp}}</li>
-       <li> Minimum temperature :{{item.min_temp}} </li> 
-      <li>Description: {{item.narrative}}   </li>
+  <li> <p align="center">     <img src="assets/images/w3.gif" alt="Smiley face" width="50" height="50"> &nbsp;<strong>{{item.Day}}</strong></p></li>
+        {{!-- <li> <img src="assets/images/day.png" alt="Smiley face" width="30" height="30">{{item.Day}} </li> --}}
+        <li> <img src="assets/images/max.png" alt="Smiley face" width="30" height="30">{{item.max_temp}}  &nbsp; &#8457;</li>
+        <br>
+        <li> <img src="assets/images/minimum.png" alt="Smiley face" width="30" height="30">{{item.min_temp}}&nbsp; &#8457; </li> 
+        <br>
+        <li> <img src="assets/images/warning.png" alt="Smiley face" width="20" height="20"> {{item.narrative}}   </li>
     </div>     
    
 {{/each}}

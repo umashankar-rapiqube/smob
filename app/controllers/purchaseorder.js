@@ -73,7 +73,7 @@ export default Ember.Controller.extend(Validations,{
                        "address":"NA",
                        "item ": "NA",
                        "Quantity":"NA",
-                       "pono":"NA",
+                       "formno":"NA",
                        "formdate":formdate1,
                        "totalamount":"NA",
                        "remark":"NA",
@@ -123,9 +123,9 @@ export default Ember.Controller.extend(Validations,{
                 address,
                 item,
                 Quantity,
-                pono,
+                formno,
                 
-             }=this.getProperties('companyname','address','item','Quantity','pono')
+             }=this.getProperties('companyname','address','item','Quantity','formno')
 
              var dataString = {  
                 "requestid":requestid,
@@ -137,7 +137,7 @@ export default Ember.Controller.extend(Validations,{
                         "address": address,
                         "item ": item,
                         "Quantity": Quantity,
-                        "pono": pono,
+                        "formno": formno,
                         "formdate":formdate1,
                         "url":url,
                         "totalamount":"NA",

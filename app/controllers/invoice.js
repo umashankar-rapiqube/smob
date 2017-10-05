@@ -131,7 +131,12 @@ export default Ember.Controller.extend(Validations,{
                         "transactionString":{
                             "updatedBy":usertype,
                             "status":"InvoiceApproved",
-                            "formdate":formdate1
+                            "formdate":formdate1,
+                            "formno":"NA",
+                            "item": "NA",
+                            "Quantity": "NA",    
+                            "totalamount":"NA",
+                            "url":"NA"
                             
                         }
                     };

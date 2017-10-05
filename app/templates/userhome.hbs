@@ -51,13 +51,13 @@ $(document).ready(function() {
        {{#each transactionlist as |item|}} 
         <div class="stepwizard-step">
          <!--<button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           -->
-    <p>{{item.transactiondetails.formdate}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<p {{action 'gotohistorypage'}}>  <img src="assets/images/cube.png" alt="Smiley face" width="45" height="45"></p>
-      
-       <p>{{item.transactiondetails.status}} &nbsp;&nbsp;&nbsp;&nbsp;</p>
-     </div>
-
-       {{/each}}
+            <p>{{item.transactiondetails.formdate}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p {{action 'gotohistorypage'}}>  <img src="assets/images/d1.gif" alt="Smiley face" width="55" height="55"></p>
+            <p>{{item.transactiondetails.status}} &nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    &nbsp;
+            <div class="vl"></div>
+          </div>
+        {{/each}}
     
       </ul>
          <!--<div id="b" style="position:absolute;"> -->
@@ -99,7 +99,7 @@ $(document).ready(function() {
 <!-- user-detail-Table-->
 <div class="middle-container">
        <a href="#" {{action 'gotoweather'}}>
-   <img src="assets/images/w1.jpg" alt="Smiley face" width="100" height="100">
+   <img src="assets/images/w1.jpg" alt="Smiley face" width="100" height="100" >
 </a>
               {{#if shownewrequestbutton}}
     <div class="row ">
@@ -138,6 +138,7 @@ $(document).ready(function() {
        <div id='frame'>
             <p class="note sticky1">
                 <div class='pin'></div>
+                <br/>
                  <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>
                  <p><b> Date :</b> {{item.date}}</p>
                  <p> <b>Status :</b> <span style="color:red">{{item.status}}</span></p>
