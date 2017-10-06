@@ -7,6 +7,11 @@ export default Ember.Controller.extend({
             console.log("requestid from Cm cntr ",requestid);
             var usertype =this.get('usertype');
             console.log('usertype cm ntr',usertype);
+            var mydate = JSON.stringify(new Date());
+            console.log("mydate :",mydate);
+            var formdate1 =  mydate.substr(1, 10);
+            console.log("formdate ======>>",formdate1);
+            
 
             let{companyname,
                 formdate,
@@ -24,7 +29,7 @@ export default Ember.Controller.extend({
                         "address": "NA",
                         "item": "NA",
                         "Quantity": "NA",    
-                        "formdate":formdate,
+                        "formdate":formdate1,
                         "totalamount":"NA",
                         "status":"claimRaised",
                     }

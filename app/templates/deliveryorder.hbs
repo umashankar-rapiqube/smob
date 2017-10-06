@@ -13,13 +13,13 @@
    
     <br/>
     <div class="row ">
-      <button class="mybutton" type="submit" {{action 'toDeliverDelivery'}}>To Deliver delivery </button>
+      <button class="mybutton" type="submit" {{action 'toDeliverDelivery'}}> Delivery  Delivered</button>
     </div>
     <br/>
     <br/>  <b><span style="margin-left:50%">OR</span></b>
     <br/>
     <div class="row ">
-      <button class="mybutton" type="submit" {{action 'notdeliverdelivery'}}>To not Deliver delivery </button>
+      <button class="mybutton" type="submit" {{action 'notdeliverdelivery'}}>Not Delivered </button>
     </div>
   {{/if}}
   {{#if isShowdeliveryorder}}
@@ -74,12 +74,14 @@ placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
     </div> 
  {{/if}}  
   {{#if isshowNotdelivered}}
+  <div  align="center">
   <div class="group">      
       {{validated-input  type="text" model=this  valuePath='remark' placeholder="Remark" required=""}}   
     </div>
     <div class="group">      
       {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a date" options=(readonly extraPickadateOptions)}}
     </div>
+  </div>
    <div class="group ">
       <button class="mybutton" type="submit" {{action 'notDelivered'}}>Delivery Not Delivered</button>
     </div> 

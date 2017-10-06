@@ -51,14 +51,19 @@ $(document).ready(function() {
        {{#each transactionlist as |item|}} 
         <div class="stepwizard-step">
          <!--<button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           -->
-            <p>{{item.transactiondetails.formdate}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
-            <p {{action 'gotohistorypage'}}>  <img src="assets/images/d1.gif" alt="Smiley face" width="55" height="55"></p>
+            <p ><strong>{{item.transactiondetails.formdate}}&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+            
+            <p {{action 'gotohistorypage'}}>  <img src="assets/images/d1.gif" alt="Smiley face" width="55" height="55"> <div class="line" style="">...........................</div></p>
+           
             <p>{{item.transactiondetails.status}} &nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    &nbsp;
-            <div class="vl"></div>
+                  
+                    <p>By</p>
+              <p ><strong>[ {{item.transactiondetails.updatedBy}} ]</strong></p>
+              
+            <!--<div class="vl"></div>-->
           </div>
         {{/each}}
-    
+   
       </ul>
          <!--<div id="b" style="position:absolute;"> -->
            
@@ -145,7 +150,7 @@ $(document).ready(function() {
                  <br/>
                 <div class="row">
                     <div class="col-sm-6">
-                        <button class="gobutton" {{action 'godetails' item.requestid  item.status }}>Go</button>
+                        <button class="gobutton"  {{action 'godetails' item.requestid  item.status }}>Go</button>
                     </div>
                 </div>
             
