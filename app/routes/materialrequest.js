@@ -35,11 +35,11 @@ var mycontroller = this;
         this.controllerFor('materialrequest').set('usertype', usertype);
 
         this.controllerFor('materialrequest').set('ShowingModalrequest', false);
-        this.controllerFor('materialrequest').set('companyname', null);
+     //   this.controllerFor('materialrequest').set('companyname', null);
         this.controllerFor('materialrequest').set('address', null);
         this.controllerFor('materialrequest').set('formdate', null);
-        this.controllerFor('materialrequest').set('item', null);
-        this.controllerFor('materialrequest').set('Quantity', null);
+     //   this.controllerFor('materialrequest').set('item', null);
+      //  this.controllerFor('materialrequest').set('Quantity', null);
          
         var secondlastusertype =this.controllerFor('userhome').get('secondlastusertype');
         console.log("secondlastusertype=====",secondlastusertype);

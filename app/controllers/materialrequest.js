@@ -8,28 +8,28 @@ from 'ember-cp-validations';
 
 var Validations = buildValidations({
     companyname: [
-        validator('presence', true),
+        //validator('presence', true),
         validator('format', {
-            regex: /^[a-zA-Z]{4,20}$/,
+            regex: /^[a-z  A-Z]{4,30}$/,
             message: 'This field must be a valid Company name'
         })
     ],
     address: {
-        description: 'Password',
+        description: 'address',
         validators: [
             validator('presence', true),
             validator('format', {
-                regex: /^[a-zA-Z0-9]{6,18}$/,
+                regex: /^[a-z A-Z 0-9]{3,40}$/,
                 message: 'This field must be a Valid Password '
             })
         ],
     },
     item :{
-        description: 'address',
+        description: 'item',
         validators: [
             validator('presence', true),
             validator('format', {
-                regex: /^[a-zA-Z]{6,18}$/,
+                regex: /^[a-z A-Z]{3,18}$/,
                 message: 'This field must be a Valid item '
             })
         ],
@@ -78,10 +78,10 @@ actions:{
             item,
             Quantity}=this.getProperties('companyname','address','item','Quantity');
             this.set('companyname',companyname);
-
+          
          var dataString = {  
                 "status":"MaterialRequested",
-                "InvolvedParties":"manufacturer",
+                "InvolvedParties":usertype,secondlastusertype,
                 "transactionString":{
                     "updatedBy":usertype,
                     "companyname": companyname,

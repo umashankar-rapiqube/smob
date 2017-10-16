@@ -55,6 +55,8 @@
    {{#each transactionlist as |item|}} 
      
       <li style="padding-left: 50%"><b> Updated By:</b>{{item.transactiondetails.updatedBy}}</li>
+       <li style="padding-left: 50%;color:	#00695c"><b> Updated Status:{{item.transactiondetails.status}}</b></li>
+    <br/>
      <li style="color:red"><span class="glyphicon glyphicon-calendar"></span> <b> Date:</b>{{item.transactiondetails.formdate}}</li> 
      <br/>
      <li> <span class="glyphicon glyphicon-user"></span><b> Request To:</b>{{item.transactiondetails.companyname}}</li>

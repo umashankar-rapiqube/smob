@@ -20,7 +20,7 @@ var Validations = buildValidations({
             validator('presence', true),
             validator('format', {
                 regex: /^[a-zA-Z0-9]{6,18}$/,
-                message: 'This field must be a Valid Password '
+                message: 'This field must be a Valid address '
             })
         ],
     },
@@ -41,7 +41,7 @@ var Validations = buildValidations({
             validator('presence', true),
             validator('format', {
                 regex: /^[0-9]{2,6}$/,
-                message: 'This field must be a Valid item '
+                message: 'Please fill valid details '
             })
         ],
     },

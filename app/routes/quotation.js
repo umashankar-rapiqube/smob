@@ -48,7 +48,7 @@ export default Ember.Route.extend({
        // this.controllerFor('quotation').set('companyname', null);
         this.controllerFor('quotation').set('address', null);
         this.controllerFor('quotation').set('formdate', null);
-        this.controllerFor('quotation').set('item', null);
+        //this.controllerFor('quotation').set('item', null);
         this.controllerFor('quotation').set('totalamount', null);
         
     }
