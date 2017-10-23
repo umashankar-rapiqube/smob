@@ -11,16 +11,29 @@
 {{#if isShowingModal}}
 
 {{#modal-dialog close="toggleModal"
-               targetAttachment="center"
+               
                   translucentOverlay=true}}
                   <br/>
                   <br/>
                   <br/>
-{{#if isShowlogin}}                  
+{{#if isShowlogin}}
+{{!-- <div class = "container">
+	<div class="wrapper">
+		<form action="" method="post" name="Login_Form" class="form-signin">       
+		    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+			  <hr class="colorgraph"><br>
+			  
+			  <input type="text" class="form-control" name="email" placeholder="email" required="" autofocus="" />
+			  <input type="password" class="form-control" name="password" placeholder="password" required=""/>     		  
+			 
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+		</form>			
+	</div>
+</div>                   --}}
 <div class="box">
   
-  <div id="header">
-    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Login</b></h1></div>
+   <div id="header">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Welcome</b></h1></div>
     <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
   </div> 
    <form action="" method="post">
@@ -78,7 +91,7 @@
   </form>
   <div id="footer-box"><!--<p class="footer-text">Not a member?<span class="sign-up"{{action 'signup'}}> Sign up now</span></p>--></div>
 
-</div>
+</div> 
 {{/if}}
 
 {{/modal-dialog}}

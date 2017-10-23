@@ -93,7 +93,7 @@ export default Ember.Controller.extend(Validations,{
                 var mycontroller = this;
     
                     return $.ajax({
-                    url:CONFIG.GOURL+'/updateRequest',
+                    url:'http://192.168.11.221:3001/mock/Updaterequest',
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(dataString),
@@ -144,7 +144,7 @@ export default Ember.Controller.extend(Validations,{
                     var mycontroller = this;
         
                         return $.ajax({
-                        url:CONFIG.GOURL+'/updateRequest',
+                       url:'http://192.168.11.221:3001/mock/Updaterequest',
                         type: 'POST',
                         contentType: 'application/json',
                         data: JSON.stringify(dataString),

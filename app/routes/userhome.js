@@ -56,19 +56,24 @@ export default Ember.Route.extend({
 
         var mycontroller = this;
         Ember.$.ajax({
-            url: CONFIG.GOURL + '/readIndex',
+          url:'http://192.168.11.221:3001/mock/ReadTransaction',
             type: 'GET',
             contentType: 'application/json',
             success: function(data) {
                 // var message = response.message;
                 console.log(JSON.stringify(data));
-                var message = data.message;
-                sessionStorage.setItem('message', message);
-                var myarray = message.reverse();
-                console.log(JSON.stringify(myarray));
-                mycontroller.controllerFor('userhome').set("myarray", myarray);
-                mycontroller.controllerFor('userhome').set("data", message);
-                console.log("length " + message.length);
+                //    var message =data.message;
+        //    sessionStorage.setItem('message', message);
+        //    var myarray =message.reverse();
+        //    console.log(JSON.stringify(myarray));
+        //    mycontroller.controllerFor('userhome').set("myarray",myarray);
+        //    mycontroller.controllerFor('userhome').set("data",message);
+            // console.log("length "+message.length);
+            //alert("hello")
+            var transactionlist=data.transactionlist;
+            console.log("transactionlist:",transactionlist);
+            mycontroller.controllerFor('userhome').set("transactionlist",transactionlist);
+            // return message;
             },
             error: function(response) {
                 console.log('DEBUG: GET Enquiries Failed');

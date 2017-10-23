@@ -8,7 +8,7 @@ export default Ember.Route.extend({
 
         var mycontroller =this;
         Ember.$.ajax({
-         url:CONFIG.GOURL+'/readCycle',
+        url:'http://192.168.11.221:3001/mock/readCycle',
          type: 'GET',
          contentType: 'application/json',
          success: function(data) {
@@ -29,7 +29,7 @@ export default Ember.Route.extend({
        mycontroller.controllerFor('dashboard').set('myclosedStatus',myclosedStatus);
        
        $.ajax({
-        url:CONFIG.GOURL+'/readStatus',
+        url:'http://192.168.11.221:3001/mock/readStatus',
         type: 'GET',
         contentType: 'application/json',
         success: function(data) {

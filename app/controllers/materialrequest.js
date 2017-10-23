@@ -99,7 +99,7 @@ actions:{
             var mycontroller = this;
 
                 return $.ajax({
-                url:CONFIG.GOURL+'/newRequest',
+                url:'http://192.168.11.221:3001/mock/Request',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(dataString),

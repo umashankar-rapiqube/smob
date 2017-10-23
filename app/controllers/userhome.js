@@ -136,7 +136,7 @@ export default Ember.Controller.extend({
             console.log("lolwa:-----------"+requestid);
             var mycontroller = this;
             $.ajax({
-           url:CONFIG.GOURL+'/readRequest',
+          url:'http://192.168.11.221:3001/mock/Readrequest',
            type: 'GET',
            contentType: 'application/json',
            headers:{

@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('paymentorder');
   this.route('claimpage');
   this.route('dashboard');
+  this.route('login');
 });
 
 export default Router;

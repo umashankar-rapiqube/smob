@@ -1,25 +1,6 @@
-<script>
-    $(document).ready(function() {
-        // Show or hide the sticky footer button
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 200) {
-                $('.go-top').fadeIn(200);
-            } else {
-                $('.go-top').fadeOut(200);
-            }
-        });
-        // Animate the scroll to top
-        $('.go-top').click(function(event) {
-            event.preventDefault();
-            $('html, body').animate({
-                scrollTop: 0
-            }, 300);
-        })
-    });
-</script>
+
 
 <!--<script type="text/javascript">
-
 $(document).ready(function() {
     
     function beeLeft() {
@@ -39,25 +20,60 @@ $(document).ready(function() {
 <br/>
 <br/>
 <br/>
-{{#if isShowingWeatherData}}
-    {{partial 'forecast'}}
-{{/if}}
+<script>
+    $(document).ready(function() {
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('.go-top').fadeIn(200);
+            } else {
+                $('.go-top').fadeOut(200);
+            }
+        });
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 300);
+        })
+    });
+</script>
 <div class="step-container">
     <br/>
+   
+<div class="row"></div>
+
 <div class="stepwizard">
    <ul style="list-style-type:none">
        
-   
+
+   <div class="left-arrow">
+        </div>
        {{#each transactionlist as |item|}} 
         <div class="stepwizard-step">
-         <!--<button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           -->
-            <p>{{item.transactiondetails.formdate}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
-            <p {{action 'gotohistorypage'}}>  <img src="assets/images/d1.gif" alt="Smiley face" width="55" height="55"></p>
-            <p>{{item.transactiondetails.status}} &nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    &nbsp;
-            <div class="vl"></div>
-          </div>
-        {{/each}}
+           <!--<button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           -->  
+    <p>{{item.transactiondetails.formdate}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
+   <p><b>[{{item.date}}]</b></p>
+<a{{action 'gotohistorypage'}} >  <img src="assets/images/cube.png" alt="Smiley face" width="45" height="45"  ></a>
+<div class="vertical-line" style="height: 15px;" />
+    
+<div class="line" style="">...........................</div>
+
+ {{!-- <button class="image" type="image" {{action 'gotohistorypage'}}><img src="assets/images/cube.png" alt="Smiley face" width="45" height="45" ></button>  --}}
+<div class="Vertical-line" style="height: 15px;" />
+      <p> <b></b> <span style="color:red">{{item.status}}</span></p>
+      <p> <b></b> <span style="color:darkgreen">{{item.usertype}}</span></p>
+       <p>{{item.transactiondetails.status}} &nbsp;&nbsp;&nbsp;&nbsp;</p>
+     </div> 
+
+
+       {{/each}}
+    
+
+
+
+
     
       </ul>
          <!--<div id="b" style="position:absolute;"> -->
@@ -76,13 +92,11 @@ $(document).ready(function() {
 </div>
 </div>
  <!--<ul style="list-style-type:none">
-
    {{#each transactionlist as |item|}} 
      
  <div class="scrolldash">
      <li style="color:red"><b> Date:</b>{{item.transactiondetails.formdate}}</li> 
     <div class="blue">content1</div> 
-
   
       </div>
       <br/>
@@ -90,7 +104,6 @@ $(document).ready(function() {
 {{transactionlist}}
   </ul>
   <div class="blue">content1</div> 
-
  
  
 </div>-->
@@ -98,9 +111,9 @@ $(document).ready(function() {
 <br/>
 <!-- user-detail-Table-->
 <div class="middle-container">
-       <a href="#" {{action 'gotoweather'}}>
-   <img src="assets/images/w1.jpg" alt="Smiley face" width="100" height="100" >
-</a>
+    
+            <br/>
+            <br/>
               {{#if shownewrequestbutton}}
     <div class="row ">
       
@@ -119,7 +132,7 @@ $(document).ready(function() {
           </div>
        {{/if}}
     
-      {{#each myarray as |item|}}
+      {{#each transactionlist as |item|}}
      <!-- <div id="rcorners1">
        <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>
         <p><b> Date :</b> {{item.date}}</p>
@@ -138,10 +151,10 @@ $(document).ready(function() {
        <div id='frame'>
             <p class="note sticky1">
                 <div class='pin'></div>
-                <br/>
-                 <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>
+                 <p> <b> Transaction Id </b> <button type="submit" {{action 'readlegend' item.requesdid}} > {{item.requesdid}}</button></p>
                  <p><b> Date :</b> {{item.date}}</p>
                  <p> <b>Status :</b> <span style="color:red">{{item.status}}</span></p>
+                 <p> <b>usertype :</b> <span style="color:darkgreen">{{item.usertype}}</span></p>
                  <br/>
                 <div class="row">
                     <div class="col-sm-6">
@@ -164,7 +177,5 @@ $(document).ready(function() {
  
  <a href="#" class="go-top">Scroll to Top</a> 
 
-   <!-- <button class="mybutton" type="submit" {{action 'callajax'}}>test Request</button>
-
-{{models-table data=data columns=columns go='godetails' update="updatedetails" showComponentFooter=false}}
--->
+    {{!-- <button class="mybutton" type="submit" {{action 'callajax'}}>test Request</button> --}} --}}
+{{!-- {{models-table data=data columns=columns go='godetails' update="updatedetails" showComponentFooter=false}} --}}
