@@ -46,6 +46,7 @@ $(document).ready(function() {
 
 <div class="stepwizard">
    <ul style="list-style-type:none">
+<<<<<<< HEAD
        
 
    <div class="left-arrow">
@@ -75,6 +76,25 @@ $(document).ready(function() {
 
 
     
+=======
+       {{#each transactionlist as |item|}} 
+        <div class="stepwizard-step">
+         <!--<button type="button" class="btn  btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>           -->
+            <p ><strong>{{item.transactiondetails.formdate}}&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+            <div class="vertical-line" style="height: 15px;" />
+            <p {{action 'gotohistorypage'}}>  <img src="assets/images/d1.gif" alt="Smiley face" width="55" height="55"> <div class="line" style="">............................</div></p>
+            <div class="Vertical-line" style="height: 15px;" />
+            <br>
+            <p>{{item.transactiondetails.status}} &nbsp;&nbsp;&nbsp;&nbsp;</p>
+                 
+                    <p>By</p>
+              <p><strong>[{{item.transactiondetails.updatedBy}}]&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+            
+            <!--<div class="vl"></div>-->
+          </div>
+        {{/each}}
+   
+>>>>>>> 2fc9b3871e18dc4fca43805f95550affe8f19907
       </ul>
          <!--<div id="b" style="position:absolute;"> -->
            
@@ -122,13 +142,13 @@ $(document).ready(function() {
         </div>
         
          <div class="col-sm-6">
-      <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashborad</button>
+      <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashboard</button>
         </div>
     </div>
      {{/if}}
      {{#if showdashboardButtonOnly}}
      <div class="row ">
-         <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashborad</button>
+         <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashboard</button>
           </div>
        {{/if}}
     
@@ -158,7 +178,7 @@ $(document).ready(function() {
                  <br/>
                 <div class="row">
                     <div class="col-sm-6">
-                        <button class="gobutton" {{action 'godetails' item.requestid  item.status }}>Go</button>
+                        <button class="gobutton"  {{action 'godetails' item.requestid  item.status }}>Go</button>
                     </div>
                 </div>
             

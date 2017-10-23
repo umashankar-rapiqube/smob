@@ -102,7 +102,7 @@ export default Ember.Controller.extend(Validations,{
         },
         logout:function(){
             console.log("in logout");
-            window.location.refresh(true);
+            window.location.reload(true);
 
             //this.transitionToRoute('home');
          

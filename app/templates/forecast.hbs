@@ -1,9 +1,9 @@
 <div class="weather-container">
-<p>Temp</p>
+
 <button style="float:right" {{action 'gotoclose'}}><img src="assets/images/close.png" alt="Smiley face" width="30" height="30" ></button>
 <ul style="list-style-type:none">
 <div id="container">
-
+<!--
   <div id="inner">
  {{#each weatherData as |item|}} 
  
@@ -19,7 +19,21 @@
     </div>     
    
 {{/each}}
-  </div>
+  </div>-->
+
+ {{#each weatherData as |item|}} 
+   <div class="child">
+      <li> <p align="center" style="font-size:18px"> <strong>{{item.Day}}</strong></p></li>
+      <br/>
+      <li> <img src="assets/images/max.png" alt="Smiley face" width="30" height="30">{{item.max_temp}}  &nbsp; &#8457;</li>
+    <br/>
+     <li> <img src="assets/images/minimum.png" alt="Smiley face" width="30" height="30">{{item.min_temp}}&nbsp; &#8457; </li> 
+       <br/>
+       <li> <img src="assets/images/c2.gif" alt="Smiley face" width="40" height="40"> {{item.narrative}}   </li>        
+        <hr class="style3">
+          </div>      
+{{/each}}
+
 </div>
 </ul>
 </div>

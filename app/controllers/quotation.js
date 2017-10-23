@@ -10,7 +10,7 @@ var Validations = buildValidations({
     companyname: [
         validator('presence', true),
         validator('format', {
-            regex: /^[a-zA-Z]{2,20}$/,
+            regex: /^[a-z A-Z]{2,30}$/,
             message: 'This field must be a valid Company name'
         })
     ],
@@ -19,7 +19,7 @@ var Validations = buildValidations({
         validators: [
             validator('presence', true),
             validator('format', {
-                regex: /^[a-zA-Z0-9]{3,18}$/,
+                regex: /^[a-z A-Z 0-9]{3,30}$/,
                 message: 'This field must be a Valid Password '
             })
         ],
@@ -97,6 +97,7 @@ actions:{
                     "totalamount": totalamount,
                     "formdate":formdate1,
                     "url":url,
+                    "remark":"NA",
                     "status":"QuotationRaised",
                 }
             };

@@ -10,7 +10,7 @@ var Validations = buildValidations({
     companyname: [
         validator('presence', true),
         validator('format', {
-            regex: /^[a-zA-Z]{4,20}$/,
+            regex: /^[a-z A-Z]{3,20}$/,
             message: 'This field must be a valid Company name'
         })
     ],
@@ -19,7 +19,7 @@ var Validations = buildValidations({
         validators: [
             validator('presence', true),
             validator('format', {
-                regex: /^[a-zA-Z0-9]{6,18}$/,
+                regex: /^[a-z A-Z 0-9]{4,18}$/,
                 message: 'This field must be a Valid address '
             })
         ],
@@ -29,7 +29,7 @@ var Validations = buildValidations({
         validators: [
             validator('presence', true),
             validator('format', {
-                regex: /^[a-zA-Z]{6,18}$/,
+                regex: /^[a-z A-Z]{4,18}$/,
                 message: 'This field must be a Valid item '
             })
         ],
@@ -40,7 +40,7 @@ var Validations = buildValidations({
         validators: [
             validator('presence', true),
             validator('format', {
-                regex: /^[0-9]{2,6}$/,
+                regex: /^[0-9]{1,6}$/,
                 message: 'Please field this details '
             })
         ],
@@ -94,7 +94,7 @@ export default Ember.Controller.extend(Validations,{
              var dataString = {  
                  "requestid":requestid,
                     "status":"DOraised",
-                    "InvolvedParties":"manufacturer,Supplier",
+                    "InvolvedParties":usertype,
                     "transactionString":{
                         "updatedBy":usertype,
                         "companyname": companyname,
@@ -156,7 +156,10 @@ export default Ember.Controller.extend(Validations,{
                                 "updatedBy":usertype,
                                 "status":"DoDelivered",
                                 "formdate":formdate1,
-                                "remark":"NA"
+                                "remark":"NA",
+                                "url":"NA",
+                                "item":"NA",
+                                "Quantity": "NA"
                             }
                         };
                         console.log(JSON.stringify(dataString));

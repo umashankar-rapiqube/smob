@@ -27,126 +27,142 @@
     });
 </script>
 <div id="historyheader">
+<<<<<<< HEAD
     <div id="cont-lock" style="text-align:center ;color:white"><h1 style="padding:-21px;padding-top:-31px;margin-top:-4px;"><b>User Dashboard</b></h1></div>
+=======
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>User Dashboard</b></h1></div>
+>>>>>>> 2fc9b3871e18dc4fca43805f95550affe8f19907
 </div> 
 <div class="dashbord-container">
     <br/>
-    <h3 style="text-align:center;color:#808080"><b>Total Cycle Completed</b></h3>
+    <h3 style="text-align:center;color:#808080"><b>Total Request Completed</b></h3>
 <div class="container">
     <br/>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <h3  class="progress-title">OPEN Request</h3>
-            <a href="#aboutModal" data-toggle="modal" data-target="#myModal" style="align:middle" class="btn btn-circle-lg btn-success">{{openStatus}}</a>
-         </div>
+    <div   style="width: 60%; margin: 0 auto;">
+      <div class="left"><a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="btn btn-circle-lg btn-success">{{openStatus}}</a>
+            <br/>
+            <br/>
+            <h3  class="progress-title">OPEN Request</h3></div>
+            <div class="right"><a href="#aboutModal" data-toggle="modal" data-target="#myModal" style="align:center" class="btn btn-circle-lg btn-danger">{{closedStatus}} </a>
+            <br/>
+            &nbsp;&nbsp;&nbsp;
+            <br/>
             
-        <div class="col-md-4">
-            <h3 class="progress-title">CLOSED Request</h3>
-            <a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="btn btn-circle-lg btn-danger">{{closedStatus}} </a>
-         </div> 
-       <div class="col-md-4"></div>
+        
+            <h3 class="progress-title">CLOSED Request</h3></div> 
+        {{!-- <div class="col-md-4"> --}}
+            
+            
+         {{!-- </div> --}}
+            
+        {{!-- <div class="col-md-4"> --}}
+             
+           
+         {{!-- </div>  --}}
+       
     </div>
 </div>
   <hr class="style3">
 <h3 style="text-align:center;color:#808080"><b>Status Count</b></h3>
-<div class="container">
+<div class="container" style="padding-left:50px">
  
 
     <div class="row">
         <div class="col-md-6">
             <h3 class="progress-title">Material  Request</h3>
             <br/>
-            <div class="progress pink">
-                <div class="progress-bar" style="width:{{MaterialRequestedcount}}%; background:#FF4633">
-                    <div class="progress-value">{{MaterialRequestedcount}}</div>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{MaterialRequestedcount}}%; background:#5fad56">
+                    <div class="progress-value">{{IsMaterialRequestedCount}}</div>
                 </div>
             </div>
  
             <h3 class="progress-title">Quotation Raised</h3>
             <br/>
             <div class="progress green">
-                <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
-                    <div class="progress-value">{{closedStatus}}</div>
+                <div class="progress-bar" style="width:{{QuotationRaisedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{IsQuotationRaisedCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title">PO Raised</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{POraisedcount}}%; background:#5fad56;">
-                    <div class="progress-value">{{POraisedcount}}</div>
+                    <div class="progress-value">{{ISPOCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title">Invoice Raised</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{InvoiceRaisedcount}}%; background:#5fad56;">
-                    <div class="progress-value">{{InvoiceRaisedcount}}</div>
+                    <div class="progress-value">{{isInvoiceRaisedCount}}</div>
+                </div>
+            </div>
+            <h3 class="progress-title">Invoice Approved</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{InvoiceApprovedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{isInvoiceApprovedCount}}</div>
+                </div>
+            </div>
+             <h3 class="progress-title">DO Raised</h3>
+            <br/>
+            <div class="progress green">
+                <div class="progress-bar" style="width:{{DOraisedcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{isDOraisedCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title">Quotation Rejected</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{QuotationRejectedcount}}%; background:#5fad56;">
-                    <div class="progress-value">{{QuotationRejectedcount}}</div>
+                    <div class="progress-value">{{isQuotationRejectedCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title">DO Delivered</h3>
             <br/>
             <div class="progress green">
-                <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
-                    <div class="progress-value">{{closedStatus}}</div>
+                <div class="progress-bar" style="width:{{DoDeliveredcount}}%; background:#5fad56;">
+                    <div class="progress-value">{{isDoDeliveredCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title"> DO Not Delivered</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{NotDeliveredcount}}%; background:#5fad56;">
-                    <div class="progress-value">{{NotDeliveredcount}}</div>
+                    <div class="progress-value">{{isNotDeliveredCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title">Payment Initiated</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{PaymentInitiatedcount}}%; background:#5fad56;">
-                    <div class="progress-value">{{PaymentInitiatedcount}}</div>
+                    <div class="progress-value">{{isPaymentInitiatedCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title">Payment Received</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{PaymentReceivedcount}}%; background:#5fad56;">
-                    <div class="progress-value">{{PaymentReceivedcount}}</div>
+                    <div class="progress-value">{{IsPaymentReceivedCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title">Claim Requested</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{claimRequestedcount}}%; background:#5fad56;">
-                    <div class="progress-value">{{claimRequestedcount}}</div>
+                    <div class="progress-value">{{isclaimRequestedCount}}</div>
                 </div>
             </div>
             <h3 class="progress-title">Claim Raised</h3>
             <br/>
             <div class="progress green">
                 <div class="progress-bar" style="width:{{claimRaisedCount}}%; background:#5fad56;">
-                    <div class="progress-value">{{claimRaisedCount}}</div>
+                    <div class="progress-value">{{isclaimRaisedCount}}</div>
                 </div>
             </div>
-            <h3 class="progress-title">PO Raised</h3>
-            <br/>
-            <div class="progress green">
-                <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
-                    <div class="progress-value">{{closedStatus}}</div>
-                </div>
-            </div>
-            <h3 class="progress-title">PO Raised</h3>
-            <br/>
-            <div class="progress green">
-                <div class="progress-bar" style="width:{{myclosedStatus}}%; background:#5fad56;">
-                    <div class="progress-value">{{closedStatus}}</div>
-                </div>
-            </div>
+           
+          <!--  -->
         </div>
     </div>
 

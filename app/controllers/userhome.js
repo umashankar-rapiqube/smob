@@ -144,13 +144,15 @@ export default Ember.Controller.extend({
            },
            success: function(response) {
                // var message = response.message;
-           console.log(JSON.stringify(response));
+           console.log("response>>>>>>>>>>",JSON.stringify(response));
            var transactiondetails =response.message.transactionlist[0].transactiondetails;
                console.log(JSON.stringify(transactiondetails));
                mycontroller.set('transactiondetails', transactiondetails);
            var  transactionlist =  response.message.transactionlist;
                mycontroller.set('transactionlist', transactionlist);
-
+            var involedparties=response.message.involvedparties;
+            console.log("involedparties>>>>",involedparties)
+            mycontroller.set('involedparties', involedparties);
               },      
           error: function(response) {
               console.log('DEBUG: GET Enquiries Failed');

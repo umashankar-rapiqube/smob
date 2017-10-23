@@ -78,9 +78,8 @@
    <a href="#" class="go-top">Scroll to Top</a> 
    {{/if}}
    {{#if isShowbuttoninvoice}}
-    <div class="group">      
-     {{pikaday-input class='inputMaterial' value=formdate valuePath="formdate"  onSelection=(action (mut formdate)) 
-                                    placeholder=" Requested Date" readonly=true format="DD/MMM/YYYY" size="40"}}
+    <div align ="center" class="group">      
+     {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a Requested date" options=(readonly extraPickadateOptions)}}
     </div>
     <div class="group">
       <button class="mybutton" type="submit" {{action 'approvetoinvoice'}}>Approve Invoice</button>
